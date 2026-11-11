@@ -1,0 +1,716 @@
+/* ==========================================================================
+   GRID STROKE STUDIO (gridstroke.studio) - Brog Design System
+   Exact 1:1 Architecture, Typography & Animation System from Brog Framer
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Italiana&display=swap');
+
+:root {
+  /* Brand Core Tokens */
+  --bg: #151722;
+  --bg-deep: #0a0b12;
+  --bg-aubergine: #1c0320;
+  --lime: #BEF24D;
+  --lime-hover: #b0e53a;
+  --lime-glow: rgba(190, 242, 77, 0.45);
+  --lime-dim: rgba(190, 242, 77, 0.12);
+  --ink: #FFFFFF;
+  --ink-muted: #A898AC;
+  --ink-dim: #736577;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --panel-radius: 28px;
+  
+  /* Font Stacks */
+  --font-heading: 'Inter', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-display: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  --font-editorial: 'Italiana', Georgia, serif;
+  --font-wordmark: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background-color: var(--bg-deep);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--lime);
+  color: #19031c;
+}
+
+/* ==========================================================================
+   FLUID SCROLL REVEAL ANIMATIONS (Agrumea Farm / Studio Naam Inspired)
+   ========================================================================== */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-init.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* Mask Clip Reveal for Headings */
+.reveal-text-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.reveal-text-clip > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.reveal-active .reveal-text-clip > span {
+  transform: translateY(0%);
+}
+
+/* Image Scale-down Reveal */
+.reveal-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.reveal-img-wrap img {
+  transform: scale(1.12);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.reveal-active .reveal-img-wrap img {
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   CEREBRIUM-STYLE BRAND RAIL (Sleek Dark Glass Cards Marquee)
+   ========================================================================== */
+.cerebrium-brand-rail {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  padding: 1.5rem 0;
+}
+
+.brand-rail-track {
+  display: flex;
+  width: max-content;
+  animation: cerebriumMarquee 38s linear infinite;
+}
+
+.cerebrium-brand-rail:hover .brand-rail-track {
+  animation-play-state: paused;
+}
+
+.brand-badge-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  min-width: 150px;
+  padding: 0 1.5rem;
+  margin: 0 0.85rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-badge-card:hover {
+  background: rgba(190, 242, 77, 0.08);
+  border-color: var(--lime);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--lime-dim);
+}
+
+.brand-badge-card img {
+  height: 26px;
+  width: auto;
+  max-width: 110px;
+  object-contain: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.brand-badge-card:hover img {
+  opacity: 1;
+}
+
+@keyframes cerebriumMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   REAL APP BADGES (Floating Physics & Non-colliding Positions)
+   ========================================================================== */
+.hero-app-badge {
+  position: absolute;
+  z-index: 15;
+  pointer-events: auto;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hero-app-badge:hover {
+  transform: scale(1.18) rotate(4deg) !important;
+  filter: drop-shadow(0 20px 40px rgba(190, 242, 77, 0.5)) !important;
+}
+
+@keyframes badgeFloatA {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(3deg); }
+}
+
+@keyframes badgeFloatB {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(18px) rotate(-3.5deg); }
+}
+
+@keyframes badgeFloatC {
+  0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
+  50% { transform: translate(-12px, -15px) rotate(2deg); }
+}
+
+.badge-float-1 { animation: badgeFloatA 8s ease-in-out infinite; }
+.badge-float-2 { animation: badgeFloatB 9.5s ease-in-out infinite; }
+.badge-float-3 { animation: badgeFloatC 9s ease-in-out infinite; }
+
+/* ==========================================================================
+   SHOWREEL CINEMA FRAME (Ambient Glow Aura)
+   ========================================================================== */
+.cinema-frame {
+  position: relative;
+  border-radius: 24px;
+  background: #0d0112;
+  border: 1px solid rgba(190, 242, 77, 0.35);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(190, 242, 77, 0.15);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-frame:hover {
+  border-color: var(--lime);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85), 0 0 60px rgba(190, 242, 77, 0.28);
+}
+
+/* ==========================================================================
+   ASYMMETRICAL MEURA LUXURY EDITORIAL (No More Rigid Centered Grid!)
+   ========================================================================== */
+.meura-editorial-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .meura-editorial-container {
+    grid-template-columns: 4.5fr 7.5fr;
+    gap: 4rem;
+  }
+}
+
+.meura-sticky-col {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .meura-sticky-col {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.meura-collage-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(174, 144, 122, 0.3);
+  background: #190204;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.meura-collage-card:hover {
+  transform: translateY(-6px);
+  border-color: #DED0BD;
+  box-shadow: 0 30px 70px rgba(91, 9, 17, 0.4);
+}
+
+/* ==========================================================================
+   PACKAGE CARDS (Slide 1 & Slide 2 Layout)
+   ========================================================================== */
+.package-card {
+  background-color: #240328;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem 2.25rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(190, 242, 77, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(190, 242, 77, 0.15);
+}
+
+.package-badge-tag {
+  color: var(--lime);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-wordmark {
+  font-family: var(--font-wordmark);
+  letter-spacing: -0.03em;
+}
+
+/* ==========================================================================
+   MINIMALIST HERO LOGO REVEAL ENGINE
+   "Only use the logo video in the centre of the page nothing else.
+    Make it appear from nothing with a line beneath it."
+   ========================================================================== */
+.hero-minimal-stage {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #240528;
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+}
+
+/* 1. Logo container appears smoothly from nothing */
+.hero-logo-centerpiece {
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(12px);
+  animation: heroLogoFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  will-change: opacity, transform, filter;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes heroLogoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 2. The Line Beneath It expands from center */
+.hero-reveal-line {
+  width: 100%;
+  max-width: 720px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #BEF24D 18%, #BEF24D 82%, transparent 100%);
+  box-shadow: 0 0 20px rgba(190, 242, 77, 0.7);
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: heroLineExpand 1.3s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+  will-change: transform;
+  margin-top: 1.75rem;
+}
+
+@keyframes heroLineExpand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* 3. Subtle minimal scroll prompt */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: heroCueFade 1s ease 2.2s forwards, heroCueBounce 2.5s ease-in-out 3.2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hero-scroll-cue:hover {
+  color: #BEF24D;
+}
+
+@keyframes heroCueFade {
+  to { opacity: 0.8; }
+}
+
+@keyframes heroCueBounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* Hero Tool Pills */
+.hero-tool-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.hero-tool-pill:hover {
+  background: rgba(190, 242, 77, 0.08);
+  border-color: var(--lime);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(190, 242, 77, 0.15);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-luxury {
+  font-family: var(--font-serif-luxury);
+}
+
+.font-ornate {
+  font-family: var(--font-serif-ornate);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Arched Invitation Frames */
+.arched-card {
+  border-radius: 130px 130px 20px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(232, 201, 181, 0.35);
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+}
+
+.arched-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(176, 16, 95, 0.4);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 2, 12, 0.94);
+  backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   BROG DESIGN SYSTEM (brog.framer.website 1:1 Architecture)
+   ========================================================================== */
+.brog-section {
+  padding: 6rem 1.5rem;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .brog-section {
+    padding: 8rem 2.5rem;
+  }
+}
+
+/* Brog Floating Pill Navbar */
+.brog-navbar {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(20, 2, 23, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  max-width: 95vw;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Brog Portfolio Project Card */
+.brog-card {
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.brog-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(190, 242, 77, 0.35);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+}
+
+.brog-card-media {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: #0d0112;
+}
+
+.brog-card-media img,
+.brog-card-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brog-card:hover .brog-card-media img,
+.brog-card:hover .brog-card-media video {
+  transform: scale(1.04);
+}
+
+.brog-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.brog-tag-lime {
+  background: rgba(190, 242, 77, 0.1);
+  border-color: rgba(190, 242, 77, 0.3);
+  color: var(--lime);
+}
+
+/* Brog Stat & Metric Cards */
+.brog-stat-box {
+  padding: 2.25rem 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brog-stat-box:hover {
+  border-color: rgba(190, 242, 77, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-3px);
+}
+
+/* Brog Process Item */
+.brog-process-item {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brog-process-item:hover {
+  background: rgba(190, 242, 77, 0.035);
+  border-color: rgba(190, 242, 77, 0.25);
+  transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   SITE LOAD INTRO OVERLAY (3 Overlapping Product Cards -> Fullscreen Hero)
+   ========================================================================== */
+#site-loader-stage {
+  perspective: 1200px;
+}
+
+.loader-card {
+  transform: translateY(120vh) rotate(0deg);
+  opacity: 0;
+  will-change: transform, opacity, border-radius;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease,
+              border-radius 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s ease;
+}
+
+.loader-card-1.is-entered {
+  transform: translateY(0) rotate(-6deg);
+  opacity: 1;
+  z-index: 10;
+}
+
+.loader-card-2.is-entered {
+  transform: translateY(0) rotate(5deg);
+  opacity: 1;
+  z-index: 20;
+}
+
+.loader-card-3.is-entered {
+  transform: translateY(0) rotate(0deg) scale(1);
+  opacity: 1;
+  z-index: 30;
+}
+
+/* Card 3 Expands into the full hero viewport */
+.loader-card-3.is-expanded {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  border-radius: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(0) rotate(0deg) scale(1) !important;
+  transition: all 0.95s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 40 !important;
+}
+
+.loader-card-3.is-expanded .loader-card-logo {
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+#site-loader-stage.is-done {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* Hero elements reveal cascade */
+.hero-col-left,
+.hero-col-right {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-content-ready .hero-col-left {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content-ready .hero-col-right {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}

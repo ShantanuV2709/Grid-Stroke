@@ -1,0 +1,46 @@
+# ==============================================================================
+# Grid Stroke Studio - Git Ignore Rules
+# ==============================================================================
+
+# 1. Raw client source assets (1.15 GB uncompressed reference files)
+web content/
+
+# 2. Files exceeding GitHub's 100 MB hard limit (prevents rejected pushes)
+content/motion/Testimonial.mp4
+
+# 3. Unreferenced raw video duplicates in content/ (saves ~900 MB of duplicate bloat)
+content/invitations/Wedding Invitation*.mp4
+content/invitations/WhatsApp Video*.mp4
+content/invitations/Invitation social media.mp4
+content/motion/Shark Tank AD Copy.mp4
+content/motion/EEMOS.New Year Reel*.mp4
+content/motion/Lotus Hotel.mp4
+content/motion/Avi.Diwali campaign*.mp4
+content/motion/baked_with_love_3.mp4
+content/motion/video 4.mp4
+content/motion/IMA. Save the date Reel*.mp4
+content/motion/vetpass.mp4
+content/motion/Avi.You are nuts*.mp4
+content/motion/Avi.Shine With Every Munch*.mp4
+content/3d/From Main Klickpin CF*.mp4
+
+# 4. Scraped template inspection & dump files
+content/brog_*.html
+content/brog_*.json
+content/framer_*.html
+content/brog_live.html
+content/brog_raw.html
+content/brog_structure.json
+
+# 5. Temporary test / scratch files
+test.mp4
+*.tmp
+*.log
+
+# 6. Operating System & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+

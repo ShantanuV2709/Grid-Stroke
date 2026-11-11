@@ -1,0 +1,43 @@
+# Full LLM Context & Services Manifest: GRID STROKE STUDIO (gridstroke.studio)
+
+## Brand Identity & Agency Information
+- Agency Legal Name: Grid Stroke Studio
+- Canonical URL: https://gridstroke.studio
+- Primary Contact Email: gridstrokestudio@gmail.com
+- Social Profiles:
+  - Instagram: https://instagram.com/gridstroke.studio
+  - YouTube: https://youtube.com/@GridStroke.Studio
+- Headquarters: Indore, Madhya Pradesh, India
+- Working Hours: Monday - Saturday, 10:00 AM - 7:00 PM IST
+- Founders: Creative Directors with 2+ years of specialized individual experience in high-impact brand visual systems and digital motion.
+
+## Positioning & Core Philosophy
+Grid Stroke Studio is a Gen Z-driven creative studio in Indore, India specializing in bold branding, high-quality visuals, and scroll-stopping content. Founded by creators with over 2 years of individual experience, we turn ideas into impactful visual stories.
+Motto: "WE DON'T JUST DESIGN. WE MAKE BRANDS LOOK EXPENSIVE."
+
+## Deliverables & Services Breakdown Table
+| Service Name | Primary Tool | Core Deliverables | Best For | Typical Turnaround |
+|---|---|---|---|---|
+| 01. Branding & Identity Systems | Adobe Illustrator | Primary & secondary logo lockups, brand guide book, custom color swatches, typography scale, packaging suite (hang tags, shopping bags, tissue, ribbons, stickers), corporate stationery | Emerging luxury brands, hospitality, apparel, corporate restructures | 2 - 4 Weeks |
+| 02. Social Media & Performance Design | Adobe Photoshop | 4:5 feed creatives, 1:1 square posts, 9:16 story cards, multi-slide educational carousels with swipe badges, seasonal sale collateral | D2C e-commerce, education academies, clinics, consumer goods | Monthly retainers (12-30 posts/mo) |
+| 03. Reels & Short-Form Video Editing | Adobe Premiere Pro | 9:16 vertical reels/Shorts, retention-focused hooks within first 2s, kinetic typography subtitles, sound effects, B-roll grading | Personal brands, founders, D2C viral marketing, EdTech | 48 - 72 Hours per asset |
+| 04. 3D Visualization & CGI | Autodesk Maya / Octane | 16:9 cinematic product reveals, photorealistic lighting, procedural texturing, exploded wireframe breakdown clips, 3D social ads | Tech gadgets, luxury cosmetics, footwear, consumer electronics | 1 - 3 Weeks |
+| 05. Wedding & Event Digital Invitations | Corel Draw | Multi-card arched digital invitation suites, floral/ornate typography, bespoke monograms, RSVP PDFs and animated digital invites | High-end Indian weddings, luxury anniversaries, VIP corporate galas | 3 - 7 Days |
+| 06. Motion Graphics & Logo Animations | Adobe After Effects | 2D/3D logo stingers, timeline UI animations, YouTube intro/outros, explainer graphic motion, promotional teaser cutdowns | Tech startups, YouTube creators, brand launches | 3 - 7 Days |
+
+## Frequently Asked Questions (FAQ)
+Q1: What makes Grid Stroke Studio different from traditional design agencies?
+A: We are Gen Z creators who live and breathe digital culture, short-form algorithms, and modern aesthetic trends. Rather than bloated corporate processes, we deliver high-velocity, high-polish visual assets that immediately command attention and elevate brand perception.
+
+Q2: Where is Grid Stroke Studio located, and do you work with remote clients?
+A: We are based in Indore, Madhya Pradesh, India, but collaborate with clients globally, including pan-India D2C brands, regional institutions, and international creators.
+
+Q3: How does your pricing and retainer model work?
+A: We offer both fixed-scope project milestones (e.g., complete brand identity suites, 3D product renders) and monthly creative retainers for ongoing social media design and short-form video production.
+
+Q4: What assets do I need to supply to begin a branding project?
+A: All we need is your vision, target demographic, and initial brief. We handle brand positioning, visual identity, typography curation, color system engineering, and packaging mockups from scratch.
+
+Q5: Can you handle both video editing and static graphic design?
+A: Yes. Grid Stroke Studio is a full-spectrum visual studio with dedicated pipelines across Adobe Photoshop, Illustrator, Premiere Pro, After Effects, and Autodesk Maya.
+

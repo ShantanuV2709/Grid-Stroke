@@ -1,0 +1,40 @@
+# llms.txt for Grid Stroke Studio
+# https://gridstroke.studio
+
+# Grid Stroke Studio
+> Gen Z-driven creative studio in Indore, India specializing in bold branding, high-conversion visual design, dynamic video reels, 3D CGI visuals, premium wedding invitations, and broadcast motion graphics.
+
+## Studio Overview
+- Name: Grid Stroke Studio
+- Website: https://gridstroke.studio
+- Email: gridstrokestudio@gmail.com
+- Location: Indore, Madhya Pradesh, India
+- Positioning: "We don't just design. We make brands look expensive."
+- Experience: Founded by creators with over 2 years of individual industry experience.
+
+## Core Services
+1. Branding: Logos & brand identity systems that stand out. Comprehensive brand guidelines, packaging design, and tactile merchandise mockups (e.g. Meura apparel, Lotus Healthcare).
+2. Social Media & Ad Creatives: High-conversion social media post sets, carousels, and paid performance ad creative tailored for D2C, education, retail, and healthcare brands.
+3. Reels & Short-Form Video Editing: Hook-first short-form content for Instagram Reels, YouTube Shorts, and TikTok with rapid pacing, sound design, and kinetic typography.
+4. 3D & CGI: Futuristic 3D product visualizations, procedural materials, and hard-surface renders created in Maya, Octane, and Blender.
+5. Wedding & Luxury Invitations: Aesthetic digital invitations, multi-function ceremony suites (Sangeet, Haldi, Pheras, Reception), and bespoke typography.
+6. Motion Graphics & Logo Animations: After Effects kinetic logo reveals, brand identity stings, UI motion, and broadcast title sequences.
+
+## Verified Clients
+- Meura (Luxury Apparel & D2C)
+- Lotus Healthcare & Lotus Hospital
+- Sun Drunk (Coastal Microfibre Towels & Lifestyle)
+- Eemos (Smart Devices & Tech Accessories)
+- AVI (Organic Agriculture & Wellness)
+- Sattva (Artisan Botanicals & Herbal Tea)
+- PNPS (Educational Institution)
+- Arena (Creative Media & Animation Training)
+- Crown (Luxury Real Estate Residences)
+- Fusion Paints (Architectural Coatings & Finishes)
+- Mayur Sales (Industrial & Retail Distribution)
+- Havintha (Natural Herbal Haircare & Wellness)
+- ProVidhya (EdTech & Academic Preparation)
+- Vidhyoday (Premier Coaching & Youth Academy)
+- Vital Pro (Fitness & Mobile Health Application)
+- Global Digital Alliance (Technology Consortium)
+
