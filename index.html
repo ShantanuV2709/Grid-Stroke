@@ -209,29 +209,18 @@
        SECTION 00: SITE LOAD SEQUENCE (3 Overlapping Product Cards -> Fullscreen Hero)
        ========================================================================== -->
   <div id="site-loader-stage" class="fixed inset-0 z-[9999] bg-[#120115] flex items-center justify-center overflow-hidden transition-all duration-700">
-    
-    <!-- Skip Intro Button -->
-    <button id="loader-skip-btn" class="absolute top-6 right-6 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white font-mono text-[11px] tracking-wider transition-all z-50">
-      SKIP INTRO &rarr;
-    </button>
 
-    <!-- Centered 3-Card Overlapping Stack -->
+    <!-- Centered 3-Card Overlapping Stack (Clean Visuals Without Tags or Skip Button) -->
     <div class="loader-stack-container relative w-[280px] sm:w-[320px] md:w-[380px] aspect-[4/5] flex items-center justify-center">
       
       <!-- Card 1: Meura Haute Couture (Attachment 1) -->
       <div id="loader-card-1" class="loader-card loader-card-1 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-white/15 bg-black">
         <img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" class="w-full h-full object-cover">
-        <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono text-[#BEF24D] border border-white/15">
-          01 / MEURA HAUTE COUTURE
-        </div>
       </div>
 
       <!-- Card 2: Avi Oil & Foods (Attachment 2) -->
       <div id="loader-card-2" class="loader-card loader-card-2 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85)] border border-white/15 bg-black">
         <img src="./content/hero/product-2-avi.jpg" alt="Avi Oil & Foods" class="w-full h-full object-cover">
-        <div class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono text-[#BEF24D] border border-white/15">
-          02 / AVI OIL &amp; FOODS
-        </div>
       </div>
 
       <!-- Card 3: Grid Stroke Card (Attachment 3) -> Expands to Hero Background -->
@@ -243,105 +232,198 @@
 
   </div>
 
-  <!-- Top Floating Pill Navbar (Brog Style with Contact Info) -->
-  <header class="brog-navbar">
-    <a href="#hero" class="flex items-center gap-2 group focus:outline-none">
-      <img src="./content/logos/gridstroke-tm.png" alt="Grid Stroke" class="h-6 w-auto object-contain transition-transform group-hover:scale-105">
+  <!-- Brog-Style Full-Width Navbar (Email • Phone • Location • Attached Logo • Hamburger) -->
+  <header class="brog-header">
+    
+    <!-- Left: Navbar Logo (Attached Logo Asset) -->
+    <a href="#hero" class="flex items-center group focus:outline-none">
+      <img src="./content/logos/navbar-attached-logo.png" alt="Grid Stroke Studio" class="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(190,242,77,0.25)]">
     </a>
 
-    <!-- Quick Nav Links -->
-    <nav class="hidden lg:flex items-center gap-5 text-white/70 font-mono text-[11px]" aria-label="Main Menu">
-      <span class="text-white/20">|</span>
-      <a href="#about" class="hover:text-[#BEF24D] transition-colors">About</a>
-      <a href="#branding" class="hover:text-[#BEF24D] transition-colors">Works</a>
-      <a href="#process" class="hover:text-[#BEF24D] transition-colors">Process</a>
-      <a href="#social-mgmt" class="hover:text-[#BEF24D] transition-colors">Packages</a>
-      <a href="#faq-section" class="hover:text-[#BEF24D] transition-colors">FAQs</a>
-      <a href="#lets-create" class="hover:text-[#BEF24D] transition-colors">Contact</a>
-    </nav>
-
-    <!-- Header Meta & CTA -->
-    <div class="flex items-center gap-3">
-      <div class="hidden xl:flex items-center gap-3 text-[10px] font-mono text-white/50 border-r border-white/10 pr-3">
-        <span><strong class="text-white/80">Location:</strong> Indore, IN</span>
-      </div>
-      <button id="replay-intro-btn" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white/60 hover:text-white font-mono text-[10px] transition-all">
-        <svg class="w-3 h-3 text-[#BEF24D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-        Replay Intro
-      </button>
-      <a href="#lets-create" class="px-4 py-1.5 rounded-full bg-[#BEF24D] text-[#19031c] font-bold text-xs hover:bg-[#b0e53a] transition-all">
-        Start a Project &rarr;
+    <!-- Right: Email, Phone, Location & Hamburger (Exact Brog Framer Architecture) -->
+    <div class="flex items-center gap-6 sm:gap-10 md:gap-12">
+      
+      <!-- Email block -->
+      <a href="mailto:gridstrokestudio@gmail.com" class="hidden md:flex flex-col text-left group transition-colors">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Email</span>
+        <span class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</span>
       </a>
+
+      <!-- Phone block -->
+      <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer" class="hidden lg:flex flex-col text-left group transition-colors">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Phone</span>
+        <span class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">+91 91114 55566</span>
+      </a>
+
+      <!-- Location block -->
+      <div class="hidden sm:flex flex-col text-left">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40">Location</span>
+        <span class="text-xs sm:text-sm text-white font-medium">Based in Indore, IN</span>
+      </div>
+
+      <!-- Brog 2-Line Minimal Hamburger Menu Button (Matching Reference Image) -->
+      <button id="sm-toggle-btn" class="sm-toggle flex flex-col justify-center items-end gap-1.5 w-10 h-10 p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer group pointer-events-auto z-[60]" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggered-menu-panel" type="button">
+        <span class="sm-hamb-top w-6 h-[2px] bg-white group-hover:bg-[#BEF24D] transition-all duration-300 rounded-full"></span>
+        <span class="sm-hamb-bot w-4 h-[2px] bg-white group-hover:bg-[#BEF24D] group-hover:w-6 transition-all duration-300 rounded-full"></span>
+      </button>
+
     </div>
+
   </header>
 
+  <!-- ReactBits Staggered Multi-Layered Menu Structure -->
+  <div class="sm-scope">
+    
+    <!-- Animated Colored Prelayers (Sliding Brand Curtains) -->
+    <div id="sm-prelayers" class="sm-prelayers fixed top-0 right-0 bottom-0 pointer-events-none z-[90] overflow-hidden" aria-hidden="true">
+      <div class="sm-prelayer absolute top-0 right-0 h-full w-full bg-[#2a0330]"></div>
+      <div class="sm-prelayer absolute top-0 right-0 h-full w-full bg-[#BEF24D]"></div>
+    </div>
+
+    <!-- Main Navigation Panel (Slide-In with Fluid Staggered Typography Reveal) -->
+    <aside id="staggered-menu-panel" class="staggered-menu-panel fixed top-0 right-0 h-full bg-[#130117] flex flex-col overflow-y-auto z-[95] backdrop-blur-[16px] border-l border-white/10 pointer-events-auto" style="--sm-accent: #BEF24D;" aria-hidden="true">
+      
+      <!-- Panel Header Bar -->
+      <div class="flex items-center justify-between pb-8 border-b border-white/10">
+        <img src="./content/logos/navbar-attached-logo.png" alt="Grid Stroke Studio" class="h-8 w-auto object-contain">
+        <span class="font-mono text-[10px] uppercase tracking-widest text-[#BEF24D]">// STAGGERED NAV</span>
+      </div>
+
+      <div class="sm-panel-inner flex-1 flex flex-col justify-between pt-8 gap-8">
+        
+        <!-- Staggered Items List with Dynamic Counter Numbering -->
+        <ul class="sm-panel-list list-none m-0 p-0 flex flex-col gap-2" role="list" data-numbering="true">
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#hero" data-index="1">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Home</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#about" data-index="2">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">About</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#branding" data-index="3">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Works</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#process" data-index="4">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Process</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#social-mgmt" data-index="5">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Packages</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#faq-section" data-index="6">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">FAQs</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#lets-create" data-index="7">
+              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Contact</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Bottom Contact & Social Links -->
+        <div class="sm-socials" aria-label="Social links">
+          <h3 class="sm-socials-title">// CONNECT &bull; INDORE</h3>
+          <div class="flex flex-col gap-1 text-white/60 font-mono text-xs">
+            <a href="mailto:gridstrokestudio@gmail.com" class="hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</a>
+            <a href="https://wa.me/919111455566" class="hover:text-[#BEF24D] transition-colors">+91 91114 55566</a>
+          </div>
+          <ul class="sm-socials-list" role="list">
+            <li class="sm-socials-item">
+              <a href="https://instagram.com/gridstroke.studio" target="_blank" rel="noopener noreferrer" class="sm-socials-link">Instagram</a>
+            </li>
+            <li class="text-white/20">&bull;</li>
+            <li class="sm-socials-item">
+              <a href="https://linkedin.com/company/gridstroke-studio" target="_blank" rel="noopener noreferrer" class="sm-socials-link">LinkedIn</a>
+            </li>
+            <li class="text-white/20">&bull;</li>
+            <li class="sm-socials-item">
+              <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer" class="sm-socials-link">WhatsApp</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- Click-Away Overlay -->
+    <div id="sm-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[85] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  </div>
+
   <!-- ==========================================================================
-       SECTION 00: HERO (Inspired by Brog - Image 4)
-       Left Half: Official Logo & Discipline Headings Stack
-       Right Half: Huge 'Studio' Headline & Content & CTAs
+       SECTION 00: HERO (Inspired by Brog Framer Architecture)
+       Ambient Background Carousel in Dim Light
+       Left Half: Discipline Headings Stack (Neon Hover Only)
+       Right Half: ReactBits 3D Layered DepthText 'GRID STROKE' Logo Engine
        ========================================================================== -->
-  <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 md:px-16 overflow-hidden bg-[#1c0320]">
+  <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-28 pb-16 px-6 sm:px-12 md:px-16 overflow-hidden bg-[#1c0320]">
     
     <!-- Screen-reader accessible SEO H1 (Maintains 2 H1 count for validation & SEO) -->
     <h1 class="sr-only">GRID STROKE STUDIO &mdash; Digital Content Creation Built for Growth</h1>
 
     <!-- Ambient Subtle Background Glow -->
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/10 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/15 rounded-full blur-[140px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/10 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/15 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
 
-    <!-- Hero Main Grid (Inspired by Brog Image 4) -->
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center my-auto z-10">
-      
-      <!-- Left Half: Logo & Disciplines Stack -->
-      <div class="lg:col-span-7 space-y-8 hero-col-left">
-        <!-- Official Grid Stroke STUDIO Logo (Attachment 3) -->
-        <div class="max-w-md sm:max-w-xl">
-          <img src="./content/hero/gridstroke-logo.png" alt="Grid Stroke STUDIO" class="w-full h-auto object-contain filter drop-shadow-[0_12px_40px_rgba(190,242,77,0.35)] hover:scale-[1.02] transition-transform duration-500">
-        </div>
-
-        <!-- Vertical Discipline Headings (Direct Reference to Brog Image 4) -->
-        <div class="space-y-1.5 pt-2 font-heading tracking-tight text-3xl sm:text-4xl md:text-5xl text-white/90 uppercase">
-          <div class="hover:text-[#BEF24D] transition-colors cursor-default tracking-tight">BRANDING</div>
-          <div class="hover:text-[#BEF24D] transition-colors cursor-default tracking-tight">DESIGN &amp; CREATIVES</div>
-          <div class="hover:text-[#BEF24D] transition-colors cursor-default tracking-tight">3D CGI &amp; ARCHVIZ</div>
-          <div class="hover:text-[#BEF24D] transition-colors cursor-default tracking-tight">MOTION DIRECTION</div>
-          <div class="hover:text-[#BEF24D] transition-colors cursor-default tracking-tight">SOCIAL MARKETING</div>
-        </div>
+    <!-- Ambient Background Carousel in Dim Light (Web Content Portfolio Artwork) -->
+    <div class="hero-bg-carousel absolute inset-0 overflow-hidden pointer-events-none select-none z-0" aria-hidden="true">
+      <div class="hero-carousel-track">
+        <!-- Loop Set 1 -->
+        <div class="hero-carousel-card"><img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-1.png" alt="Meura Identity" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/hero/product-2-avi.jpg" alt="Avi Foods Campaign" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-3.png" alt="Meura Editorial" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Packaging" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-2.png" alt="Meura Lookbook" loading="eager"></div>
+        <!-- Loop Set 2 (Seamless Infinite Marquee) -->
+        <div class="hero-carousel-card"><img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-1.png" alt="Meura Identity" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/hero/product-2-avi.jpg" alt="Avi Foods Campaign" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-3.png" alt="Meura Editorial" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Packaging" loading="eager"></div>
+        <div class="hero-carousel-card"><img src="./content/branding/meura-2.png" alt="Meura Lookbook" loading="eager"></div>
       </div>
-
-      <!-- Right Half: Huge 'Studio' & Growth Copy & CTAs -->
-      <div class="lg:col-span-5 space-y-6 lg:pl-6 hero-col-right">
-        <!-- Huge 'Studio' Wordmark (Exact Brog Mirror) -->
-        <div class="font-heading text-6xl sm:text-8xl md:text-9xl text-white font-extrabold uppercase tracking-tighter leading-none">
-          Studio
-        </div>
-
-        <!-- Brand Proposition Statement -->
-        <p class="text-base sm:text-lg md:text-xl text-white/70 font-light leading-relaxed max-w-md">
-          We build creative solutions that drive real growth &mdash; efficient, scalable, and profit-focused. Design meets impact, brands become unforgettable.
-        </p>
-
-        <!-- CTA Actions -->
-        <div class="pt-2 flex flex-wrap items-center gap-4">
-          <a href="#lets-create" class="px-7 py-3.5 rounded-full bg-[#BEF24D] text-[#19031c] font-bold text-xs uppercase tracking-wider hover:bg-[#b0e53a] transition-all shadow-[0_10px_30px_rgba(190,242,77,0.3)]">
-            Start a Project &rarr;
-          </a>
-          <a href="#branding" class="px-7 py-3.5 rounded-full border border-white/20 text-white font-mono text-xs uppercase tracking-wider hover:border-[#BEF24D] hover:text-[#BEF24D] transition-all">
-            Explore Works &darr;
-          </a>
-        </div>
-      </div>
-
+      <!-- Atmospheric Dim Lighting Overlay Gradients -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#1c0320] via-transparent to-[#1c0320]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-[#1c0320]/80 via-[#1c0320]/45 to-[#1c0320]"></div>
+      <div class="absolute inset-0 bg-[#1c0320]/65 backdrop-blur-[2px]"></div>
     </div>
 
-    <!-- Bottom Status Bar / Scroll Cue -->
-    <div class="w-full max-w-7xl mx-auto flex items-center justify-between text-xs font-mono text-white/40 pt-8 border-t border-white/10 z-10">
-      <span>GRID STROKE&reg; &bull; INDORE, INDIA</span>
-      <a href="#branding" class="flex items-center gap-2 text-[#BEF24D] hover:underline">
-        <span>SCROLL TO EXPLORE</span>
-        <svg class="w-3.5 h-3.5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-      </a>
-      <span class="hidden sm:inline">GEN Z CREATIVE STUDIO</span>
+    <!-- Hero Main Grid (Balanced 50/50 Columns) -->
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center my-auto z-10">
+      
+      <!-- Left Half: Disciplines Stack (Logo Removed, Neon Hover Only) -->
+      <div class="lg:col-span-6 space-y-6 hero-col-left">
+        <!-- Vertical Discipline Headings (Hover ONLY Highlights with Neon, Zero Pop-up) -->
+        <div class="space-y-3 font-heading tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white/90 uppercase leading-[1.1]">
+          <div class="hero-discipline-item tracking-tight">BRANDING</div>
+          <div class="hero-discipline-item tracking-tight">DESIGN &amp; CREATIVES</div>
+          <div class="hero-discipline-item tracking-tight">3D CGI &amp; ARCHVIZ</div>
+          <div class="hero-discipline-item tracking-tight">MOTION DIRECTION</div>
+          <div class="hero-discipline-item tracking-tight">SOCIAL MARKETING</div>
+        </div>
+      </div>
+
+      <!-- Right Half: ReactBits 3D Layered DepthText Logo Engine -->
+      <div class="lg:col-span-6 hero-col-right w-full flex flex-col items-center lg:items-end justify-center relative py-6 lg:py-0">
+        <div id="hero-depth-logo" class="relative select-none flex flex-col items-center lg:items-end w-full">
+          <!-- Dynamically generated 3D DepthText logo canvas mounted here -->
+        </div>
+      </div>
+
     </div>
 
   </section>
@@ -1293,6 +1375,9 @@
       </div>
     </div>
   </div>
+
+  <!-- GSAP Animation Core for Staggered Menu -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <!-- Interactive JavaScript Engine -->
   <script src="./scripts/app.js"></script>

@@ -6,6 +6,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteLoadSequence();
+  initStaggeredMenu();
+  initDepthTextLogo();
   initHeroBrandCanvas();
   initScrollRevealEngine();
   initMouseParallax();
@@ -90,7 +92,400 @@ function initSiteLoadSequence() {
     });
   }
 
+  // Allow clicking stage to fast-forward
+  stage.addEventListener('click', (e) => {
+    if (!isComplete) finishInstantly();
+  });
+
   runSequence();
+}
+
+/* ==========================================================================
+   00B. REACTBITS STAGGERED MENU (GSAP & MINIMALIST 2-LINE HAMBURGER)
+   ========================================================================== */
+function initStaggeredMenu() {
+  const toggleBtn = document.getElementById('sm-toggle-btn');
+  const panel = document.getElementById('staggered-menu-panel');
+  const preContainer = document.getElementById('sm-prelayers');
+  const backdrop = document.getElementById('sm-backdrop');
+  const navLinks = document.querySelectorAll('.sm-panel-item, .sm-socials-link');
+
+  if (!toggleBtn || !panel) return;
+
+  let isOpen = false;
+  let isBusy = false;
+  let openTl = null;
+  let closeTween = null;
+
+  const preLayers = preContainer ? Array.from(preContainer.querySelectorAll('.sm-prelayer')) : [];
+
+  // Setup initial GSAP state
+  if (window.gsap) {
+    gsap.set([panel, ...preLayers], { xPercent: 100, opacity: 1 });
+    if (preContainer) gsap.set(preContainer, { xPercent: 0, opacity: 1 });
+  }
+
+  function buildOpenTimeline() {
+    if (!window.gsap) return null;
+    if (openTl) openTl.kill();
+    if (closeTween) { closeTween.kill(); closeTween = null; }
+
+    const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
+    const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
+    const socialTitle = panel.querySelector('.sm-socials-title');
+    const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
+
+    if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+    if (numberEls.length) gsap.set(numberEls, { '--sm-num-opacity': 0 });
+    if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
+    if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
+
+    const tl = gsap.timeline({ paused: true });
+
+    preLayers.forEach((layer, i) => {
+      tl.fromTo(layer, { xPercent: 100 }, { xPercent: 0, duration: 0.5, ease: 'power4.out' }, i * 0.07);
+    });
+
+    const lastTime = preLayers.length ? (preLayers.length - 1) * 0.07 : 0;
+    const panelInsertTime = lastTime + (preLayers.length ? 0.08 : 0);
+    const panelDuration = 0.65;
+
+    tl.fromTo(panel, { xPercent: 100 }, { xPercent: 0, duration: panelDuration, ease: 'power4.out' }, panelInsertTime);
+
+    if (backdrop) {
+      tl.to(backdrop, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0);
+    }
+
+    if (itemEls.length) {
+      const itemsStartRatio = 0.15;
+      const itemsStart = panelInsertTime + panelDuration * itemsStartRatio;
+
+      tl.to(itemEls, {
+        yPercent: 0,
+        rotate: 0,
+        duration: 0.9,
+        ease: 'power4.out',
+        stagger: { each: 0.08, from: 'start' }
+      }, itemsStart);
+
+      if (numberEls.length) {
+        tl.to(numberEls, {
+          duration: 0.6,
+          ease: 'power2.out',
+          '--sm-num-opacity': 1,
+          stagger: { each: 0.06, from: 'start' }
+        }, itemsStart + 0.1);
+      }
+    }
+
+    if (socialTitle || socialLinks.length) {
+      const socialsStart = panelInsertTime + panelDuration * 0.35;
+      if (socialTitle) tl.to(socialTitle, { opacity: 1, duration: 0.45, ease: 'power2.out' }, socialsStart);
+      if (socialLinks.length) {
+        tl.to(socialLinks, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power3.out',
+          stagger: { each: 0.06, from: 'start' }
+        }, socialsStart + 0.04);
+      }
+    }
+
+    return tl;
+  }
+
+  function playOpen() {
+    if (isBusy) return;
+    isBusy = true;
+    if (backdrop) backdrop.style.pointerEvents = 'auto';
+    panel.setAttribute('aria-hidden', 'false');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleBtn.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    if (window.gsap) {
+      openTl = buildOpenTimeline();
+      if (openTl) {
+        openTl.eventCallback('onComplete', () => { isBusy = false; });
+        openTl.play(0);
+      } else {
+        isBusy = false;
+      }
+    } else {
+      panel.style.transform = 'translateX(0)';
+      if (backdrop) backdrop.style.opacity = '1';
+      isBusy = false;
+    }
+  }
+
+  function playClose() {
+    if (openTl) { openTl.kill(); openTl = null; }
+    if (backdrop) {
+      backdrop.style.pointerEvents = 'none';
+      if (!window.gsap) backdrop.style.opacity = '0';
+    }
+    panel.setAttribute('aria-hidden', 'true');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.classList.remove('is-open');
+    document.body.style.overflow = '';
+
+    const all = [...preLayers, panel];
+    if (window.gsap) {
+      if (closeTween) closeTween.kill();
+      if (backdrop) gsap.to(backdrop, { opacity: 0, duration: 0.25 });
+      closeTween = gsap.to(all, {
+        xPercent: 100,
+        duration: 0.35,
+        ease: 'power3.in',
+        overwrite: 'auto',
+        onComplete: () => {
+          const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel'));
+          if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+          const numberEls = Array.from(panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item'));
+          if (numberEls.length) gsap.set(numberEls, { '--sm-num-opacity': 0 });
+          const socialTitle = panel.querySelector('.sm-socials-title');
+          const socialLinks = Array.from(panel.querySelectorAll('.sm-socials-link'));
+          if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
+          if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
+          isBusy = false;
+        }
+      });
+    } else {
+      panel.style.transform = 'translateX(100%)';
+      isBusy = false;
+    }
+  }
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      playOpen();
+    } else {
+      playClose();
+    }
+  }
+
+  function closeMenu() {
+    if (isOpen) {
+      isOpen = false;
+      playClose();
+    }
+  }
+
+  toggleBtn.addEventListener('click', toggleMenu);
+  if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      closeMenu();
+    }
+  });
+}
+
+/* ==========================================================================
+   00C. REACTBITS 3D DEPTHTEXT LOGO ENGINE (Interactive 3D Wordmark)
+   ========================================================================== */
+function initDepthTextLogo() {
+  const mount = document.getElementById('hero-depth-logo');
+  if (!mount) return;
+
+  const MAX_LAYERS = 64;
+  const INTRO_MS = 1200;
+  const PUSH_STIFFNESS = 260;
+  const PUSH_DAMPING = 17;
+  const PRESS_EXTRA = 0.25;
+  const FLOAT_EASE = 0.7;
+
+  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+  const getLayerColor = (faceColor, depthColor, index, total) => {
+    const progress = total <= 1 ? 1 : index / total;
+    const eased = progress * progress;
+    const faceMix = Math.round((1 - eased) * 72 + 4);
+    return `color-mix(in srgb, color-mix(in srgb, ${faceColor} ${faceMix}%, ${depthColor}) 92%, black)`;
+  };
+
+  const getTransform = (rotateX, rotateY, lift = 0, roll = 0, sink = 0) =>
+    [
+      lift ? `translateY(${lift.toFixed(2)}px)` : '',
+      roll ? `rotateZ(${roll.toFixed(3)}deg)` : '',
+      `rotateX(${rotateX.toFixed(3)}deg) rotateY(${rotateY.toFixed(3)}deg)`,
+      sink ? `translateZ(${(-sink).toFixed(2)}px)` : ''
+    ]
+      .filter(Boolean)
+      .join(' ');
+
+  // Configuration parameters
+  const text = 'GRID STROKE';
+  const layers = 34;
+  const depth = 2.4;
+  const faceColor = '#BEF24D'; // Electric neon lime face
+  const depthColor = '#7C3AED'; // Electric purple depth layers
+  const tilt = 8.5;
+  const smoothing = 0.14;
+  const perspective = 900;
+  const autoOrbit = true;
+  const orbitSpeed = 0.35;
+  const hoverPush = 0.45;
+  const float = true;
+  const extent = layers * depth;
+
+  const baseRotation = { x: -tilt * 0.32, y: tilt * 0.42 };
+
+  // Build 3D DOM Elements
+  const rootEl = document.createElement('div');
+  rootEl.className = 'depth-text-root relative';
+  rootEl.style.perspective = `${perspective}px`;
+  rootEl.style.perspectiveOrigin = '50% 48%';
+
+  const stageEl = document.createElement('div');
+  stageEl.className = 'depth-text-stage';
+  stageEl.style.transform = getTransform(baseRotation.x, baseRotation.y);
+  stageEl.style.setProperty('--depth-text-grow', '0');
+
+  // Pre-generate depth layers
+  for (let layerIndex = 0; layerIndex < layers; layerIndex++) {
+    const index = layers - layerIndex;
+    const layerSpan = document.createElement('span');
+    layerSpan.setAttribute('aria-hidden', 'true');
+    layerSpan.className = 'depth-text-layer pointer-events-none absolute inset-0 z-0 inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem]';
+    layerSpan.style.color = getLayerColor(faceColor, depthColor, index, layers);
+    layerSpan.style.transform = `translateZ(calc(var(--depth-text-grow, 1) * ${(-index * depth).toFixed(2)}px))`;
+    if (index === layers) {
+      layerSpan.style.textShadow = `0 0.18em 0.32em color-mix(in srgb, ${depthColor} 24%, rgba(0, 0, 0, 0.42))`;
+    }
+    layerSpan.textContent = text;
+    stageEl.appendChild(layerSpan);
+  }
+
+  // Face layer on top
+  const faceSpan = document.createElement('span');
+  faceSpan.className = 'depth-text-layer relative z-10 inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem]';
+  faceSpan.style.color = faceColor;
+  faceSpan.style.textShadow = '0 0.035em 0.07em rgba(0, 0, 0, 0.28), 0 0 35px rgba(190, 242, 77, 0.45)';
+  faceSpan.style.transform = 'translateZ(0.6px)';
+  faceSpan.textContent = text;
+  stageEl.appendChild(faceSpan);
+
+  rootEl.appendChild(stageEl);
+  mount.innerHTML = '';
+  mount.appendChild(rootEl);
+
+  // Subtitle ".STUDIO • INDORE" below
+  const subEl = document.createElement('div');
+  subEl.className = 'font-mono text-xs sm:text-sm text-white/50 uppercase tracking-[0.35em] pt-4 pr-1 select-none flex items-center gap-2';
+  subEl.innerHTML = '<span class="text-[#BEF24D]">&bull;</span> STUDIO INDORE <span class="text-[#BEF24D]">&bull;</span>';
+  mount.appendChild(subEl);
+
+  // Physics & Animation Loop
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const canTrackPointer = finePointer && !reducedMotion;
+
+  let activePointer = false;
+  let hovered = false;
+  let pressed = false;
+  let lastTime = 0;
+  let size = rootEl.offsetHeight || 100;
+  const startTime = performance.now();
+  const motion = { push: 0, velocity: 0, float: 0 };
+  const current = { ...baseRotation };
+  const target = { ...baseRotation };
+  let introProgress = 0;
+
+  const sinkAmount = () => clamp(motion.push, -0.25, 1);
+
+  const applyTransform = (now = performance.now()) => {
+    const time = (now - startTime) / 1000;
+    const drift = motion.float;
+    stageEl.style.transform = getTransform(
+      current.x + (drift ? Math.cos(time * 1.19) * 2 * drift : 0),
+      current.y + (drift ? Math.sin(time * 0.86 + 2.1) * 4 * drift : 0),
+      drift ? Math.sin(time * 1.43) * size * 0.045 * drift : 0,
+      drift ? Math.sin(time * 1.03 + 0.8) * 1.6 * drift : 0,
+      sinkAmount() * extent
+    );
+  };
+
+  const applyGrow = () => {
+    const grow = introProgress >= 1 ? 1 : 1 - Math.pow(1 - introProgress, 3);
+    const value = grow * (1 - sinkAmount());
+    stageEl.style.setProperty('--depth-text-grow', value === 1 ? '1' : value.toFixed(4));
+  };
+
+  const tick = (now) => {
+    const delta = lastTime ? Math.min(now - lastTime, 50) : 16;
+    lastTime = now;
+
+    if (introProgress < 1) {
+      introProgress = Math.min(1, introProgress + delta / INTRO_MS);
+    }
+
+    if ((!canTrackPointer || !activePointer) && autoOrbit) {
+      const elapsed = (now - startTime) / 1000;
+      const orbit = elapsed * orbitSpeed * Math.PI * 2;
+      const fallbackAmount = canTrackPointer ? 0.18 : 0.55;
+      target.x = baseRotation.x + Math.sin(orbit) * tilt * fallbackAmount;
+      target.y = baseRotation.y + Math.cos(orbit * 0.85) * tilt * fallbackAmount;
+    }
+
+    current.x += (target.x - current.x) * smoothing;
+    current.y += (target.y - current.y) * smoothing;
+
+    const pushGoal = hoverPush > 0 && (hovered || pressed) ? Math.min(1, hoverPush + (pressed ? PRESS_EXTRA : 0)) : 0;
+    let remaining = delta / 1000;
+    while (remaining > 0) {
+      const step = Math.min(remaining, 1 / 120);
+      motion.velocity += (PUSH_STIFFNESS * (pushGoal - motion.push) - PUSH_DAMPING * motion.velocity) * step;
+      motion.push += motion.velocity * step;
+      remaining -= step;
+    }
+    if (Math.abs(pushGoal - motion.push) < 0.0005 && Math.abs(motion.velocity) < 0.002) {
+      motion.push = pushGoal;
+      motion.velocity = 0;
+    }
+
+    const floatGoal = float && !hovered && !pressed ? 1 : 0;
+    motion.float += (floatGoal - motion.float) * (1 - Math.exp(-delta / 1000 / FLOAT_EASE));
+    if (Math.abs(floatGoal - motion.float) < 0.001) motion.float = floatGoal;
+
+    applyGrow();
+    applyTransform(now);
+
+    requestAnimationFrame(tick);
+  };
+
+  requestAnimationFrame(tick);
+
+  if (canTrackPointer) {
+    window.addEventListener('pointermove', (event) => {
+      const rect = rootEl.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      activePointer = true;
+      const x = clamp((event.clientX - (rect.left + rect.width / 2)) / (rect.width * 0.8), -1, 1);
+      const y = clamp((event.clientY - (rect.top + rect.height / 2)) / (rect.height * 0.8), -1, 1);
+      target.x = baseRotation.x - y * tilt;
+      target.y = baseRotation.y + x * tilt;
+    });
+
+    window.addEventListener('pointerleave', () => {
+      activePointer = false;
+      target.x = baseRotation.x;
+      target.y = baseRotation.y;
+    });
+  }
+
+  rootEl.addEventListener('pointerenter', () => { hovered = true; });
+  rootEl.addEventListener('pointerleave', () => { hovered = false; pressed = false; });
+  rootEl.addEventListener('pointerdown', () => { pressed = true; });
+  rootEl.addEventListener('pointerup', () => { pressed = false; });
 }
 
 /* ==========================================================================
