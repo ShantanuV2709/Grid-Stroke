@@ -34,11 +34,11 @@
             }
           },
           fontFamily: {
-            heading: ['"Syne"', 'sans-serif'],
-            display: ['"Syne"', 'sans-serif'],
+            heading: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
             editorial: ['"Italiana"', '"Cormorant Garamond"', 'serif'],
-            wordmark: ['"Plus Jakarta Sans"', 'sans-serif'],
-            body: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            wordmark: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', '"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
             luxury: ['"Italiana"', '"Cormorant Garamond"', 'serif'],
             ornate: ['"Playfair Display"', 'serif'],
@@ -362,65 +362,52 @@
   </div>
 
   <!-- ==========================================================================
-       SECTION 00: HERO (Inspired by Brog Framer Architecture)
-       Ambient Background Carousel in Dim Light
-       Left Half: Discipline Headings Stack (Neon Hover Only)
-       Right Half: ReactBits 3D Layered DepthText 'GRID STROKE' Logo Engine
+       SECTION 00: HERO (1:1 Exact Brog Framer Architecture)
+       Left Half: Giant Brand Title (Grid Stroke®) + Disciplines List
+       Right Half: Giant 'Studio' Wordmark + Growth Statement Paragraph
        ========================================================================== -->
-  <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-28 pb-16 px-6 sm:px-12 md:px-16 overflow-hidden bg-[#1c0320]">
-    
-    <!-- Screen-reader accessible SEO H1 (Maintains 2 H1 count for validation & SEO) -->
-    <h1 class="sr-only">GRID STROKE STUDIO &mdash; Digital Content Creation Built for Growth</h1>
+  <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 pb-16 lg:pb-24 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden bg-[#120115]">
 
-    <!-- Ambient Subtle Background Glow -->
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/10 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
-    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/15 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
+    <!-- Ambient Subtle Background Glow (No Background Images) -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/5 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
 
-    <!-- Ambient Background Carousel in Dim Light (Web Content Portfolio Artwork) -->
-    <div class="hero-bg-carousel absolute inset-0 overflow-hidden pointer-events-none select-none z-0" aria-hidden="true">
-      <div class="hero-carousel-track">
-        <!-- Loop Set 1 -->
-        <div class="hero-carousel-card"><img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-1.png" alt="Meura Identity" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/hero/product-2-avi.jpg" alt="Avi Foods Campaign" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-3.png" alt="Meura Editorial" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Packaging" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-2.png" alt="Meura Lookbook" loading="eager"></div>
-        <!-- Loop Set 2 (Seamless Infinite Marquee) -->
-        <div class="hero-carousel-card"><img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-1.png" alt="Meura Identity" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/hero/product-2-avi.jpg" alt="Avi Foods Campaign" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-3.png" alt="Meura Editorial" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Packaging" loading="eager"></div>
-        <div class="hero-carousel-card"><img src="./content/branding/meura-2.png" alt="Meura Lookbook" loading="eager"></div>
-      </div>
-      <!-- Atmospheric Dim Lighting Overlay Gradients -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#1c0320] via-transparent to-[#1c0320]"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-[#1c0320]/80 via-[#1c0320]/45 to-[#1c0320]"></div>
-      <div class="absolute inset-0 bg-[#1c0320]/65 backdrop-blur-[2px]"></div>
-    </div>
-
-    <!-- Hero Main Grid (Balanced 50/50 Columns) -->
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center my-auto z-10">
+    <!-- Hero Main Grid (Full-Width Brog 2-Column Balanced Architecture) -->
+    <div class="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-start my-auto z-10">
       
-      <!-- Left Half: Disciplines Stack (Logo Removed, Neon Hover Only) -->
-      <div class="lg:col-span-6 space-y-6 hero-col-left">
-        <!-- Vertical Discipline Headings (Hover ONLY Highlights with Neon, Zero Pop-up) -->
-        <div class="space-y-3 font-heading tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white/90 uppercase leading-[1.1]">
-          <div class="hero-discipline-item tracking-tight">BRANDING</div>
-          <div class="hero-discipline-item tracking-tight">DESIGN &amp; CREATIVES</div>
-          <div class="hero-discipline-item tracking-tight">3D CGI &amp; ARCHVIZ</div>
-          <div class="hero-discipline-item tracking-tight">MOTION DIRECTION</div>
-          <div class="hero-discipline-item tracking-tight">SOCIAL MARKETING</div>
+      <!-- Left Half: Title & Disciplines Stack (Positioned to the far left) -->
+      <div class="hero-col-left flex flex-col justify-between space-y-10 sm:space-y-12 lg:space-y-16">
+        <!-- Giant Brand Title matching Brog® -->
+        <div>
+          <h1 class="hero-brand-title font-heading font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] 2xl:text-[9.5rem] tracking-tight text-white leading-[0.92] select-none">
+            Grid Stroke<span class="hero-trademark font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#BEF24D] align-top ml-1 sm:ml-2">®</span>
+          </h1>
+        </div>
+
+        <!-- Disciplines List Stack (Hover neon highlight matching Brog) -->
+        <div class="space-y-2.5 sm:space-y-3 font-heading font-bold text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] text-white uppercase tracking-tight leading-tight select-none">
+          <div class="hero-discipline-item">BRANDING</div>
+          <div class="hero-discipline-item">DESIGN &amp; CREATIVES</div>
+          <div class="hero-discipline-item">3D CGI &amp; ARCHVIZ</div>
+          <div class="hero-discipline-item">MOTION DIRECTION</div>
+          <div class="hero-discipline-item">SOCIAL MARKETING</div>
         </div>
       </div>
 
-      <!-- Right Half: ReactBits 3D Layered DepthText Logo Engine -->
-      <div class="lg:col-span-6 hero-col-right w-full flex flex-col items-center lg:items-end justify-center relative py-6 lg:py-0">
-        <div id="hero-depth-logo" class="relative select-none flex flex-col items-center lg:items-end w-full">
-          <!-- Dynamically generated 3D DepthText logo canvas mounted here -->
+      <!-- Right Half: Studio & Manifesto Statement (Vertically staggered matching Brog) -->
+      <div class="hero-col-right flex flex-col justify-between space-y-8 sm:space-y-12 lg:space-y-16 lg:pt-28 xl:pt-36">
+        <!-- Giant Studio Wordmark matching Brog Studio -->
+        <div>
+          <div class="hero-studio-title font-heading font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] 2xl:text-[9.5rem] tracking-tight text-white leading-none select-none">
+            Studio
+          </div>
+        </div>
+
+        <!-- Manifesto / Tagline Statement matching Brog -->
+        <div class="max-w-md xl:max-w-lg">
+          <p class="font-body text-base sm:text-lg md:text-xl lg:text-[1.3rem] text-white/80 font-normal leading-relaxed tracking-normal">
+            We build business solutions that drive real growth &mdash; efficient, scalable, and profit-focused.
+          </p>
         </div>
       </div>
 

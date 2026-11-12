@@ -539,7 +539,19 @@ body {
 
 @media (min-width: 1024px) {
   .brog-header {
-    padding: 1.75rem 3.5rem;
+    padding: 1.75rem 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .brog-header {
+    padding: 2rem 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .brog-header {
+    padding: 2.25rem 6rem;
   }
 }
 
@@ -1034,21 +1046,19 @@ body {
 /* Hero elements reveal cascade */
 .hero-col-left,
 .hero-col-right {
-  opacity: 0;
-  transform: translateY(35px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-content-ready .hero-col-left {
   opacity: 1;
   transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-content-ready .hero-col-right {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.15s;
+.hero-brand-title,
+.hero-studio-title {
+  letter-spacing: -0.045em;
+}
+
+.hero-trademark {
+  font-family: var(--font-body);
 }
 
 /* Hero Left Disciplines: Hover ONLY highlights with neon lime, ZERO pop-up / transform */
