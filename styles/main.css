@@ -3,7 +3,7 @@
    Exact 1:1 Architecture, Typography & Animation System from Brog Framer
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Italiana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=Italiana&display=swap');
 
 :root {
   /* Brand Core Tokens */
@@ -20,12 +20,13 @@
   --hairline: rgba(255, 255, 255, 0.08);
   --panel-radius: 28px;
   
-  /* Font Stacks */
-  --font-heading: 'Inter', 'Plus Jakarta Sans', -apple-system, sans-serif;
-  --font-display: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  --font-editorial: 'Italiana', Georgia, serif;
-  --font-wordmark: 'Inter', 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  /* Font Stacks: Bebas Neue for Headings & League Spartan for Subheadings */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-subheading: 'League Spartan', -apple-system, sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-editorial: 'League Spartan', sans-serif;
+  --font-wordmark: 'Bebas Neue', sans-serif;
+  --font-body: 'League Spartan', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
@@ -36,7 +37,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 120px;
   background-color: var(--bg-deep);
   color: var(--ink);
   font-family: var(--font-body);
@@ -50,7 +51,7 @@ body {
   padding: 0;
   background-color: var(--bg);
   color: var(--ink);
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   min-height: 100vh;
 }
@@ -114,6 +115,76 @@ body {
 
 .reveal-active .reveal-img-wrap img {
   transform: scale(1);
+}
+
+/* ==========================================================================
+   BROG MINIMAL LOGO RAIL (White Section Monochrome Logos Marquee)
+   ========================================================================== */
+.brog-logo-rail {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 2.5rem 0 2rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.brog-logo-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: brogLogoMarquee 32s linear infinite;
+}
+
+.brog-logo-rail:hover .brog-logo-track {
+  animation-play-state: paused;
+}
+
+.brog-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.75rem;
+}
+
+.brog-logo-item img {
+  height: 60px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .brog-logo-item {
+    padding: 0 3rem;
+  }
+  .brog-logo-item img {
+    height: 80px;
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .brog-logo-item {
+    padding: 0 4rem;
+  }
+  .brog-logo-item img {
+    height: 96px;
+    max-width: 280px;
+  }
+}
+
+.brog-logo-item img:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+@keyframes brogLogoMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ==========================================================================
@@ -258,7 +329,7 @@ body {
 @media (min-width: 1024px) {
   .meura-sticky-col {
     position: sticky;
-    top: 100px;
+    top: 136px;
   }
 }
 
@@ -306,9 +377,14 @@ body {
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
-.font-heading {
+h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.font-subheading, p, .subheading {
+  font-family: var(--font-subheading);
 }
 
 .font-editorial {
@@ -317,7 +393,7 @@ body {
 
 .font-wordmark {
   font-family: var(--font-wordmark);
-  letter-spacing: -0.03em;
+  letter-spacing: 0.04em;
 }
 
 /* ==========================================================================
@@ -1009,31 +1085,25 @@ body {
   z-index: 20;
 }
 
+.loader-card-3 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+}
+
 .loader-card-3.is-entered {
   transform: translateY(0) rotate(0deg) scale(1);
   opacity: 1;
   z-index: 30;
 }
 
-/* Card 3 Expands into the full hero viewport */
-.loader-card-3.is-expanded {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-width: none !important;
-  border-radius: 0 !important;
-  border-color: transparent !important;
-  box-shadow: none !important;
-  transform: translateY(0) rotate(0deg) scale(1) !important;
-  transition: all 0.95s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  z-index: 40 !important;
-}
-
-.loader-card-3.is-expanded .loader-card-logo {
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 0.4s ease, transform 0.5s ease;
+/* Card 3 (Pure Logo) smoothly docks & expands to the right half of the hero */
+.loader-card-3.is-docking {
+  transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.7s ease !important;
+  z-index: 35 !important;
 }
 
 #site-loader-stage.is-done {
@@ -1061,23 +1131,164 @@ body {
   font-family: var(--font-body);
 }
 
-/* Hero Tactical Grid Texture */
-.bg-hero-grid {
-  background-image: radial-gradient(rgba(190, 242, 77, 0.1) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-/* Hero Left Disciplines: Clean hover highlight with neon lime */
+/* Hero Left Disciplines: Hover ONLY highlights with neon lime, ZERO pop-up / transform */
 .hero-discipline-item {
-  color: rgba(255, 255, 255, 0.85);
-  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transform: none !important;
   cursor: pointer;
-  display: flex;
+  display: block;
   user-select: none;
 }
 
 .hero-discipline-item:hover {
   color: #BEF24D !important;
-  text-shadow: 0 0 20px rgba(190, 242, 77, 0.5);
+  text-shadow: 0 0 22px rgba(190, 242, 77, 0.6), 0 0 44px rgba(190, 242, 77, 0.25);
+  transform: none !important;
 }
+
+/* ==========================================================================
+   INFINITE 3D SPIRAL STYLING (Surrounding Grid Stroke Logo)
+   ========================================================================== */
+.spiral-card {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+.spiral-card:hover {
+  border-color: #BEF24D !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(190, 242, 77, 0.5) !important;
+  opacity: 1 !important;
+  filter: brightness(1.1) !important;
+  z-index: 999999 !important;
+}
+
+.spiral-card img {
+  transition: transform 0.4s ease;
+}
+
+.spiral-card:hover img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   FLEX CAROUSEL STYLES (OGL Liquid Refraction Lens)
+   ========================================================================== */
+.flex-carousel-container {
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flex-carousel-container:active,
+.flex-carousel-container[data-dragging] {
+  cursor: grabbing !important;
+}
+
+.flex-carousel-container[data-hover="open"] {
+  cursor: zoom-in;
+}
+
+.flex-carousel-container[data-hover="close"] {
+  cursor: zoom-out;
+}
+
+@keyframes flex-carousel-title {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flex-carousel-reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-flex-title {
+  animation: flex-carousel-title 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-flex-reveal {
+  animation: flex-carousel-reveal 900ms ease both;
+}
+
+.digit-roller {
+  display: inline-block;
+  height: 1.1em;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.digit-strip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.digit-strip span {
+  display: inline-block;
+  height: 1.1em;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+/* Fallback card styles if WebGL2 is not supported */
+.flex-card-fallback {
+  flex-shrink: 0;
+  width: min(85%, 680px);
+  aspect-ratio: 1464 / 600;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+}
+
+.flex-card-fallback:hover {
+  transform: scale(1.02);
+  border-color: #2BA3C9;
+}
+
+/* ==========================================================================
+   Royal Weddings Touch & Coarse Pointer Support
+   ========================================================================== */
+@media (hover: none), (pointer: coarse) {
+  #invitations .video-preview-container video {
+    filter: brightness(0.72) !important;
+    transition: filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #invitations .video-preview-container.is-touch-active video {
+    filter: brightness(1) !important;
+    transform: scale(1.03);
+  }
+  #invitations .video-preview-container.is-touch-active > div {
+    background-color: transparent !important;
+  }
+}
+
+/* Landscape desktop full-viewport snap for Sun Drunk */
+@media (min-width: 1024px) and (orientation: landscape) and (min-height: 700px) {
+  #ecommerce {
+    min-height: 100vh;
+  }
+}
+
+/* Portrait devices: wrap Sun Drunk comfortably without 800px empty gap */
+@media (orientation: portrait) and (max-width: 1023px) {
+  #ecommerce {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 3.5rem !important;
+  }
+  #ecommerce #sundrunk-flex-carousel {
+    height: 520px !important;
+    min-height: 440px !important;
+    flex: none !important;
+  }
+}
+
+
+
 

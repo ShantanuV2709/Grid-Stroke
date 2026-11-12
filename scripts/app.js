@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initStaggeredMenu();
   initDepthTextLogo();
   initHeroBrandCanvas();
+  initHeroInfiniteSpiral();
+  initSunDrunkControls();
   initScrollRevealEngine();
+  initKlickpinScrub();
   initMouseParallax();
   initStickyProgressIndicator();
   initPhotoshopClientTabs();
@@ -40,9 +43,14 @@ function initSiteLoadSequence() {
     stage.classList.remove('is-done');
     card1.style.display = 'block';
     card2.style.display = 'block';
+    card1.style.opacity = '';
+    card2.style.opacity = '';
+    card1.style.transform = '';
+    card2.style.transform = '';
+    card3.style.transform = '';
     card1.classList.remove('is-entered');
     card2.classList.remove('is-entered');
-    card3.classList.remove('is-entered', 'is-expanded');
+    card3.classList.remove('is-entered', 'is-docking');
     if (heroSection) heroSection.classList.remove('hero-content-ready');
 
     // Step 1: Card 1 (Meura) rises from page bottom to center
@@ -55,27 +63,55 @@ function initSiteLoadSequence() {
     setTimeout(() => {
       if (isComplete) return;
       card2.classList.add('is-entered');
-    }, 1000);
+    }, 950);
 
-    // Step 3: Card 3 (Grid Stroke Card) rises from page bottom and overlaps both
+    // Step 3: Pure Grid Stroke Logo rises on top (Zero card background, purely transparent)
     setTimeout(() => {
       if (isComplete) return;
       card3.classList.add('is-entered');
-    }, 1750);
+    }, 1650);
 
-    // Step 4: Card 3 expands into full hero background with current color
+    // Step 4: Card 1 & Card 2 sink away, while Logo moves and expands to its place on the right half of the page
     setTimeout(() => {
       if (isComplete) return;
-      card3.classList.add('is-expanded');
-    }, 2550);
 
-    // Step 5: Reveal Hero Section with logo on left and Brog layout
+      // Card 1 & Card 2 sink away smoothly
+      card1.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease';
+      card2.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease';
+      card1.style.opacity = '0';
+      card2.style.opacity = '0';
+      card1.style.transform = 'translateY(60px) scale(0.9) rotate(-6deg)';
+      card2.style.transform = 'translateY(60px) scale(0.9) rotate(5deg)';
+
+      // Calculate dock transform from center to hero-brand-logo on the right half
+      const heroLogo = document.getElementById('hero-brand-logo');
+      const loaderImg = card3.querySelector('img') || card3;
+
+      if (heroLogo && loaderImg) {
+        const hRect = heroLogo.getBoundingClientRect();
+        const lRect = loaderImg.getBoundingClientRect();
+
+        if (hRect.width > 0 && lRect.width > 0) {
+          const deltaX = (hRect.left + hRect.width / 2) - (lRect.left + lRect.width / 2);
+          const deltaY = (hRect.top + hRect.height / 2) - (lRect.top + lRect.height / 2);
+          const scale = hRect.width / lRect.width;
+
+          card3.classList.add('is-docking');
+          card3.style.transform = `translate(${deltaX.toFixed(2)}px, ${deltaY.toFixed(2)}px) scale(${scale.toFixed(3)})`;
+        }
+      }
+
+      // Simultaneously reveal hero content
+      if (heroSection) heroSection.classList.add('hero-content-ready');
+    }, 2450);
+
+    // Step 5: Complete transition seamlessly
     setTimeout(() => {
       if (isComplete) return;
       stage.classList.add('is-done');
       if (heroSection) heroSection.classList.add('hero-content-ready');
       isComplete = true;
-    }, 3250);
+    }, 3450);
   }
 
   function finishInstantly() {
@@ -274,6 +310,8 @@ function initStaggeredMenu() {
   }
 
   toggleBtn.addEventListener('click', toggleMenu);
+  const closeBtn = document.getElementById('sm-close-btn');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   if (backdrop) backdrop.addEventListener('click', closeMenu);
 
   navLinks.forEach(link => {
@@ -545,27 +583,328 @@ function initHeroBrandCanvas() {
 }
 
 /* ==========================================================================
+   INFINITE 3D SPIRAL ENGINE (Surrounding the Grid Stroke Logo from Bottom to Navbar)
+   ========================================================================== */
+function initHeroInfiniteSpiral() {
+  const root = document.getElementById('infinite-spiral-root');
+  const track = document.getElementById('infinite-spiral-track');
+  if (!root || !track) return;
+
+  const items = [
+    { src: './content/hero/product-1-meura.jpg', alt: 'Meura Haute Couture Editorial' },
+    { src: './content/branding/meura-1.png', alt: 'Meura Brand Architecture' },
+    { src: './content/branding/meura-3.png', alt: 'Meura Tactile Packaging' },
+    { src: './content/branding/meura-2.png', alt: 'Meura Embossed Apparel' },
+    { src: './content/ecommerce/sundrunk-1.jpg', alt: 'Sun Drunk Amazon A+ Launch' },
+    { src: './content/ecommerce/sundrunk-2.jpg', alt: 'Sun Drunk Sand-Free Technology' },
+    { src: './content/ecommerce/sundrunk-3.jpg', alt: 'Sun Drunk Resort Duo Collection' },
+    { src: './content/hero/product-2-avi.jpg', alt: 'Avi Organics Brand Visuals' },
+    { src: './content/social/avi-sbo.jpg', alt: 'Avi SBO Product Creative' },
+    { src: './content/social/crown-carousel.jpg', alt: 'Crown Residences Carousel' },
+    { src: './content/social/eemos-pushpa.jpg', alt: 'Eemos Pushpa Campaign' },
+    { src: './content/social/fusion-coats.jpg', alt: 'Fusion Paints Post' },
+    { src: './content/social/lotus-healthcare.jpg', alt: 'Lotus Healthcare Identity' },
+    { src: './content/social/pnps-admissions.jpg', alt: 'PNPS Academy Campaign' },
+    { src: './content/social/eemos-facial.jpg', alt: 'Eemos Lightening Facial' },
+    { src: './content/social/eemos-natural.jpg', alt: 'Eemos Natural Tech Treatment' },
+    { src: './content/social/avi-groundnut.jpg', alt: 'Avi Groundnut Oil Story' },
+    { src: './content/branding/meura-4.png', alt: 'Meura Lookbook Editorial' }
+  ];
+
+  // Parameters matching React InfiniteSpiral specification
+  const speed = 0.55;
+  const direction = 'up';
+  const animationMode = 'all'; // 'auto', 'scroll', 'drag', 'all'
+  const radius = 295;
+  const cardWidth = 112;
+  const cardHeight = 112;
+  const verticalSpacing = 68;
+  const perspective = 1000;
+  const cardsPerTurn = 7;
+  const rotation = 0;
+  const cardTilt = 3;
+  const cardRadius = 14;
+  const centerScale = 1.15;
+  const edgeFade = 0.25;
+  const edgeBlur = 6;
+  const pauseOnHover = true;
+
+  const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+  const modulo = (val, div) => ((val % div) + div) % div;
+  const smoothstep = (min, max, val) => {
+    const x = clamp((val - min) / (max - min || 1), 0, 1);
+    return x * x * (3 - 2 * x);
+  };
+
+  const cardElements = [];
+  items.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.className =
+      'spiral-card absolute left-1/2 top-1/2 block overflow-hidden rounded-[14px] border border-white/25 bg-black/40 shadow-[0_14px_38px_rgba(0,0,0,0.6)] [backface-visibility:hidden] [transform-style:preserve-3d] [will-change:transform,opacity,filter] pointer-events-auto cursor-pointer transition-colors duration-300';
+    card.style.width = `${cardWidth}px`;
+    card.style.height = `${cardHeight}px`;
+    card.style.borderRadius = `${cardRadius}px`;
+    card.setAttribute('role', 'listitem');
+    card.setAttribute('aria-label', item.alt);
+    card.setAttribute('data-lightbox', '');
+    card.setAttribute('data-src', item.src);
+    card.setAttribute('data-title', item.alt);
+
+    const img = document.createElement('img');
+    img.className = 'absolute inset-0 block h-full w-full select-none object-cover pointer-events-none';
+    img.src = item.src;
+    img.alt = item.alt;
+    img.loading = index < 6 ? 'eager' : 'lazy';
+    img.draggable = false;
+    img.style.objectFit = 'cover';
+
+    card.appendChild(img);
+    track.appendChild(card);
+    cardElements.push(card);
+  });
+
+  let progress = 0;
+  let targetProgress = 0;
+  let autoSpeed = 0;
+  let isHovered = false;
+  let isVisible = true;
+  let isDragging = false;
+  let lastPointerY = 0;
+  let dragMoved = false;
+
+  let bounds = root.getBoundingClientRect();
+  const resizeObserver = new ResizeObserver(() => {
+    bounds = root.getBoundingClientRect();
+  });
+  resizeObserver.observe(root);
+
+  const intersectionObserver = new IntersectionObserver(([entry]) => {
+    isVisible = entry.isIntersecting;
+  });
+  intersectionObserver.observe(root);
+
+  // Scroll interaction
+  let lastScrollY = window.scrollY;
+  const scrollSpeedMultiplier = Math.max(speed, 0) / 0.55;
+  const handleScroll = () => {
+    const nextScrollY = window.scrollY;
+    const scrollDelta = nextScrollY - lastScrollY;
+    lastScrollY = nextScrollY;
+    if (!isVisible || scrollDelta === 0) return;
+    targetProgress += clamp(
+      (scrollDelta * scrollSpeedMultiplier) / Math.max(verticalSpacing * 2, 1),
+      -1.5,
+      1.5
+    );
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // Hover detection
+  if (pauseOnHover) {
+    root.addEventListener('mouseenter', () => { isHovered = true; });
+    root.addEventListener('mouseleave', () => { isHovered = false; });
+  }
+
+  // Pointer drag interaction
+  const dragEnabled = animationMode === 'drag' || animationMode === 'all';
+  root.addEventListener('pointerdown', event => {
+    if (!dragEnabled || event.button !== 0) return;
+    isDragging = true;
+    dragMoved = false;
+    lastPointerY = event.clientY;
+    targetProgress = progress;
+    root.setPointerCapture(event.pointerId);
+    root.style.cursor = 'grabbing';
+  });
+
+  root.addEventListener('pointermove', event => {
+    if (!isDragging) return;
+    const pointerDelta = event.clientY - lastPointerY;
+    lastPointerY = event.clientY;
+    if (Math.abs(pointerDelta) > 0.5) dragMoved = true;
+    targetProgress -= pointerDelta / Math.max(verticalSpacing, 1);
+  });
+
+  const stopDragging = event => {
+    if (!isDragging) return;
+    isDragging = false;
+    if (root.hasPointerCapture(event.pointerId)) {
+      root.releasePointerCapture(event.pointerId);
+    }
+    root.style.cursor = dragEnabled ? 'grab' : 'default';
+  };
+
+  root.addEventListener('pointerup', stopDragging);
+  root.addEventListener('pointercancel', stopDragging);
+
+  root.addEventListener('click', event => {
+    if (dragMoved) {
+      event.preventDefault();
+      event.stopPropagation();
+      dragMoved = false;
+    }
+  }, true);
+
+  // Render loop
+  let previousTime = performance.now();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function render(time) {
+    const delta = Math.min((time - previousTime) / 1000, 0.05);
+    previousTime = time;
+
+    const autoEnabled = animationMode === 'auto' || animationMode === 'all';
+    const motionPaused = isDragging || (pauseOnHover && isHovered);
+    const directionMultiplier = direction === 'down' ? -1 : 1;
+    const desiredAutoSpeed =
+      autoEnabled && isVisible && !reducedMotion.matches && !motionPaused
+        ? speed * directionMultiplier
+        : 0;
+
+    const speedBlend = 1 - Math.exp(-delta * 7);
+    autoSpeed += (desiredAutoSpeed - autoSpeed) * speedBlend;
+    targetProgress += autoSpeed * delta;
+
+    const followBlend = 1 - Math.exp(-delta * (isDragging ? 22 : 11));
+    progress += (targetProgress - progress) * followBlend;
+
+    const count = items.length;
+    const half = count / 2;
+    const width = Math.max(bounds.width, 1);
+    const height = Math.max(bounds.height, 1);
+    const fit = Math.min(1, width / 560, height / 660);
+    const responsiveRadius = Math.min(radius * fit, Math.max(75, width * 0.36));
+    const fadeStart = clamp(1 - edgeFade, 0, 0.98);
+    const turnSize = Math.max(cardsPerTurn, 1);
+
+    cardElements.forEach((card, index) => {
+      const offset = modulo(index - progress + half, count) - half;
+      const edge = Math.min(Math.abs(offset) / Math.max(half, 1), 1);
+      const focus = 1 - Math.min(Math.abs(offset) / Math.max(turnSize * 0.65, 1), 1);
+      const scale = (1 + (centerScale - 1) * focus) * fit;
+      const angle = offset * (360 / turnSize) + rotation;
+      const angleRadians = (angle * Math.PI) / 180;
+      const x = Math.sin(angleRadians) * responsiveRadius;
+      const z = Math.cos(angleRadians) * responsiveRadius;
+      const yPos = offset * verticalSpacing * fit;
+      const depthScale = clamp(perspective / Math.max(perspective - z, 1), 0.72, 1.45);
+      const visualScale = scale * depthScale;
+      const depth = (z / Math.max(responsiveRadius, 1) + 1) / 2;
+
+      // Smooth vertical boundary fade so cards dissolve cleanly before reaching top/bottom bounds
+      const maxVertSpan = Math.min(height * 0.42, 280 * fit);
+      const vertBoundFade = 1 - smoothstep(maxVertSpan * 0.55, maxVertSpan, Math.abs(yPos));
+      const edgeOpacity = (1 - smoothstep(0.40, 0.92, edge)) * vertBoundFade;
+
+      // Fade out spiral cards when they pass in front of the central Grid Stroke logo
+      const vertLogoZone = 1 - smoothstep(45 * fit, 175 * fit, Math.abs(yPos));
+      const horizLogoZone = 1 - smoothstep(240 * fit, 390 * fit, Math.abs(x));
+      const inFrontOfLogo = smoothstep(-50 * fit, 30 * fit, z);
+      const logoOverlap = vertLogoZone * horizLogoZone;
+      const logoClearFade = 1 - logoOverlap * Math.max(inFrontOfLogo * 0.95, 0.55);
+
+      const blur = edgeBlur * smoothstep(0.35, 1, edge) + logoOverlap * inFrontOfLogo * 4;
+
+      const depthDim = 0.28 + 0.60 * Math.pow(depth, 1.3);
+      const finalOpacity = edgeOpacity * depthDim * logoClearFade;
+      const cardOpacity = finalOpacity.toFixed(3);
+      const brightness = (0.45 + 0.55 * depth).toFixed(2);
+
+      card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, ${yPos.toFixed(2)}px, ${z.toFixed(2)}px) rotateZ(${cardTilt}deg) scale(${visualScale.toFixed(3)})`;
+      card.style.opacity = cardOpacity;
+      const filterList = [`brightness(${brightness})`];
+      if (blur > 0.01) filterList.push(`blur(${blur.toFixed(2)}px)`);
+      card.style.filter = filterList.join(' ');
+      card.style.zIndex = String(Math.round(depth * 100000) + index);
+      card.style.pointerEvents = finalOpacity > 0.22 ? 'auto' : 'none';
+    });
+
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+}
+
+/* ==========================================================================
    1. FLUID SCROLL REVEAL ENGINE (Agrumea Farm / Studio Naam Style)
    ========================================================================== */
 function initScrollRevealEngine() {
-  const revealElements = document.querySelectorAll('.reveal-init');
+  const els = Array.from(document.querySelectorAll('.reveal-init, section:not(#hero) h2'));
+  if (!els.length) return;
 
-  if (!revealElements.length) return;
+  // AnimatedContent (GSAP ScrollTrigger): fade + rise with power3.out, once per element
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    els.forEach((el) => {
+      const delayed = el.classList.contains('delay-100') ? 0.1 : 0;
+      el.classList.remove('reveal-init');
+      el.style.transition = 'none';
+      el.style.transitionDelay = '0s';
+      if (reduce) { gsap.set(el, { opacity: 1, y: 0 }); return; }
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(el,
+        { y: 100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, delay: delayed, ease: 'power3.out',
+          onComplete: () => gsap.set(el, { clearProps: 'transform' }) });
+      gsap.set(el, { opacity: 0, y: 100 });
+      ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => tl.play() });
+    });
+    return;
+  }
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('reveal-active');
-        // Once revealed, keep active
         revealObserver.unobserve(entry.target);
       }
     });
-  }, {
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.12
-  });
+  }, { rootMargin: '0px 0px -80px 0px', threshold: 0.12 });
+  els.forEach((el) => { el.classList.add('reveal-init'); revealObserver.observe(el); });
+}
 
-  revealElements.forEach((el) => revealObserver.observe(el));
+/* ==========================================================================
+   KLICKPIN 3D SCROLL SIMULATION (scroll scrubs the walkthrough video both ways)
+   ========================================================================== */
+function initKlickpinScrub() {
+  const section = document.getElementById('three-d');
+  const video = document.getElementById('klickpin-scrub-video');
+  if (!section || !video) return;
+  const bar = document.getElementById('klickpin-progress');
+  const pct = document.getElementById('klickpin-percent');
+
+  video.pause();
+  let target = 0, current = 0, ready = false, seeking = false;
+  video.addEventListener('loadedmetadata', () => { ready = true; video.currentTime = 0; });
+  video.addEventListener('seeked', () => { seeking = false; });
+  video.load();
+
+  const update = () => {
+    const rect = section.getBoundingClientRect();
+    const total = Math.max(section.offsetHeight - window.innerHeight, 1);
+    target = Math.min(Math.max(-rect.top / total, 0), 1);
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  const tick = () => {
+    current += (target - current) * 0.12;
+    if (Math.abs(target - current) < 0.0005) current = target;
+    if (ready && video.duration && !seeking) {
+      const t = current * (video.duration - 0.05);
+      if (Math.abs(video.currentTime - t) > 0.01) {
+        seeking = true;
+        if (video.fastSeek) video.fastSeek(t); else video.currentTime = t;
+        setTimeout(() => { seeking = false; }, 60);
+      }
+    }
+    if (bar) bar.style.width = (current * 100).toFixed(1) + '%';
+    if (pct) pct.textContent = Math.round(current * 100);
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 }
 
 /* ==========================================================================
@@ -687,14 +1026,32 @@ function initPhotoshopClientTabs() {
 }
 
 /* ==========================================================================
-   5. VIDEO HOVER PREVIEWS
+   5. VIDEO HOVER & TOUCH PREVIEWS (Royal Weddings & Video Previews)
    ========================================================================== */
 function initHoverVideoPreviews() {
   const hoverVideos = document.querySelectorAll('video[data-hover-preview]');
+  if (!hoverVideos.length) return;
+
+  const isTouchDevice = !window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   hoverVideos.forEach((video) => {
     const parent = video.closest('.video-preview-container') || video;
+    const previewTime = parseFloat(video.dataset.previewTime || '0');
 
+    if (previewTime > 0) {
+      const seekPreview = () => {
+        if (video.paused && video.currentTime < 0.3) {
+          try { video.currentTime = previewTime; } catch (_) {}
+        }
+      };
+      if (video.readyState >= 1) {
+        seekPreview();
+      } else {
+        video.addEventListener('loadedmetadata', seekPreview, { once: true });
+      }
+    }
+
+    // Desktop hover
     parent.addEventListener('mouseenter', () => {
       video.muted = true;
       const playPromise = video.play();
@@ -704,10 +1061,56 @@ function initHoverVideoPreviews() {
     });
 
     parent.addEventListener('mouseleave', () => {
-      video.pause();
-      video.currentTime = 0;
+      if (!parent.classList.contains('is-touch-active')) {
+        video.pause();
+        if (previewTime > 0 && video.currentTime < 0.3) {
+          try { video.currentTime = previewTime; } catch (_) {}
+        }
+      }
+    });
+
+    // Touch / Tap interaction (for mobile / tablet / non-hover devices)
+    parent.addEventListener('click', () => {
+      if (isTouchDevice || window.innerWidth < 1024) {
+        const wasActive = parent.classList.contains('is-touch-active');
+        const container = parent.closest('#invitations') || parent.parentElement;
+        if (container) {
+          container.querySelectorAll('.video-preview-container').forEach(c => {
+            if (c !== parent) {
+              c.classList.remove('is-touch-active');
+            }
+          });
+        }
+        if (wasActive) {
+          parent.classList.remove('is-touch-active');
+        } else {
+          parent.classList.add('is-touch-active');
+          video.muted = true;
+          video.play().catch(() => {});
+        }
+      }
     });
   });
+
+  // On touch / coarse pointer devices, autoplay videos when section is in viewport
+  const invitationsSection = document.getElementById('invitations');
+  if (invitationsSection && isTouchDevice) {
+    const touchObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          hoverVideos.forEach((v) => {
+            v.muted = true;
+            v.play().catch(() => {});
+          });
+        } else {
+          hoverVideos.forEach((v) => {
+            v.pause();
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    touchObserver.observe(invitationsSection);
+  }
 }
 
 /* ==========================================================================
@@ -857,4 +1260,28 @@ function initContactForm() {
       }
     }, 800);
   });
+}
+
+/* Sun Drunk carousel side controls (presets + arrows drive the React/OGL FlexCarousel) */
+function initSunDrunkControls() {
+  const root = document.getElementById('sundrunk-flex-carousel');
+  const press = (key) => {
+    const c = root && root.querySelector('[role="region"]');
+    if (c) { c.focus({ preventScroll: true }); c.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true })); }
+  };
+  const prev = document.getElementById('flex-prev-btn');
+  const next = document.getElementById('flex-next-btn');
+  if (prev) prev.addEventListener('click', () => press('ArrowLeft'));
+  if (next) next.addEventListener('click', () => press('ArrowRight'));
+  const btns = document.querySelectorAll('[data-flex-preset]');
+  btns.forEach((btn) => btn.addEventListener('click', () => {
+    if (window.setSunDrunkPreset) window.setSunDrunkPreset(btn.dataset.flexPreset);
+    btns.forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('bg-[#2BA3C9]', on);
+      b.classList.toggle('text-black', on);
+      b.classList.toggle('bg-black/50', !on);
+      b.classList.toggle('text-white/80', !on);
+    });
+  }));
 }

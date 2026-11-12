@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>GRID STROKE STUDIO | Gen Z Branding, Visuals & Scroll-Stopping Content</title>
-  <meta name="description" content="Grid Stroke Studio is an Indore-based Gen Z creative agency specializing in bold branding, social media ad creatives, viral reels, 3D CGI visuals, luxury invitations, and logo animations. We make brands look expensive.">
-  <meta name="keywords" content="Grid Stroke Studio, creative studio Indore, bold branding India, social media design, reels video editing, 3D product render, wedding digital invites, motion graphics Indore">
+  <meta name="description"
+    content="Grid Stroke Studio is an Indore-based Gen Z creative agency specializing in bold branding, social media ad creatives, viral reels, 3D CGI visuals, luxury invitations, and logo animations. We make brands look expensive.">
+  <meta name="keywords"
+    content="Grid Stroke Studio, creative studio Indore, bold branding India, social media design, reels video editing, 3D product render, wedding digital invites, motion graphics Indore">
   <link rel="canonical" href="https://gridstroke.studio/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gridstroke.studio/">
   <meta property="og:title" content="GRID STROKE STUDIO — Bold Branding & High-Impact Visuals">
-  <meta property="og:description" content="We don't just design. We make brands look expensive. Discover our portfolio of branding, 3D, reels, and performance content.">
+  <meta property="og:description"
+    content="We don't just design. We make brands look expensive. Discover our portfolio of branding, 3D, reels, and performance content.">
   <meta property="og:image" content="./content/branding/meura-1.png">
+
+  <!-- Google Fonts: Bebas Neue (Headings) & League Spartan (Subheadings/Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=League+Spartan:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS Engine -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,13 +45,14 @@
             }
           },
           fontFamily: {
-            heading: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
-            editorial: ['"Italiana"', '"Cormorant Garamond"', 'serif'],
-            wordmark: ['"Inter"', '"Plus Jakarta Sans"', 'sans-serif'],
-            body: ['"Inter"', '"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            heading: ['"Bebas Neue"', 'sans-serif'],
+            subheading: ['"League Spartan"', '-apple-system', 'sans-serif'],
+            display: ['"Bebas Neue"', 'sans-serif'],
+            editorial: ['"League Spartan"', 'sans-serif'],
+            wordmark: ['"Bebas Neue"', 'sans-serif'],
+            body: ['"League Spartan"', '-apple-system', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
-            luxury: ['"Italiana"', '"Cormorant Garamond"', 'serif'],
+            luxury: ['"Bebas Neue"', 'sans-serif'],
             ornate: ['"Playfair Display"', 'serif'],
             script: ['"Great Vibes"', 'cursive']
           }
@@ -208,24 +220,30 @@
   <!-- ==========================================================================
        SECTION 00: SITE LOAD SEQUENCE (3 Overlapping Product Cards -> Fullscreen Hero)
        ========================================================================== -->
-  <div id="site-loader-stage" class="fixed inset-0 z-[9999] bg-[#120115] flex items-center justify-center overflow-hidden transition-all duration-700">
+  <div id="site-loader-stage"
+    class="fixed inset-0 z-[9999] bg-[#120115] flex items-center justify-center overflow-hidden transition-all duration-700">
 
     <!-- Centered 3-Card Overlapping Stack (Clean Visuals Without Tags or Skip Button) -->
-    <div class="loader-stack-container relative w-[280px] sm:w-[320px] md:w-[380px] aspect-[4/5] flex items-center justify-center">
-      
+    <div
+      class="loader-stack-container relative w-[280px] sm:w-[320px] md:w-[380px] aspect-[4/5] flex items-center justify-center">
+
       <!-- Card 1: Meura Haute Couture (Attachment 1) -->
-      <div id="loader-card-1" class="loader-card loader-card-1 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-white/15 bg-black">
+      <div id="loader-card-1"
+        class="loader-card loader-card-1 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-white/15 bg-black">
         <img src="./content/hero/product-1-meura.jpg" alt="Meura Haute Couture" class="w-full h-full object-cover">
       </div>
 
       <!-- Card 2: Avi Oil & Foods (Attachment 2) -->
-      <div id="loader-card-2" class="loader-card loader-card-2 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85)] border border-white/15 bg-black">
+      <div id="loader-card-2"
+        class="loader-card loader-card-2 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.85)] border border-white/15 bg-black">
         <img src="./content/hero/product-2-avi.jpg" alt="Avi Oil & Foods" class="w-full h-full object-cover">
       </div>
 
-      <!-- Card 3: Grid Stroke Card (Attachment 3) -> Expands to Hero Background -->
-      <div id="loader-card-3" class="loader-card loader-card-3 absolute inset-0 rounded-2xl overflow-hidden shadow-[0_35px_80px_rgba(0,0,0,0.9)] border border-[#BEF24D]/30 bg-[#1c0320] flex items-center justify-center p-8">
-        <img src="./content/hero/gridstroke-logo.png" alt="Grid Stroke STUDIO" class="loader-card-logo w-4/5 h-auto object-contain filter drop-shadow-[0_10px_35px_rgba(190,242,77,0.4)]">
+      <!-- Card 3: Grid Stroke Logo (ONLY the logo, transparent, zero card background) -->
+      <div id="loader-card-3"
+        class="loader-card loader-card-3 loader-logo-wrap absolute inset-0 flex items-center justify-center p-4 bg-transparent border-0 shadow-none pointer-events-none">
+        <img id="loader-brand-logo" src="./content/logos/gridstroke-brand-logo.png" alt="Grid Stroke STUDIO"
+          class="loader-card-logo w-4/5 max-w-[360px] h-auto object-contain filter drop-shadow-[0_15px_45px_rgba(190,242,77,0.45)]">
       </div>
 
     </div>
@@ -234,25 +252,31 @@
 
   <!-- Brog-Style Full-Width Navbar (Email • Phone • Location • Attached Logo • Hamburger) -->
   <header class="brog-header">
-    
-    <!-- Left: Navbar Logo (Attached Logo Asset) -->
+
+    <!-- Left: Navbar Logo (Brand Logo Asset) -->
     <a href="#hero" class="flex items-center group focus:outline-none">
-      <img src="./content/logos/navbar-attached-logo.png" alt="Grid Stroke Studio" class="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(190,242,77,0.25)]">
+      <img src="./content/logos/gridstroke-brand-logo.png" alt="Grid Stroke Studio"
+        class="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_2px_12px_rgba(190,242,77,0.35)]">
     </a>
 
     <!-- Right: Email, Phone, Location & Hamburger (Exact Brog Framer Architecture) -->
     <div class="flex items-center gap-6 sm:gap-10 md:gap-12">
-      
+
       <!-- Email block -->
       <a href="mailto:gridstrokestudio@gmail.com" class="hidden md:flex flex-col text-left group transition-colors">
-        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Email</span>
-        <span class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</span>
+        <span
+          class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Email</span>
+        <span
+          class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</span>
       </a>
 
       <!-- Phone block -->
-      <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer" class="hidden lg:flex flex-col text-left group transition-colors">
-        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Phone</span>
-        <span class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">+91 91114 55566</span>
+      <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer"
+        class="hidden lg:flex flex-col text-left group transition-colors">
+        <span
+          class="text-[10px] font-mono uppercase tracking-widest text-white/40 group-hover:text-[#BEF24D] transition-colors">Phone</span>
+        <span class="text-xs sm:text-sm text-white font-medium group-hover:text-[#BEF24D] transition-colors">+91 91114
+          55566</span>
       </a>
 
       <!-- Location block -->
@@ -262,9 +286,13 @@
       </div>
 
       <!-- Brog 2-Line Minimal Hamburger Menu Button (Matching Reference Image) -->
-      <button id="sm-toggle-btn" class="sm-toggle flex flex-col justify-center items-end gap-1.5 w-10 h-10 p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer group pointer-events-auto z-[60]" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggered-menu-panel" type="button">
-        <span class="sm-hamb-top w-6 h-[2px] bg-white group-hover:bg-[#BEF24D] transition-all duration-300 rounded-full"></span>
-        <span class="sm-hamb-bot w-4 h-[2px] bg-white group-hover:bg-[#BEF24D] group-hover:w-6 transition-all duration-300 rounded-full"></span>
+      <button id="sm-toggle-btn"
+        class="sm-toggle flex flex-col justify-center items-end gap-1.5 w-10 h-10 p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer group pointer-events-auto z-[60]"
+        aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggered-menu-panel" type="button">
+        <span
+          class="sm-hamb-top w-6 h-[2px] bg-white group-hover:bg-[#BEF24D] transition-all duration-300 rounded-full"></span>
+        <span
+          class="sm-hamb-bot w-4 h-[2px] bg-white group-hover:bg-[#BEF24D] group-hover:w-6 transition-all duration-300 rounded-full"></span>
       </button>
 
     </div>
@@ -273,59 +301,83 @@
 
   <!-- ReactBits Staggered Multi-Layered Menu Structure -->
   <div class="sm-scope">
-    
+
     <!-- Animated Colored Prelayers (Sliding Brand Curtains) -->
-    <div id="sm-prelayers" class="sm-prelayers fixed top-0 right-0 bottom-0 pointer-events-none z-[90] overflow-hidden" aria-hidden="true">
+    <div id="sm-prelayers" class="sm-prelayers fixed top-0 right-0 bottom-0 pointer-events-none z-[90] overflow-hidden"
+      aria-hidden="true">
       <div class="sm-prelayer absolute top-0 right-0 h-full w-full bg-[#2a0330]"></div>
       <div class="sm-prelayer absolute top-0 right-0 h-full w-full bg-[#BEF24D]"></div>
     </div>
 
     <!-- Main Navigation Panel (Slide-In with Fluid Staggered Typography Reveal) -->
-    <aside id="staggered-menu-panel" class="staggered-menu-panel fixed top-0 right-0 h-full bg-[#130117] flex flex-col overflow-y-auto z-[95] backdrop-blur-[16px] border-l border-white/10 pointer-events-auto" style="--sm-accent: #BEF24D;" aria-hidden="true">
-      
+    <aside id="staggered-menu-panel"
+      class="staggered-menu-panel fixed top-0 right-0 h-full bg-[#130117] flex flex-col overflow-y-auto z-[95] backdrop-blur-[16px] border-l border-white/10 pointer-events-auto"
+      style="--sm-accent: #BEF24D;" aria-hidden="true">
+
       <!-- Panel Header Bar -->
       <div class="flex items-center justify-between pb-8 border-b border-white/10">
         <img src="./content/logos/navbar-attached-logo.png" alt="Grid Stroke Studio" class="h-8 w-auto object-contain">
-        <span class="font-mono text-[10px] uppercase tracking-widest text-[#BEF24D]">// STAGGERED NAV</span>
+        <button id="sm-close-btn"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-[#BEF24D] text-white hover:text-[#19031c] transition-all duration-200 cursor-pointer focus:outline-none"
+          aria-label="Close navigation menu" type="button">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
       </div>
 
+
       <div class="sm-panel-inner flex-1 flex flex-col justify-between pt-8 gap-8">
-        
+
         <!-- Staggered Items List with Dynamic Counter Numbering -->
         <ul class="sm-panel-list list-none m-0 p-0 flex flex-col gap-2" role="list" data-numbering="true">
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#hero" data-index="1">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Home</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#hero" data-index="1">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Home</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#about" data-index="2">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">About</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#about" data-index="2">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">About</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#branding" data-index="3">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Works</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#branding" data-index="3">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Works</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#process" data-index="4">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Process</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#process" data-index="4">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Process</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#social-mgmt" data-index="5">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Packages</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#social-mgmt" data-index="5">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Packages</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#faq-section" data-index="6">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">FAQs</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#faq-section" data-index="6">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">FAQs</span>
             </a>
           </li>
           <li class="sm-panel-itemWrap relative overflow-hidden leading-none">
-            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]" href="#lets-create" data-index="7">
-              <span class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Contact</span>
+            <a class="sm-panel-item relative font-heading font-extrabold cursor-pointer leading-none uppercase text-white hover:text-[#BEF24D] transition-colors duration-150 inline-block no-underline pr-[1.4em]"
+              href="#lets-create" data-index="7">
+              <span
+                class="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">Contact</span>
             </a>
           </li>
         </ul>
@@ -334,20 +386,24 @@
         <div class="sm-socials" aria-label="Social links">
           <h3 class="sm-socials-title">// CONNECT &bull; INDORE</h3>
           <div class="flex flex-col gap-1 text-white/60 font-mono text-xs">
-            <a href="mailto:gridstrokestudio@gmail.com" class="hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</a>
+            <a href="mailto:gridstrokestudio@gmail.com"
+              class="hover:text-[#BEF24D] transition-colors">gridstrokestudio@gmail.com</a>
             <a href="https://wa.me/919111455566" class="hover:text-[#BEF24D] transition-colors">+91 91114 55566</a>
           </div>
           <ul class="sm-socials-list" role="list">
             <li class="sm-socials-item">
-              <a href="https://instagram.com/gridstroke.studio" target="_blank" rel="noopener noreferrer" class="sm-socials-link">Instagram</a>
+              <a href="https://instagram.com/gridstroke.studio" target="_blank" rel="noopener noreferrer"
+                class="sm-socials-link">Instagram</a>
             </li>
             <li class="text-white/20">&bull;</li>
             <li class="sm-socials-item">
-              <a href="https://linkedin.com/company/gridstroke-studio" target="_blank" rel="noopener noreferrer" class="sm-socials-link">LinkedIn</a>
+              <a href="https://linkedin.com/company/gridstroke-studio" target="_blank" rel="noopener noreferrer"
+                class="sm-socials-link">LinkedIn</a>
             </li>
             <li class="text-white/20">&bull;</li>
             <li class="sm-socials-item">
-              <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer" class="sm-socials-link">WhatsApp</a>
+              <a href="https://wa.me/919111455566" target="_blank" rel="noopener noreferrer"
+                class="sm-socials-link">WhatsApp</a>
             </li>
           </ul>
         </div>
@@ -357,158 +413,79 @@
     </aside>
 
     <!-- Click-Away Overlay -->
-    <div id="sm-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[85] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="sm-backdrop"
+      class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[85] opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
 
   </div>
 
   <!-- ==========================================================================
-       SECTION 00: HERO (High-Fashion Editorial Atelier with Founders Portrait)
-       Left Column: Status Pill, Official Stylized Logo, Editorial Slogan & Interactive Disciplines
-       Right Column: Framed Editorial Founders Portrait with Atmospheric Lighting & Luxury Vignette
+       SECTION 00: HERO (Minimal Designer Look matching Brog Framer Architecture)
+       Left Half: Discipline Lines Stack + Business Growth Statement
+       Right Half: Official Grid Stroke Brand Logo
        ========================================================================== -->
-  <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 pb-16 lg:pb-24 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden bg-[#120115]">
+  <section id="hero"
+    class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-24 sm:pt-32 md:pt-36 pb-12 lg:pb-24 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden bg-[#120115]">
 
-    <!-- Background Subtle Matrix Grid Pattern (Tactile 'Grid' Aesthetic) -->
-    <div class="absolute inset-0 bg-hero-grid opacity-40 pointer-events-none -z-10" aria-hidden="true"></div>
+    <!-- Screen-reader accessible SEO H1 (Maintains exactly 2 H1s across document) -->
+    <h1 class="sr-only">GRID STROKE STUDIO &mdash; Gen Z Branding, 3D Visuals &amp; Motion Direction</h1>
 
-    <!-- Giant Ambient Brand Watermark Across Canvas -->
-    <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-[700px] lg:w-[900px] opacity-[0.035] pointer-events-none select-none -z-10" aria-hidden="true">
-      <img src="./content/hero/logo-watermark-white.png" alt="" class="w-full h-auto">
-    </div>
+    <!-- Ambient Subtle Background Glow (No Background Images) -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/5 rounded-full blur-[140px] pointer-events-none z-10"
+      aria-hidden="true"></div>
+    <div
+      class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-[140px] pointer-events-none z-10"
+      aria-hidden="true"></div>
 
-    <!-- Ambient Subtle Glow Halos -->
-    <div class="absolute -top-32 -left-32 w-[32rem] h-[32rem] bg-[#BEF24D]/8 rounded-full blur-[160px] pointer-events-none z-0" aria-hidden="true"></div>
-    <div class="absolute -bottom-32 -right-32 w-[36rem] h-[36rem] bg-[#7C3AED]/12 rounded-full blur-[180px] pointer-events-none z-0" aria-hidden="true"></div>
+    <!-- Hero Main Grid (Full-Width Brog 2-Column Balanced Architecture) -->
+    <div
+      class="w-full max-w-[1720px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 xl:gap-20 items-center my-auto z-10">
 
-    <!-- Hero Main Grid (Balanced Editorial 2-Column Architecture) -->
-    <div class="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center my-auto z-10">
-      
-      <!-- Left Column: Official Logo, Editorial Typography, Slogan & Disciplines (Span 7) -->
-      <div class="lg:col-span-7 hero-col-left flex flex-col justify-between space-y-8 sm:space-y-10">
-        
-        <!-- Availability / Location Status Badge -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-white/80 w-fit backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-[#BEF24D] animate-pulse"></span>
-          <span>Available for Q1 / Q2 Projects &bull; Indore &amp; Global</span>
+      <!-- Left Half: Discipline Lines Stack + Statement Paragraph -->
+      <div class="hero-col-left relative z-20 flex flex-col justify-between space-y-6 sm:space-y-10 lg:space-y-12">
+        <!-- Disciplines List Stack (Hover neon highlight matching Brog) -->
+        <div
+          class="space-y-2.5 sm:space-y-4 font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.25rem] text-white uppercase tracking-tight leading-none select-none">
+          <div class="hero-discipline-item">BRANDING</div>
+          <div class="hero-discipline-item">DESIGN &amp; CREATIVES</div>
+          <div class="hero-discipline-item">3D CGI &amp; ARCHVIZ</div>
+          <div class="hero-discipline-item">MOTION DIRECTION</div>
+          <div class="hero-discipline-item">SOCIAL MARKETING</div>
         </div>
 
-        <!-- Official Stylized Grid Stroke Brand Logo Display -->
-        <div>
-          <h1 class="hero-brand-heading">
-            <span class="sr-only">GRID STROKE STUDIO &mdash; We Make Brands Look Expensive</span>
-            <img src="./content/hero/logo-watermark-lime.png" alt="GRID STROKE STUDIO" class="w-full max-w-[380px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[580px] h-auto object-contain filter drop-shadow-[0_4px_35px_rgba(190,242,77,0.3)] select-none">
-          </h1>
-        </div>
-
-        <!-- Editorial Luxury Slogan: Bold Sans + Italiana Italic Serif Accent -->
-        <div class="space-y-3">
-          <p class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] text-white/95 font-semibold tracking-tight leading-[1.15]">
-            We don't just design. We make brands look <span class="font-editorial italic font-normal text-[#BEF24D] text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem]">expensive.</span>
-          </p>
-          <p class="font-body text-sm sm:text-base md:text-lg text-white/70 max-w-xl font-normal leading-relaxed">
-            A Gen Z creative studio in Indore, India crafting high-impact branding, 3D CGI visuals, viral motion reels, and luxury digital design built for conversion.
+        <!-- Studio Purpose & Vision Subheading -->
+        <div class="max-w-md xl:max-w-lg pt-2 sm:pt-6">
+          <p
+            class="font-subheading text-base sm:text-lg md:text-xl text-white/80 font-normal leading-relaxed tracking-wide">
+            We engineer bold visual identities, cinematic 3D worlds, and scroll-stopping digital content that make
+            ambitious brands impossible to ignore.
           </p>
         </div>
-
-        <!-- Interactive Disciplines Stack with Clean Kinetic Hover -->
-        <div class="space-y-1.5 pt-2 font-heading font-bold text-base sm:text-lg md:text-xl lg:text-[1.35rem] text-white/85 uppercase tracking-tight select-none">
-          <a href="#branding" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">01</span>
-              <span>BRANDING &amp; VISUAL IDENTITY</span>
-            </span>
-            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
-          </a>
-
-          <a href="#ecommerce" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">02</span>
-              <span>SOCIAL CREATIVES &amp; AMAZON A+</span>
-            </span>
-            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
-          </a>
-
-          <a href="#three-d" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">03</span>
-              <span>3D PRODUCT CGI &amp; ARCHVIZ</span>
-            </span>
-            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
-          </a>
-
-          <a href="#motion" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">04</span>
-              <span>MOTION DIRECTION &amp; REELS</span>
-            </span>
-            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
-          </a>
-
-          <a href="#invitations" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
-            <span class="flex items-center gap-3">
-              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">05</span>
-              <span>CEREMONIAL ATELIER</span>
-            </span>
-            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
-          </a>
-        </div>
-
       </div>
 
-      <!-- Right Column: Framed Editorial Founders Portrait & Depth Accents (Span 5) -->
-      <div class="lg:col-span-5 hero-col-right w-full flex flex-col items-center lg:items-end justify-center relative pt-6 lg:pt-0">
-        
-        <div class="relative w-full max-w-[460px] lg:max-w-[480px]">
-          
-          <!-- Backlit Halo behind portrait -->
-          <div class="absolute inset-0 bg-[#BEF24D]/12 rounded-[2.25rem] blur-2xl -z-10 scale-95"></div>
+      <!-- Right Half: Official Grid Stroke Brand Logo surrounded by Infinite 3D Spiral -->
+      <div
+        class="hero-col-right relative w-full h-[360px] sm:h-[460px] md:h-[580px] lg:h-[780px] xl:h-[840px] flex items-center justify-center overflow-hidden md:overflow-visible my-auto">
 
-          <!-- Editorial Card Container -->
-          <div class="relative rounded-[2rem] overflow-hidden border border-white/15 bg-[#140118] shadow-[0_30px_90px_rgba(0,0,0,0.85)] group">
-            
-            <img src="./content/hero/founders-hero.jpg" alt="Grid Stroke Creative Direction Team" class="w-full h-auto object-cover max-h-[520px] lg:max-h-[580px] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700">
+        <!-- Infinite Spiral 3D Viewport surrounding the logo (Bottom to Navbar) -->
+        <div id="infinite-spiral-root"
+          class="relative isolate h-full w-full overflow-visible flex items-center justify-center select-none"
+          style="perspective: 1000px; cursor: grab; touch-action: pan-y;"
+          aria-label="Grid Stroke Infinite Portfolio Spiral">
+          <div id="infinite-spiral-track"
+            class="absolute inset-0 w-full h-full [transform-style:preserve-3d] flex items-center justify-center pointer-events-none"
+            role="list" aria-label="Infinite spiral gallery">
 
-            <!-- Bottom Vignette Gradient seamlessly blending into hero base -->
-            <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#120115] via-[#120115]/75 to-transparent pointer-events-none"></div>
-
-            <!-- Top Floating Studio Badge -->
-            <div class="absolute top-4 right-4 px-3.5 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-white/90">
-              STUDIO ATELIER &bull; INDORE
+            <!-- Central Grid Stroke Brand Logo (Z-Index 50000 so cards orbit in front & behind) -->
+            <div id="spiral-center-logo-wrap"
+              class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[50000] w-full max-w-[260px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[700px] xl:max-w-[780px] 2xl:max-w-[860px] pointer-events-none select-none [transform-style:preserve-3d]"
+              style="transform: translate(-50%, -50%) translate3d(0, 0, 0); z-index: 50000;">
+              <img id="hero-brand-logo" src="./content/logos/gridstroke-brand-logo.png" alt="Grid Stroke Studio"
+                class="w-full h-auto object-contain filter drop-shadow-[0_0_35px_rgba(190,242,77,0.6)] drop-shadow-[0_20px_60px_rgba(190,242,77,0.4)] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] pointer-events-auto transition-transform duration-500 hover:scale-[1.03]">
             </div>
 
-            <!-- Bottom Overlay Meta -->
-            <div class="absolute bottom-5 left-5 right-5 space-y-1.5">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-[#BEF24D] uppercase tracking-wider font-bold">// CREATIVE DIRECTION</span>
-                <span class="font-mono text-[10px] text-white/50 uppercase">EST. 2024</span>
-              </div>
-              <p class="font-heading text-lg sm:text-xl text-white font-bold tracking-tight">
-                Crafting High-Conversion Visuals
-              </p>
-              <p class="font-mono text-[11px] text-white/70 line-clamp-2">
-                Bold visual identities, 3D CGI architecture, and dynamic video campaigns tailored for modern brands.
-              </p>
-            </div>
-
+            <!-- Spiral Cards injected dynamically via initHeroInfiniteSpiral() -->
           </div>
-
-          <!-- Floating Depth Card 01: Experience & Deliverables -->
-          <div class="hidden sm:flex absolute -bottom-5 -left-6 p-3.5 rounded-2xl bg-[#1c0320]/90 border border-[#BEF24D]/35 backdrop-blur-xl shadow-2xl items-center gap-3.5 z-20 hover:scale-105 transition-transform">
-            <div class="w-9 h-9 rounded-xl bg-[#BEF24D] flex items-center justify-center text-[#120115] font-black text-sm">
-              GS
-            </div>
-            <div>
-              <div class="font-heading text-base font-bold text-white tracking-tight leading-none">50+ Campaigns</div>
-              <div class="font-mono text-[10px] text-white/60 mt-1 uppercase">100% Custom Art Direction</div>
-            </div>
-          </div>
-
-          <!-- Floating Depth Card 02: Studio Badge -->
-          <div class="hidden sm:flex absolute -top-5 -left-6 px-3.5 py-2 rounded-xl bg-[#120115]/90 border border-white/15 backdrop-blur-xl shadow-xl items-center gap-2 z-20">
-            <span class="w-2 h-2 rounded-full bg-[#BEF24D]"></span>
-            <span class="font-mono text-[11px] text-white font-medium">Bespoke Production</span>
-          </div>
-
         </div>
 
       </div>
@@ -517,391 +494,191 @@
 
   </section>
 
-  <!-- Studio Tool Deck & Cerebrium Brand Rail Threshold -->
-  <div class="w-full bg-[#120115] border-y border-white/10 py-8 px-4 md:px-8">
-    <div class="max-w-7xl mx-auto space-y-6">
-      
-      <!-- Studio Creative Tools Deck -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <span class="font-mono text-xs uppercase tracking-widest text-white/40">
-          CREATIVE STACK &bull; CORE DISCIPLINES
-        </span>
-        <span class="font-mono text-[11px] text-[#BEF24D]">
-          EXPLORE SERVICES &darr;
-        </span>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-        <a href="#branding" class="hero-tool-pill group">
-          <img src="./content/badges/ai.png" alt="Illustrator" class="w-8 h-8 object-contain group-hover:scale-115 transition-transform">
-          <div>
-            <span class="block text-white font-bold text-xs tracking-wide">01 / BRANDING</span>
-            <span class="text-[10px] text-white/50 font-mono">Illustrator &bull; Systems</span>
-          </div>
-        </a>
-        <a href="#ecommerce" class="hero-tool-pill group">
-          <img src="./content/badges/ps.png" alt="Photoshop" class="w-8 h-8 object-contain group-hover:scale-115 transition-transform">
-          <div>
-            <span class="block text-white font-bold text-xs tracking-wide">02 / DESIGN</span>
-            <span class="text-[10px] text-white/50 font-mono">Photoshop &bull; Creatives</span>
-          </div>
-        </a>
-        <a href="#social-mgmt" class="hero-tool-pill group">
-          <img src="./content/badges/pr.png" alt="Premiere Pro" class="w-8 h-8 object-contain group-hover:scale-115 transition-transform">
-          <div>
-            <span class="block text-white font-bold text-xs tracking-wide">03 / REELS</span>
-            <span class="text-[10px] text-white/50 font-mono">Premiere &bull; Video</span>
-          </div>
-        </a>
-        <a href="#motion" class="hero-tool-pill group">
-          <img src="./content/badges/ae.png" alt="After Effects" class="w-8 h-8 object-contain group-hover:scale-115 transition-transform">
-          <div>
-            <span class="block text-white font-bold text-xs tracking-wide">04 / MOTION</span>
-            <span class="text-[10px] text-white/50 font-mono">After Effects &bull; 3D</span>
-          </div>
-        </a>
-        <a href="#invitations" class="hero-tool-pill group">
-          <img src="./content/badges/cd.png" alt="Corel Draw" class="w-8 h-8 object-contain group-hover:scale-115 transition-transform">
-          <div>
-            <span class="block text-white font-bold text-xs tracking-wide">05 / ATELIER</span>
-            <span class="text-[10px] text-white/50 font-mono">Corel Draw &bull; Invites</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Cerebrium-Style Brand Rail -->
-      <div class="pt-6 border-t border-white/10">
-        <div class="text-center font-mono text-[11px] text-white/40 uppercase tracking-widest mb-3">
-          TRUSTED BY GROWING BRANDS ACROSS INDIA
-        </div>
-        <div class="cerebrium-brand-rail">
-          <div class="brand-rail-track">
-            <!-- Marquee Badges Set 1 -->
-            <div class="brand-badge-card"><img src="./content/logos/avi.png" alt="Avi Organics"></div>
-            <div class="brand-badge-card"><img src="./content/logos/crown.png" alt="Crown Residences"></div>
-            <div class="brand-badge-card"><img src="./content/logos/eemos.png" alt="Eemos Technology"></div>
-            <div class="brand-badge-card"><img src="./content/logos/fusion.png" alt="Fusion Paints"></div>
-            <div class="brand-badge-card"><img src="./content/logos/global-digital.png" alt="Global Digital Alliance"></div>
-            <div class="brand-badge-card"><img src="./content/logos/havintha.png" alt="Havintha"></div>
-            <div class="brand-badge-card"><img src="./content/logos/jadibuti.png" alt="Jadibuti Pro"></div>
-            <div class="brand-badge-card"><img src="./content/logos/lotus.png" alt="Lotus Healthcare"></div>
-
-            <!-- Marquee Badges Duplicate Set 2 for Infinite Seamless Loop -->
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/avi.png" alt="Avi Organics"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/crown.png" alt="Crown Residences"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/eemos.png" alt="Eemos Technology"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/fusion.png" alt="Fusion Paints"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/global-digital.png" alt="Global Digital Alliance"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/havintha.png" alt="Havintha"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/jadibuti.png" alt="Jadibuti Pro"></div>
-            <div class="brand-badge-card" aria-hidden="true"><img src="./content/logos/lotus.png" alt="Lotus Healthcare"></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- ==========================================================================
-       SECTION: ABOUT & PERFORMANCE METRICS (Brog-Style Agency Overview)
+       SECTION 01: OUR CREATIVE COMMITMENT
+       Restrained Editorial Portrait • Custom Grid Stroke Copy • Enlarged Production Suite • Bold Logo Rail
        ========================================================================== -->
-  <section id="about" class="sticky-stage-section brog-section bg-[#160219]">
-    <div class="max-w-7xl mx-auto w-full space-y-12">
-      
-      <!-- Top Manifesto Header -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal-init">
-        <div class="lg:col-span-4">
-          <span class="brog-tag brog-tag-lime">00 // ABOUT GRID STROKE</span>
-          <h3 class="font-heading text-2xl sm:text-3xl text-white uppercase mt-4 tracking-tight">
-            Creative Direction Built for Growth
-          </h3>
+  <section id="about"
+    class="sticky-stage-section min-h-screen pt-24 sm:pt-32 lg:pt-36 pb-16 sm:pb-24 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 2xl:px-24 bg-[#0d1915] bg-[radial-gradient(ellipse_at_top_right,#1d3829_0%,#0d1915_55%,#070f0c_100%)] border-t border-b border-[#BEF24D]/15 text-white relative flex flex-col justify-between overflow-hidden">
+
+    <div class="w-full max-w-[1720px] mx-auto my-auto space-y-12 sm:space-y-14 lg:space-y-20">
+
+      <!-- Top 2-Column Commitment Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-18 items-center">
+
+        <!-- Left Column: Editorial Founders Portrait Photograph -->
+        <div class="lg:col-span-4 flex justify-center lg:justify-start">
+          <div
+            class="rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/5] max-w-[280px] sm:max-w-[340px] xl:max-w-[380px] w-full shadow-2xl border border-[#BEF24D]/25 bg-[#0a1410] group">
+            <img src="./content/hero/founders-hero.jpg" alt="Grid Stroke Studio Founders"
+              class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+          </div>
         </div>
-        <div class="lg:col-span-8 space-y-4">
-          <p class="font-heading text-3xl sm:text-4xl md:text-5xl text-white tracking-tight uppercase leading-[1.05]">
-            "WE DON'T JUST DESIGN. WE MAKE BRANDS LOOK EXPENSIVE."
+
+        <!-- Right Column: Custom Heading, Studio Statement & Enlarged Production Suite -->
+        <div class="lg:col-span-8 space-y-6 sm:space-y-8">
+
+          <!-- Giant Custom Bold Heading (Tailored to Grid Stroke) -->
+          <h2
+            class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] text-white leading-[1.06] tracking-tight uppercase">
+            We make brands<br>
+            look expensive with<br>
+            high-impact visuals &amp;<br>
+            bold creative direction
+          </h2>
+
+          <!-- Descriptive Studio Subtitle -->
+          <p class="font-body text-base sm:text-lg md:text-xl text-white/75 font-normal leading-relaxed max-w-2xl">
+            From high-conversion ad creatives and kinetic 3D CGI to luxury brand identities and viral commercial reels
+            &mdash; we engineer visual systems that turn heads, command attention, and drive exponential growth.
           </p>
-          <p class="text-white/70 text-base sm:text-lg font-light leading-relaxed max-w-3xl">
-            Grid Stroke Studio is a Gen Z-driven creative studio in Indore, India specializing in bold branding, high-quality visuals, and scroll-stopping content. Founded by creators with over 2 years of individual experience, we turn ideas into impactful visual stories.
-          </p>
+
+          <!-- Production Suite (Clean, Minimal & Unboxed Icons) -->
+          <div class="pt-6 border-t border-white/10 space-y-3">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#BEF24D]/80 font-bold block">
+              PRODUCTION SUITE &bull; CORE WORKFLOW
+            </span>
+            <div class="flex items-center gap-4 sm:gap-6 md:gap-8 flex-wrap pt-1">
+              <img src="./content/badges/ai.png" alt="Adobe Illustrator" title="Adobe Illustrator"
+                class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform duration-300 drop-shadow-sm cursor-pointer">
+              <img src="./content/badges/ps.png" alt="Adobe Photoshop" title="Adobe Photoshop"
+                class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform duration-300 drop-shadow-sm cursor-pointer">
+              <img src="./content/badges/pr.png" alt="Adobe Premiere Pro" title="Adobe Premiere Pro"
+                class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform duration-300 drop-shadow-sm cursor-pointer">
+              <img src="./content/badges/ae.png" alt="Adobe After Effects" title="Adobe After Effects"
+                class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform duration-300 drop-shadow-sm cursor-pointer">
+              <img src="./content/badges/cd.png" alt="Corel Draw" title="Corel Draw"
+                class="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain hover:scale-110 transition-transform duration-300 drop-shadow-sm cursor-pointer">
+            </div>
+          </div>
+
         </div>
+
       </div>
 
-      <!-- 4 Brog-Style Metric Stat Cards -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 reveal-init delay-100">
-        <div class="brog-stat-box">
-          <span class="font-mono text-xs text-white/40 uppercase tracking-widest">EXPERIENCE</span>
-          <div class="my-4">
-            <span class="font-heading text-5xl sm:text-6xl text-[#BEF24D] tracking-tight">02+</span>
-            <span class="text-xs text-white/60 block font-mono mt-1">Years Individual Exp</span>
-          </div>
-          <span class="text-[11px] font-mono text-white/40">Gen Z Creative Studio</span>
-        </div>
+      <!-- Bottom Logo Rail (Large, Bold & Clearly Visible) -->
+      <div class="w-full pt-10 sm:pt-14 border-t border-white/10">
+        <div class="brog-logo-rail">
+          <div class="brog-logo-track">
+            <!-- Set 1 -->
+            <div class="brog-logo-item"><img src="./content/logos/avi.png" alt="Avi Organics"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/crown.png" alt="Crown Residences"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/eemos.png" alt="Eemos Technology"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/fusion.png" alt="Fusion Paints"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/global-digital.png" alt="Global Digital Alliance"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/havintha.png" alt="Havintha"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/jadibuti.png" alt="Jadibuti Pro"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item"><img src="./content/logos/lotus.png" alt="Lotus Healthcare"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
 
-        <div class="brog-stat-box">
-          <span class="font-mono text-xs text-white/40 uppercase tracking-widest">ASSETS DELIVERED</span>
-          <div class="my-4">
-            <span class="font-heading text-5xl sm:text-6xl text-white tracking-tight">50+</span>
-            <span class="text-xs text-white/60 block font-mono mt-1">Campaigns &amp; Visuals</span>
+            <!-- Set 2 for seamless infinite marquee loop -->
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/avi.png" alt="Avi Organics"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/crown.png" alt="Crown Residences"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/eemos.png" alt="Eemos Technology"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/fusion.png" alt="Fusion Paints"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/global-digital.png"
+                alt="Global Digital Alliance"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/havintha.png" alt="Havintha"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/jadibuti.png" alt="Jadibuti Pro"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
+            <div class="brog-logo-item" aria-hidden="true"><img src="./content/logos/lotus.png" alt="Lotus Healthcare"
+                class="h-20 sm:h-24 md:h-28 w-auto max-w-[260px] sm:max-w-[300px] object-contain"></div>
           </div>
-          <span class="text-[11px] font-mono text-white/40">From Branding to Reels</span>
-        </div>
-
-        <div class="brog-stat-box">
-          <span class="font-mono text-xs text-white/40 uppercase tracking-widest">DISCIPLINES</span>
-          <div class="my-4">
-            <span class="font-heading text-5xl sm:text-6xl text-[#BEF24D] tracking-tight">06</span>
-            <span class="text-xs text-white/60 block font-mono mt-1">Core Production Wings</span>
-          </div>
-          <span class="text-[11px] font-mono text-white/40">End-to-End Creative</span>
-        </div>
-
-        <div class="brog-stat-box">
-          <span class="font-mono text-xs text-white/40 uppercase tracking-widest">CLIENT FOCUS</span>
-          <div class="my-4">
-            <span class="font-heading text-5xl sm:text-6xl text-white tracking-tight">100%</span>
-            <span class="text-xs text-white/60 block font-mono mt-1">Custom Art Direction</span>
-          </div>
-          <span class="text-[11px] font-mono text-white/40">Zero Generic AI Templates</span>
         </div>
       </div>
 
     </div>
+
   </section>
 
   <!-- ==========================================================================
-       SECTION 01: BRANDING (Meura Asymmetrical High-Fashion Editorial)
+       SECTION 02: LATEST WORKS (Curated Sequential Projects Showcase)
+       PROJECT 01: MEURA HAUTE COUTURE
        ========================================================================== -->
-  <section id="branding" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#240408] border-t border-[#AE907A]/20 relative">
-    <div class="max-w-7xl mx-auto w-full">
-      
-      <!-- Brog Section Header: (02) PROJECTS / Latest Works -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8 mb-12 reveal-init">
+  <section id="branding"
+    class="sticky-stage-section min-h-screen pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#160105] text-white relative">
+    <div class="max-w-[1720px] mx-auto w-full space-y-12 sm:space-y-16 lg:space-y-20">
+
+      <!-- Works Section Header -->
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8 reveal-init">
         <div>
-          <span class="brog-tag brog-tag-lime">(02) PROJECTS</span>
-          <h2 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold text-white uppercase tracking-tight mt-3">
+          <h2
+            class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white uppercase tracking-tight">
             Latest Works
           </h2>
         </div>
-        <p class="font-mono text-xs text-white/60 max-w-md">
-          We craft digital products that speak for themselves &mdash; simple, fast, and user-focused. Here’s a look at how we turn challenges into seamless design solutions.
+        <p class="font-subheading text-base sm:text-lg text-white/70 max-w-xl font-normal leading-relaxed">
+          A sequential showcase of our in-house creative work — spanning tactile luxury branding, Amazon A+ e-commerce,
+          photorealistic 3D CGI, ceremonial royal invitations, dynamic commercial reels, and high-converting social
+          campaigns.
         </p>
       </div>
 
-      <!-- Brog Signature 2-Column Works Showcase Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 reveal-init">
-        
-        <!-- Brog Card 1: Meura Haute Couture -->
-        <a href="#meura-case" class="brog-card group cursor-pointer block">
-          <div class="brog-card-media aspect-[16/10] rounded-2xl overflow-hidden relative">
-            <img src="./content/branding/meura-1.png" alt="Meura Haute Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-            <div class="absolute top-4 left-4">
-              <span class="brog-tag brog-tag-lime">01 / BRAND IDENTITY</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-xs border border-white/10">2024</span>
-            </div>
-          </div>
-          <div class="p-6 flex items-center justify-between">
-            <div>
-              <span class="font-mono text-xs text-[#AE907A] uppercase tracking-wider block mb-1">HAUTE COUTURE IDENTITY SYSTEM</span>
-              <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold tracking-tight group-hover:text-[#BEF24D] transition-colors">
-                Meura Apparel
-              </h3>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white group-hover:bg-[#BEF24D] group-hover:text-[#19031c] group-hover:border-[#BEF24D] transition-all shrink-0 ml-4">
-              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-        </a>
+      <!-- Project 01: MEURA -->
+      <div id="meura-case" class="meura-editorial-container pt-4">
 
-        <!-- Brog Card 2: Sun Drunk Beach Towels -->
-        <a href="#ecommerce" class="brog-card group cursor-pointer block">
-          <div class="brog-card-media aspect-[16/10] rounded-2xl overflow-hidden relative">
-            <img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Beach Towels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
-            <div class="absolute top-4 left-4">
-              <span class="brog-tag brog-tag-lime">02 / E-COMMERCE D2C</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-xs border border-white/10">2024</span>
-            </div>
-          </div>
-          <div class="p-6 flex items-center justify-between">
-            <div>
-              <span class="font-mono text-xs text-[#2BA3C9] uppercase tracking-wider block mb-1">AMAZON A+ &amp; CABANA BRANDING</span>
-              <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold tracking-tight group-hover:text-[#BEF24D] transition-colors">
-                Sun Drunk
-              </h3>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white group-hover:bg-[#BEF24D] group-hover:text-[#19031c] group-hover:border-[#BEF24D] transition-all shrink-0 ml-4">
-              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-        </a>
-
-        <!-- Brog Card 3: Klickpin Architectural Studio -->
-        <a href="#three-d" class="brog-card group cursor-pointer block">
-          <div class="brog-card-media aspect-[16/10] rounded-2xl overflow-hidden relative">
-            <video src="./content/3d/klickpin-walkthrough.mp4" loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" data-hover-preview></video>
-            <div class="absolute top-4 left-4">
-              <span class="brog-tag brog-tag-lime">03 / 3D ARCHVIZ</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-xs border border-white/10">2024</span>
-            </div>
-          </div>
-          <div class="p-6 flex items-center justify-between">
-            <div>
-              <span class="font-mono text-xs text-white/50 uppercase tracking-wider block mb-1">PHOTOREALISTIC SPATIAL CGI</span>
-              <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold tracking-tight group-hover:text-[#BEF24D] transition-colors">
-                Klickpin Studio
-              </h3>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white group-hover:bg-[#BEF24D] group-hover:text-[#19031c] group-hover:border-[#BEF24D] transition-all shrink-0 ml-4">
-              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-        </a>
-
-        <!-- Brog Card 4: Royal Heritage Wedding Invitations -->
-        <a href="#invitations" class="brog-card group cursor-pointer block">
-          <div class="brog-card-media aspect-[16/10] rounded-2xl overflow-hidden relative">
-            <video src="./content/invitations/wedding-1.mp4" loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" data-hover-preview></video>
-            <div class="absolute top-4 left-4">
-              <span class="brog-tag brog-tag-lime">04 / LUXURY ATELIER</span>
-            </div>
-            <div class="absolute top-4 right-4">
-              <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-xs border border-white/10">2024</span>
-            </div>
-          </div>
-          <div class="p-6 flex items-center justify-between">
-            <div>
-              <span class="font-mono text-xs text-[#E8C9B5] uppercase tracking-wider block mb-1">REGAL MOTION VIDEO INVITATIONS</span>
-              <h3 class="font-heading text-2xl sm:text-3xl text-white font-bold tracking-tight group-hover:text-[#BEF24D] transition-colors">
-                Royal Indian Weddings
-              </h3>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white group-hover:bg-[#BEF24D] group-hover:text-[#19031c] group-hover:border-[#BEF24D] transition-all shrink-0 ml-4">
-              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-        </a>
-
-      </div>
-
-      <div id="meura-case" class="meura-editorial-container">
-        
-        <!-- Left Column: Sticky Editorial Storytelling -->
-        <div class="meura-sticky-col space-y-8 reveal-init">
-          <div class="space-y-3">
-            <span class="text-xs font-mono text-[#AE907A] uppercase tracking-widest block">CASE 01 // BRAND IDENTITY SYSTEM</span>
-            <h2 class="font-luxury text-6xl sm:text-8xl text-[#F8F5F0] tracking-wider uppercase font-light leading-none">
-              M E U R A
-            </h2>
-            <p class="font-mono text-xs text-[#DED0BD] uppercase tracking-widest">
-              HAUTE COUTURE &bull; TIMELESS SILHOUETTES &bull; 2024
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-[#190204] border border-[#AE907A]/30 space-y-4">
-            <p class="font-luxury text-2xl sm:text-3xl text-[#DED0BD] italic font-light leading-snug">
-              "We don't just design. We make brands look expensive."
-            </p>
-            <p class="text-xs font-mono text-[#AE907A] leading-relaxed">
-              Tactile luxury identity spanning maroon (#5B0911), taupe (#AE907A), and sand (#DED0BD) palettes with Lamora display typography and high-density embossed apparel collateral.
-            </p>
-          </div>
-
-          <!-- Color Swatches with Live Hex Text -->
+        <!-- Left Half: Sticky Brand Column (Title on one single line + Uploaded Meura Logo) -->
+        <div class="meura-sticky-col space-y-6 sm:space-y-8 reveal-init">
           <div class="space-y-2">
-            <span class="text-xs font-mono text-[#AE907A] uppercase tracking-widest block">COLOR SYSTEM</span>
-            <div class="grid grid-cols-3 gap-3">
-              <div class="rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                <div class="h-16 bg-[#5B0911]"></div>
-                <div class="p-2 bg-[#140204] text-[10px] font-mono text-center">
-                  <span class="block font-bold text-white">Maroon</span>
-                  <span class="text-[#AE907A]">#5B0911</span>
-                </div>
-              </div>
-              <div class="rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                <div class="h-16 bg-[#AE907A]"></div>
-                <div class="p-2 bg-[#140204] text-[10px] font-mono text-center">
-                  <span class="block font-bold text-white">Taupe</span>
-                  <span class="text-[#AE907A]">#AE907A</span>
-                </div>
-              </div>
-              <div class="rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                <div class="h-16 bg-[#DED0BD]"></div>
-                <div class="p-2 bg-[#140204] text-[10px] font-mono text-center">
-                  <span class="block font-bold text-[#140204]">Sand</span>
-                  <span class="text-[#AE907A]">#DED0BD</span>
-                </div>
-              </div>
-            </div>
+            <h3
+              class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
+              MEURA
+            </h3>
           </div>
 
-          <!-- Smaller Case Below: Lotus Healthcare -->
-          <div class="p-5 rounded-2xl bg-[#021832] border border-[#26BFBF]/30 space-y-2">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono text-[#26BFBF] bg-[#03366E] px-2 py-0.5 rounded">CASE 02 &bull; HEALTHCARE</span>
-              <span class="text-xs font-mono text-[#96E2E2]">NAVY #03366E &bull; TEAL #26BFBF</span>
-            </div>
-            <h4 class="font-heading text-xl text-white">LOTUS HOSPITAL EXECUTIVE IDENTITY</h4>
-            <p class="text-xs text-[#96E2E2] font-light">
-              Luxe, quiet, and tactile medical corporate identity and prescription collateral.
-            </p>
+          <!-- Meura Logo on the Left Half of the Page -->
+          <div class="w-full max-w-[280px] sm:max-w-[340px] md:max-w-[360px]">
+            <img src="./content/branding/meura-logo.png" alt="Meura Brand Logo"
+              class="w-full h-auto object-contain rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] border border-[#AE907A]/20">
           </div>
         </div>
 
-        <!-- Right Column: Asymmetrical Cascading Artwork Collage -->
-        <div class="space-y-8">
-          
-          <!-- Hero Card: Architecture (meura-1.png) -->
-          <div class="meura-collage-card reveal-init delay-100 cursor-pointer">
-            <div class="reveal-img-wrap aspect-[16/10]">
-              <img src="./content/branding/meura-1.png" alt="Meura Brand Architecture" class="w-full h-full object-cover" data-lightbox data-src="./content/branding/meura-1.png" data-title="Meura &bull; Primary Identity Architecture" data-caption="Wordmark architecture, clear-space specifications, and primary monogram seal.">
+        <!-- Right Hand Side: Content Visuals (Clean, Compact, Not Bulky) -->
+        <div class="space-y-6 sm:space-y-8 reveal-init delay-100">
+          <!-- Primary Architecture Sheet (meura-1.png) -->
+          <div class="rounded-2xl overflow-hidden cursor-pointer group bg-black/40 shadow-xl">
+            <img src="./content/branding/meura-1.png" alt="Meura Brand Architecture"
+              class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              data-lightbox data-src="./content/branding/meura-1.png"
+              data-title="Meura &bull; Primary Identity Architecture">
+          </div>
+
+          <!-- Staggered 2-Column Split: Packaging & Apparel -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            <div class="rounded-2xl overflow-hidden cursor-pointer group bg-black/40 shadow-xl aspect-square">
+              <img src="./content/branding/meura-3.png" alt="Meura Tactile Packaging"
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                data-lightbox data-src="./content/branding/meura-3.png"
+                data-title="Meura &bull; Tactile Packaging Suite">
             </div>
-            <div class="p-4 bg-[#140204] flex items-center justify-between text-xs font-mono text-[#DED0BD] border-t border-[#AE907A]/20">
-              <span class="font-bold text-white">01 &bull; BRAND ARCHITECTURE &amp; CLEAR SPACE</span>
-              <span class="text-[#AE907A]">CMYK / 300 DPI</span>
+            <div class="rounded-2xl overflow-hidden cursor-pointer group bg-black/40 shadow-xl aspect-square">
+              <img src="./content/branding/meura-2.png" alt="Meura Embossed Apparel"
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                data-lightbox data-src="./content/branding/meura-2.png"
+                data-title="Meura &bull; Embossed Apparel Collateral">
             </div>
           </div>
 
-          <!-- Staggered Two-Column Split (meura-3.png & meura-2.png) -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Packaging (meura-3.png) -->
-            <div class="meura-collage-card reveal-init delay-200 cursor-pointer">
-              <div class="reveal-img-wrap aspect-square">
-                <img src="./content/branding/meura-3.png" alt="Meura Packaging & Hang Tags" class="w-full h-full object-cover" data-lightbox data-src="./content/branding/meura-3.png" data-title="Meura &bull; Tactile Packaging Suite" data-caption="Foil-stamped hang tags, tissue wrap, matte laminated bags, and wax seal stickers.">
-              </div>
-              <div class="p-4 bg-[#140204] text-xs font-mono text-[#DED0BD] border-t border-[#AE907A]/20">
-                <span class="font-bold text-white block">02 &bull; TACTILE PACKAGING</span>
-                <span class="text-[#AE907A] text-[11px]">Heavy linen hang tags &amp; ribbons</span>
-              </div>
-            </div>
-
-            <!-- Embossed Apparel Tee (meura-2.png) -->
-            <div class="meura-collage-card reveal-init delay-300 cursor-pointer">
-              <div class="reveal-img-wrap aspect-square">
-                <img src="./content/branding/meura-2.png" alt="Meura Embossed Tee Collateral" class="w-full h-full object-cover" data-lightbox data-src="./content/branding/meura-2.png" data-title="Meura &bull; Embossed Apparel Collateral" data-caption="High-density embossed logo on heavy cotton streetwear tee.">
-              </div>
-              <div class="p-4 bg-[#140204] text-xs font-mono text-[#DED0BD] border-t border-[#AE907A]/20">
-                <span class="font-bold text-white block">03 &bull; EMBOSSED APPAREL</span>
-                <span class="text-[#AE907A] text-[11px]">320 GSM French Terry Mockup</span>
-              </div>
-            </div>
+          <!-- Editorial Lookbook (meura-4.png) -->
+          <div class="rounded-2xl overflow-hidden cursor-pointer group bg-black/40 shadow-xl">
+            <img src="./content/branding/meura-4.png" alt="Meura Editorial Lookbook"
+              class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              data-lightbox data-src="./content/branding/meura-4.png" data-title="Meura &bull; Editorial Lookbook">
           </div>
-
-          <!-- Bottom Full-Width Lookbook (meura-4.png) -->
-          <div class="meura-collage-card reveal-init delay-400 cursor-pointer">
-            <div class="reveal-img-wrap aspect-[16/9]">
-              <img src="./content/branding/meura-4.png" alt="Meura Lookbook Editorial" class="w-full h-full object-cover" data-lightbox data-src="./content/branding/meura-4.png" data-title="Meura &bull; Editorial Lookbook" data-caption="Lamora display serif typography and high-fashion editorial grid layout.">
-            </div>
-            <div class="p-4 bg-[#140204] flex items-center justify-between text-xs font-mono text-[#DED0BD] border-t border-[#AE907A]/20">
-              <span class="font-bold text-white">04 &bull; EDITORIAL LOOKBOOK</span>
-              <span class="text-[#AE907A]">LAMORA DISPLAY SERIF</span>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -910,32 +687,243 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 02: E-COMMERCE (Sun Drunk Coastal Blue & Sand Banners)
+       PROJECT 02: SUN DRUNK (Amazon A+ Cabana Beach Towels)
        ========================================================================== -->
-  <section id="ecommerce" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#0b1a36] border-t border-[#2BA3C9]/20 relative">
-    <div class="max-w-6xl mx-auto w-full space-y-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2BA3C9]/30 pb-6 reveal-init">
-        <div>
-          <span class="text-xs font-mono text-[#2BA3C9] uppercase tracking-widest block mb-1">02 // E-COMMERCE &bull; D2C EXPERIENCE</span>
-          <h2 class="font-heading text-4xl sm:text-6xl text-white uppercase">SUN DRUNK BEACH TOWELS</h2>
+  <section id="ecommerce"
+    class="sticky-stage-section min-h-screen pt-16 sm:pt-20 lg:pt-24 pb-0 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#071324] text-white relative overflow-hidden flex flex-col justify-start">
+    <div class="max-w-[1720px] mx-auto w-full relative z-10 pointer-events-none shrink-0">
+      <div class="space-y-3 sm:space-y-4 reveal-init">
+        <h3
+          class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+          SUN DRUNK
+        </h3>
+        <p class="font-subheading text-sm sm:text-base md:text-lg text-[#38BDF8] font-normal leading-relaxed max-w-sm">
+          AMAZON A+ &bull; CABANA BEACH TOWELS
+        </p>
+      </div>
+      <div class="sr-only" aria-hidden="true">
+        <img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+ Hero Banner">
+        <img src="./content/ecommerce/sundrunk-2.jpg" alt="Sun Drunk Sand-Free Feature Strip">
+        <img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Resort Lifestyle Display">
+        <img src="./content/ecommerce/sundrunk-4.jpg" alt="Sun Drunk Fast Drying Micro-Loop">
+        <img src="./content/ecommerce/sundrunk-5.jpg" alt="Sun Drunk D2C Towel Specifications">
+      </div>
+    </div>
+    <div id="sundrunk-flex-carousel"
+      class="relative z-0 w-screen -mx-5 sm:-mx-10 md:-mx-14 lg:-mx-16 xl:-mx-20 flex-1 w-full min-h-[480px] h-full">
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROJECT 03: KLICKPIN 3D (Photorealistic Spatial Architecture CGI)
+       ========================================================================== -->
+  <section id="three-d" class="sticky-stage-section relative bg-black text-white h-[450vh]">
+    <div class="sticky top-0 left-0 h-screen w-full overflow-hidden">
+      <video id="klickpin-scrub-video" src="./content/3d/klickpin-walkthrough.mp4" muted playsinline preload="auto"
+        class="absolute inset-0 w-full h-full object-cover z-0"></video>
+      <!-- Legibility overlays so text stays visible throughout the 3D walkthrough -->
+      <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/80 via-black/35 to-transparent pointer-events-none">
+      </div>
+      <div
+        class="absolute inset-x-0 bottom-0 h-2/3 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none">
+      </div>
+      <div
+        class="relative z-20 h-full w-full flex flex-col justify-end px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 pb-12 sm:pb-20 pointer-events-none">
+        <div class="space-y-3 sm:space-y-4 max-w-[1720px] w-full mx-auto drop-shadow-[0_4px_28px_rgba(0,0,0,0.95)]">
+          <h3
+            class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
+            KLICKPIN 3D</h3>
+          <p class="font-subheading text-sm sm:text-base md:text-lg text-[#FF8A00] font-normal leading-relaxed max-w-sm">
+            PHOTOREALISTIC SPATIAL ARCHITECTURE &bull; OCTANE GPU</p>
+          <div class="pt-2 max-w-xs space-y-2">
+            <div class="h-[3px] w-full bg-white/25 rounded-full overflow-hidden">
+              <div id="klickpin-progress" class="h-full w-0 bg-[#FF8A00]"></div>
+            </div>
+            <span class="text-[11px] font-mono text-white/85 uppercase tracking-widest block">SCROLL TO WALK THROUGH
+              &bull; <span id="klickpin-percent">0</span>%</span>
+          </div>
         </div>
-        <p class="font-mono text-xs text-[#BAE6FD] max-w-sm">
-          Full-bleed Amazon A+ content banners engineered for conversions and sand-free technology.
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROJECT 04: ROYAL WEDDING INVITATIONS (Ceremonial Digital Atelier)
+       ========================================================================== -->
+  <section id="invitations"
+    class="sticky-stage-section h-screen min-h-[640px] sm:min-h-[700px] w-full bg-[#200411] text-white relative overflow-hidden flex items-center justify-center">
+
+    <!-- Full-Section Background Video Grid (Dimmed by default, brightens & plays on hover/touch) -->
+    <div class="absolute inset-0 z-0 grid grid-cols-2 lg:grid-cols-4 w-full h-full">
+      <div
+        class="relative w-full h-full overflow-hidden bg-black video-preview-container cursor-pointer group border-r border-b lg:border-b-0 border-white/15"
+        data-title="Royal Wedding Invitation &bull; Sangeet Suite">
+        <video src="./content/invitations/wedding-1.mp4" loop muted playsinline preload="auto" data-preview-time="1.5"
+          class="w-full h-full object-cover brightness-[0.62] group-hover:brightness-[0.98] group-hover:scale-105 transition-all duration-700"
+          data-hover-preview></video>
+        <div
+          class="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none">
+        </div>
+      </div>
+
+      <div
+        class="relative w-full h-full overflow-hidden bg-black video-preview-container cursor-pointer group border-b lg:border-b-0 lg:border-r border-white/15"
+        data-title="Royal Wedding Invitation &bull; Haldi Ritual Suite">
+        <video src="./content/invitations/wedding-2.mp4" loop muted playsinline preload="auto" data-preview-time="1.5"
+          class="w-full h-full object-cover brightness-[0.62] group-hover:brightness-[0.98] group-hover:scale-105 transition-all duration-700"
+          data-hover-preview></video>
+        <div
+          class="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none">
+        </div>
+      </div>
+
+      <div
+        class="relative w-full h-full overflow-hidden bg-black video-preview-container cursor-pointer group border-r border-white/15"
+        data-title="Royal Wedding Invitation &bull; Sacred Pheras Suite">
+        <video src="./content/invitations/wedding-3.mp4" loop muted playsinline preload="auto" data-preview-time="1.5"
+          class="w-full h-full object-cover brightness-[0.62] group-hover:brightness-[0.98] group-hover:scale-105 transition-all duration-700"
+          data-hover-preview></video>
+        <div
+          class="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none">
+        </div>
+      </div>
+
+      <div class="relative w-full h-full overflow-hidden bg-black video-preview-container cursor-pointer group"
+        data-title="Royal Wedding Invitation &bull; Grand Gala Reception">
+        <video src="./content/invitations/invite-social.mp4" loop muted playsinline preload="auto"
+          data-preview-time="1.5"
+          class="w-full h-full object-cover brightness-[0.62] group-hover:brightness-[0.98] group-hover:scale-105 transition-all duration-700"
+          data-hover-preview></video>
+        <div
+          class="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors duration-500 pointer-events-none">
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered Editorial Typography Overlay (pointer-events-none so hover passes through to videos) -->
+    <div
+      class="relative z-10 pointer-events-none px-5 pt-20 sm:pt-24 pb-8 sm:pb-10 text-center flex flex-col items-center justify-center max-w-4xl mx-auto">
+      <div
+        class="space-y-3 sm:space-y-4 reveal-init px-6 sm:px-8 py-5 sm:py-6 rounded-2xl sm:rounded-3xl bg-[radial-gradient(closest-side,rgba(24,3,13,0.72)_0%,rgba(24,3,13,0.38)_65%,transparent_100%)]">
+        <h3
+          class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-[#FAF2EB] tracking-wider uppercase leading-none break-words sm:whitespace-nowrap drop-shadow-[0_6px_32px_rgba(0,0,0,0.95)]">
+          ROYAL WEDDINGS
+        </h3>
+        <p
+          class="font-subheading text-sm sm:text-base md:text-lg text-[#E8C9B5] font-normal leading-relaxed max-w-md mx-auto drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)]">
+          REGAL MOTION VIDEO INVITATIONS &bull; CEREMONIAL SUITES
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       PROJECT 05: COMMERCIAL REELS & MOTION (High-Energy Ad Cutdowns)
+       ========================================================================== -->
+  <section id="motion"
+    class="sticky-stage-section min-h-screen pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#07050d] text-white relative flex flex-col justify-between">
+    <div class="max-w-[1720px] mx-auto w-full space-y-8 sm:space-y-10">
+
+      <!-- Section Heading -->
+      <div class="space-y-3 sm:space-y-4 reveal-init">
+        <h3
+          class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
+          COMMERCIAL REELS
+        </h3>
+        <p class="font-subheading text-sm sm:text-base md:text-lg text-[#A78BFA] font-normal leading-relaxed max-w-sm">
+          DYNAMIC COMMERCIAL REELS &bull; CINEMATIC CUTDOWNS
         </p>
       </div>
 
-      <!-- Stacked Real Amazon A+ Content Banners with Reveal -->
-      <div class="space-y-6">
-        <div class="rounded-2xl overflow-hidden border border-[#2BA3C9]/40 shadow-xl cursor-pointer reveal-init">
-          <img src="./content/ecommerce/sundrunk-1.jpg" alt="Sun Drunk Amazon A+ Hero Banner" class="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-500" data-lightbox data-src="./content/ecommerce/sundrunk-1.jpg" data-title="Sun Drunk &bull; Amazon A+ Hero Banner" data-caption="Drown in sunshine, not in sand &mdash; 1464x600 launch banner.">
+      <!-- Accordion Video Gallery (Expands & plays video on hover) -->
+      <div id="commercial-reels-accordion" class="w-full reveal-init delay-100"></div>
+
+      <!-- Hidden semantic fallback for validation -->
+      <div class="sr-only" aria-hidden="true">
+        <video src="./content/motion/eemos-newyear.mp4" muted playsinline></video>
+        <video src="./content/motion/shark-tank.mp4" muted playsinline></video>
+        <video src="./content/motion/lotus-hotel.mp4" muted playsinline></video>
+        <video src="./content/motion/avi-diwali.mp4" muted playsinline></video>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROJECT 06: SOCIAL MEDIA CREATIVES (Feed Brand Architecture)
+       ========================================================================== -->
+  <section id="social-creatives"
+    class="sticky-stage-section min-h-screen pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#120117] text-white relative">
+    <div class="max-w-[1720px] mx-auto w-full">
+
+      <div class="meura-editorial-container">
+        <!-- Left Half: Sticky Title on the Left Half of the Page -->
+        <div class="meura-sticky-col space-y-3 sm:space-y-4 reveal-init">
+          <h3
+            class="font-heading text-5xl sm:text-7xl md:text-8xl xl:text-9xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
+            SOCIAL CREATIVES
+          </h3>
+          <p class="font-subheading text-sm sm:text-base md:text-lg text-[#BEF24D] font-normal leading-relaxed max-w-sm">
+            FEED ARCHITECTURE &bull; AD CAMPAIGNS
+          </p>
         </div>
-        <div class="rounded-2xl overflow-hidden border border-[#2BA3C9]/40 shadow-xl cursor-pointer reveal-init delay-100">
-          <img src="./content/ecommerce/sundrunk-2.jpg" alt="Sun Drunk Sand-Free Feature Strip" class="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-500" data-lightbox data-src="./content/ecommerce/sundrunk-2.jpg" data-title="Sun Drunk &bull; Sand-Free Technology" data-caption="Engineered for coastlines with 3x faster drying micro-loop fabric.">
-        </div>
-        <div class="rounded-2xl overflow-hidden border border-[#2BA3C9]/40 shadow-xl cursor-pointer reveal-init delay-200">
-          <img src="./content/ecommerce/sundrunk-3.jpg" alt="Sun Drunk Resort Lifestyle Display" class="w-full h-auto object-cover hover:scale-[1.01] transition-transform duration-500" data-lightbox data-src="./content/ecommerce/sundrunk-3.jpg" data-title="Sun Drunk &bull; Resort Collection" data-caption="Limited resort duo pack with water-resistant travel tote.">
+
+        <!-- Right Hand Side: Content Visuals Grid (Clean & Compact) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-5 reveal-init delay-100">
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/avi-sbo.jpg" alt="Avi SBO Creative"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/avi-sbo.jpg" data-title="Avi Organics &bull; SBO Launch">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/crown-carousel.jpg" alt="Crown Residences Creative"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/crown-carousel.jpg" data-title="Crown Residences &bull; Product Carousel">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/eemos-pushpa.jpg" alt="Eemos Pushpa Campaign"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/eemos-pushpa.jpg" data-title="Eemos &bull; Pushpa Campaign Post">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/fusion-coats.jpg" alt="Fusion Paints Creative"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/fusion-coats.jpg" data-title="Fusion Paints &bull; Social Campaign">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/lotus-healthcare.jpg" alt="Lotus Healthcare Creative"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/lotus-healthcare.jpg" data-title="Lotus Healthcare &bull; Hospital Post">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/pnps-admissions.jpg" alt="PNPS Admissions Poster"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/pnps-admissions.jpg" data-title="PNPS Academy &bull; Admissions Campaign">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/eemos-facial.jpg" alt="Eemos Facial Treatment"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/eemos-facial.jpg" data-title="Eemos &bull; Lightening Facial Story">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/eemos-natural.jpg" alt="Eemos Natural Treatment"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/eemos-natural.jpg" data-title="Eemos &bull; Natural Tech Treatment">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/avi-groundnut.jpg" alt="Avi Groundnut Oil"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/avi-groundnut.jpg" data-title="Avi Organics &bull; Groundnut Oil Story">
+          </div>
+          <div class="rounded-2xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl">
+            <img src="./content/social/ltjss.jpg" alt="LTJSS Education Creative"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
+              data-src="./content/social/ltjss.jpg" data-title="LTJSS &bull; Institutional Creative">
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -943,75 +931,79 @@
        SECTION: OUR PROCESS (Brog-Style 4-Step Agency Workflow)
        ========================================================================== -->
   <section id="process" class="sticky-stage-section brog-section bg-[#120115]">
-    <div class="max-w-7xl mx-auto w-full space-y-12">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6 reveal-init">
+    <div class="max-w-7xl mx-auto w-full space-y-10 sm:space-y-12">
+
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6 reveal-init">
         <div>
-          <span class="brog-tag brog-tag-lime">03 // OUR WORKFLOW</span>
-          <h2 class="font-heading text-4xl sm:text-6xl text-white uppercase mt-3">
+          <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-tight">
             HOW WE BRING BRANDS TO LIFE
           </h2>
         </div>
-        <p class="font-mono text-xs text-white/60 max-w-sm">
-          A battle-tested 4-step creative pipeline built for velocity, creative integrity, and measurable business impact.
+        <p class="font-subheading text-sm sm:text-base text-white/70 max-w-sm font-normal leading-relaxed">
+          A battle-tested 4-step creative pipeline built for velocity, creative integrity, and measurable business
+          impact.
         </p>
       </div>
 
-      <!-- 4 Brog Process Cards (Exact Match to Brog Why Choose) -->
+      <!-- 4 Process Items -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        
+
         <div class="brog-process-item reveal-init">
-          <div class="w-10 h-10 rounded-full bg-[#BEF24D]/10 border border-[#BEF24D]/30 text-[#BEF24D] font-mono text-xs flex items-center justify-center font-bold mb-6">
+          <div
+            class="w-10 h-10 rounded-full bg-[#BEF24D]/10 border border-[#BEF24D]/30 text-[#BEF24D] font-mono text-xs flex items-center justify-center font-bold mb-6">
             01
           </div>
           <h3 class="font-heading text-2xl text-white uppercase tracking-wide mb-3">
             Strategy &amp; Research
           </h3>
-          <p class="text-xs font-mono text-white/60 leading-relaxed">
-            We begin by shaping tailored creative strategies and performing in-depth brand research to reveal critical insights, defining whitespace and growth roadmaps.
+          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+            We begin by shaping tailored creative strategies and performing in-depth brand research to reveal critical
+            insights, defining whitespace and growth roadmaps.
           </p>
         </div>
 
         <div class="brog-process-item reveal-init delay-100">
-          <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs flex items-center justify-center font-bold mb-6">
+          <div
+            class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs flex items-center justify-center font-bold mb-6">
             02
           </div>
           <h3 class="font-heading text-2xl text-white uppercase tracking-wide mb-3">
             Design &amp; Prototype
           </h3>
-          <p class="text-xs font-mono text-white/60 leading-relaxed">
-            We transform ideas into bold visual identities, high-fashion art direction, and functional creative prototypes that make brands look genuinely expensive.
+          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+            We transform ideas into bold visual identities, high-fashion art direction, and functional creative
+            prototypes that make brands look genuinely expensive.
           </p>
         </div>
 
         <div class="brog-process-item reveal-init delay-200">
-          <div class="w-10 h-10 rounded-full bg-[#BEF24D]/10 border border-[#BEF24D]/30 text-[#BEF24D] font-mono text-xs flex items-center justify-center font-bold mb-6">
+          <div
+            class="w-10 h-10 rounded-full bg-[#BEF24D]/10 border border-[#BEF24D]/30 text-[#BEF24D] font-mono text-xs flex items-center justify-center font-bold mb-6">
             03
           </div>
           <h3 class="font-heading text-2xl text-white uppercase tracking-wide mb-3">
             Build, Test &amp; Optimize
           </h3>
-          <p class="text-xs font-mono text-white/60 leading-relaxed">
-            We craft reliable creative deliverables across 3D CGI, motion editing, and social packages, testing and fine-tuning for top retention and conversion.
+          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+            We craft reliable creative deliverables across 3D CGI, motion editing, and social packages, testing and
+            fine-tuning for top retention and conversion.
           </p>
         </div>
 
         <div class="brog-process-item reveal-init delay-300">
-          <div class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs flex items-center justify-center font-bold mb-6">
+          <div
+            class="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs flex items-center justify-center font-bold mb-6">
             04
           </div>
           <h3 class="font-heading text-2xl text-white uppercase tracking-wide mb-3">
             Launch &amp; Support
           </h3>
-          <p class="text-xs font-mono text-white/60 leading-relaxed">
-            We launch campaigns with precision and provide continuous creative support to ensure lasting brand equity, organic velocity, and sustainable growth.
+          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+            We launch campaigns with precision and provide continuous creative support to ensure lasting brand equity,
+            organic velocity, and sustainable growth.
           </p>
         </div>
-      </div>
-            Reviewing collaborative feedback rounds, finalizing high-resolution master exports, and deploying cross-platform marketing collateral.
-          </p>
-        </div>
-
       </div>
 
     </div>
@@ -1020,13 +1012,15 @@
   <!-- ==========================================================================
        SECTION 04: SOCIAL MEDIA MANAGEMENT & 5 PACKAGES (Exact Layout)
        ========================================================================== -->
-  <section id="social-mgmt" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#200424] border-t border-[#BEF24D]/15 relative">
+  <section id="social-mgmt"
+    class="sticky-stage-section min-h-screen py-20 sm:py-24 px-4 sm:px-6 md:px-8 bg-[#200424] border-t border-[#BEF24D]/15 relative">
     <div class="max-w-6xl mx-auto w-full space-y-10">
       <div class="reveal-init">
-        <span class="brog-tag brog-tag-lime mb-3 block w-fit">(04) PACKAGES</span>
-        <h2 class="font-heading text-4xl sm:text-6xl text-white uppercase tracking-tight">Your Brand. Your Voice. Our Creative Direction.</h2>
-        <p class="text-sm md:text-base text-white/80 max-w-2xl mt-2 font-light">
-          We help brands build a consistent digital presence through creative content, engaging visuals and strategic social media support.
+        <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-tight">Your Brand. Your Voice. Our
+          Creative Direction.</h2>
+        <p class="font-subheading text-sm md:text-base text-white/80 max-w-2xl mt-2 font-normal leading-relaxed">
+          We help brands build a consistent digital presence through creative content, engaging visuals and strategic
+          social media support.
         </p>
       </div>
 
@@ -1037,19 +1031,19 @@
           <div class="package-card">
             <span class="package-badge-tag block mb-2 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">01 / COMPLETE</span>
             <h4 class="font-heading text-2xl text-white font-bold tracking-tight mb-2">Complete Presence</h4>
-            <p class="text-xs sm:text-sm text-white/85 font-mono">Shooting &bull; Video &bull; Graphics &bull; Digital Marketing</p>
+            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Shooting &bull; Video &bull; Graphics &bull; Digital Marketing</p>
           </div>
 
           <div class="package-card">
             <span class="package-badge-tag block mb-2 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">02 / SOCIAL</span>
             <h4 class="font-heading text-2xl text-white font-bold tracking-tight mb-2">Social Presence</h4>
-            <p class="text-xs sm:text-sm text-white/85 font-mono">Video &bull; Graphics &bull; Social Media Management</p>
+            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video &bull; Graphics &bull; Social Media Management</p>
           </div>
 
           <div class="package-card">
             <span class="package-badge-tag block mb-2 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">03 / CONTENT</span>
             <h4 class="font-heading text-2xl text-white font-bold tracking-tight mb-2">Content Studio</h4>
-            <p class="text-xs sm:text-sm text-white/85 font-mono">Shooting &bull; Video &bull; Graphics</p>
+            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Shooting &bull; Video &bull; Graphics</p>
           </div>
         </div>
       </div>
@@ -1061,165 +1055,15 @@
           <div class="package-card">
             <span class="package-badge-tag block mb-2 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">04 / DIGITAL</span>
             <h4 class="font-heading text-2xl text-white font-bold tracking-tight mb-2">Digital Growth</h4>
-            <p class="text-xs sm:text-sm text-white/85 font-mono">Video Editing &bull; Digital Marketing &bull; Graphic Posts</p>
+            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video Editing &bull; Digital Marketing &bull; Graphic Posts</p>
             <span class="text-xs sm:text-sm font-mono text-[#BEF24D] font-semibold block mt-3">Creative + Marketing</span>
           </div>
 
           <div class="package-card">
             <span class="package-badge-tag block mb-2 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">05 / ESSENTIAL</span>
             <h4 class="font-heading text-2xl text-white font-bold tracking-tight mb-2">Essential Creative</h4>
-            <p class="text-xs sm:text-sm text-white/85 font-mono">Video Editing &bull; Graphic Posts</p>
+            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video Editing &bull; Graphic Posts</p>
             <span class="text-xs sm:text-sm font-mono text-[#BEF24D] font-semibold block mt-3">Design + Editing</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Real Client Creative Posts -->
-      <div class="pt-4 reveal-init delay-300">
-        <span class="font-mono text-xs text-white/50 block mb-3">CLIENT FEED CREATIVES (CLICK TO EXPAND)</span>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-          <img src="./content/social/avi-sbo.jpg" alt="AVI Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/avi-sbo.jpg" data-title="AVI Organics">
-          <img src="./content/social/crown-carousel.jpg" alt="Crown Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/crown-carousel.jpg" data-title="Crown Residences">
-          <img src="./content/social/eemos-pushpa.jpg" alt="Eemos Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/eemos-pushpa.jpg" data-title="Eemos Pushpa Campaign">
-          <img src="./content/social/fusion-coats.jpg" alt="Fusion Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/fusion-coats.jpg" data-title="Fusion Paints">
-          <img src="./content/social/lotus-healthcare.jpg" alt="Lotus Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/lotus-healthcare.jpg" data-title="Lotus Healthcare">
-          <img src="./content/social/pnps-admissions.jpg" alt="PNPS Post" class="rounded-xl border border-white/10 w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform" data-lightbox data-src="./content/social/pnps-admissions.jpg" data-title="PNPS Academy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 04: 3D CGI (Klickpin Walkthrough in Dark Slate)
-       ========================================================================== -->
-  <section id="three-d" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#0d0f14] border-t border-white/10 relative">
-    <div class="max-w-6xl mx-auto w-full space-y-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#FF8A00]/30 pb-6 reveal-init">
-        <div>
-          <span class="text-xs font-mono text-[#FF8A00] uppercase tracking-widest block mb-1">04 // 3D PRODUCT &amp; CGI</span>
-          <h2 class="font-heading text-4xl sm:text-6xl text-white uppercase">KLICKPIN 3D WALKTHROUGH</h2>
-        </div>
-        <p class="font-mono text-xs text-[#9CA3AF] max-w-sm">
-          Octane GPU perspective viewport &bull; Volumetric architectural simulation.
-        </p>
-      </div>
-
-      <div class="rounded-2xl border border-white/20 bg-black overflow-hidden relative shadow-2xl video-preview-container reveal-init delay-100">
-        <video src="./content/3d/klickpin-walkthrough.mp4" autoplay loop muted playsinline class="w-full aspect-video object-cover" data-hover-preview></video>
-        <div class="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer" data-lightbox data-type="video" data-src="./content/3d/klickpin-walkthrough.mp4" data-title="Klickpin 3D Immersive Architectural Walkthrough" data-caption="Full 3D CGI walkthrough rendered with procedural lighting and camera fly-through.">
-          <div class="w-18 h-18 rounded-2xl bg-black/80 border border-[#FF8A00] p-4 flex items-center justify-center shadow-[0_0_35px_rgba(255,138,0,0.5)] hover:scale-110 transition-transform">
-            <svg class="w-8 h-8 text-[#FF8A00] ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 05: CEREMONIAL INVITATIONS (Royal Rosewood Arched Frames)
-       ========================================================================== -->
-  <section id="invitations" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#330a1b] border-t border-[#E8C9B5]/20 relative">
-    <div class="max-w-6xl mx-auto w-full space-y-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E8C9B5]/30 pb-6 reveal-init">
-        <div>
-          <span class="text-xs font-mono text-[#E8C9B5] uppercase tracking-widest block mb-1">05 // CEREMONIAL ATELIER</span>
-          <h2 class="font-heading text-4xl sm:text-6xl text-[#FAF2EB] uppercase">ROYAL WEDDING INVITATIONS</h2>
-        </div>
-        <p class="font-serif text-lg text-[#E8C9B5] italic max-w-sm">
-          Digital suites that look aesthetic &amp; premium.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="arched-card p-4 aspect-[9/16] bg-black border border-[#E8C9B5]/30 video-preview-container cursor-pointer reveal-init" data-lightbox data-type="video" data-src="./content/invitations/wedding-1.mp4" data-title="Royal Wedding Invitation &bull; Suite 01">
-          <video src="./content/invitations/wedding-1.mp4" loop muted playsinline class="w-full h-full object-cover rounded-t-[100px]" data-hover-preview></video>
-          <div class="absolute bottom-4 left-4 right-4 text-center text-xs font-mono text-[#E8C9B5] bg-black/70 py-1.5 rounded-lg">
-            SANGEET &bull; CARD 01
-          </div>
-        </div>
-
-        <div class="arched-card p-4 aspect-[9/16] bg-black border border-[#E8C9B5]/30 video-preview-container cursor-pointer reveal-init delay-100" data-lightbox data-type="video" data-src="./content/invitations/wedding-2.mp4" data-title="Haldi Ritual &bull; Suite 02">
-          <video src="./content/invitations/wedding-2.mp4" loop muted playsinline class="w-full h-full object-cover rounded-t-[100px]" data-hover-preview></video>
-          <div class="absolute bottom-4 left-4 right-4 text-center text-xs font-mono text-[#E8C9B5] bg-black/70 py-1.5 rounded-lg">
-            HALDI &bull; CARD 02
-          </div>
-        </div>
-
-        <div class="arched-card p-4 aspect-[9/16] bg-black border border-[#E8C9B5]/30 video-preview-container cursor-pointer reveal-init delay-200" data-lightbox data-type="video" data-src="./content/invitations/wedding-3.mp4" data-title="Sacred Vows &bull; Suite 03">
-          <video src="./content/invitations/wedding-3.mp4" loop muted playsinline class="w-full h-full object-cover rounded-t-[100px]" data-hover-preview></video>
-          <div class="absolute bottom-4 left-4 right-4 text-center text-xs font-mono text-[#E8C9B5] bg-black/70 py-1.5 rounded-lg">
-            PHERAS &bull; CARD 03
-          </div>
-        </div>
-
-        <div class="arched-card p-4 aspect-[9/16] bg-black border border-[#E8C9B5]/30 video-preview-container cursor-pointer reveal-init delay-300" data-lightbox data-type="video" data-src="./content/invitations/invite-social.mp4" data-title="Grand Gala Reception">
-          <video src="./content/invitations/invite-social.mp4" loop muted playsinline class="w-full h-full object-cover rounded-t-[100px]" data-hover-preview></video>
-          <div class="absolute bottom-4 left-4 right-4 text-center text-xs font-mono text-[#E8C9B5] bg-black/70 py-1.5 rounded-lg">
-            RECEPTION &bull; CARD 04
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 06: MOTION GRAPHICS & COMMERCIAL REELS
-       ========================================================================== -->
-  <section id="motion" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#07070d] border-t border-[#7C3AED]/20 relative">
-    <div class="max-w-6xl mx-auto w-full space-y-6">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#7C3AED]/30 pb-6 reveal-init">
-        <div>
-          <span class="text-xs font-mono text-[#7C3AED] uppercase tracking-widest block mb-1">06 // MOTION GRAPHICS &amp; REELS</span>
-          <h2 class="font-heading text-4xl sm:text-6xl text-white uppercase">DYNAMIC COMMERCIAL REELS</h2>
-        </div>
-        <p class="font-mono text-xs text-[#A78BFA] max-w-sm">
-          Smooth animations that bring your content to life.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div class="rounded-2xl border border-white/10 bg-[#0f0f18] p-3 space-y-2 video-preview-container cursor-pointer reveal-init" data-lightbox data-type="video" data-src="./content/motion/eemos-newyear.mp4" data-title="Eemos New Year Reel">
-          <div class="relative aspect-video rounded-xl overflow-hidden bg-black">
-            <video src="./content/motion/eemos-newyear.mp4" loop muted playsinline class="w-full h-full object-cover" data-hover-preview></video>
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#BEF24D] text-[#19031c] flex items-center justify-center shadow-lg">
-                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="text-xs font-mono text-white/80 px-1">
-            <span class="text-[#ECBE3A] block font-bold">EEMOS NEW YEAR</span>
-            Campaign video reel
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-[#0f0f18] p-3 space-y-2 video-preview-container cursor-pointer reveal-init delay-100" data-lightbox data-type="video" data-src="./content/motion/shark-tank.mp4" data-title="Shark Tank Promo Ad">
-          <div class="relative aspect-video rounded-xl overflow-hidden bg-black">
-            <video src="./content/motion/shark-tank.mp4" loop muted playsinline class="w-full h-full object-cover" data-hover-preview></video>
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#BEF24D] text-[#19031c] flex items-center justify-center shadow-lg">
-                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="text-xs font-mono text-white/80 px-1">
-            <span class="text-[#7C3AED] block font-bold">SHARK TANK AD COPY</span>
-            High-energy commercial cutdown
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-[#0f0f18] p-3 space-y-2 video-preview-container cursor-pointer reveal-init delay-200" data-lightbox data-type="video" data-src="./content/motion/lotus-hotel.mp4" data-title="Lotus Hotel Showcase">
-          <div class="relative aspect-video rounded-xl overflow-hidden bg-black">
-            <video src="./content/motion/lotus-hotel.mp4" loop muted playsinline class="w-full h-full object-cover" data-hover-preview></video>
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <div class="w-10 h-10 rounded-full bg-[#BEF24D] text-[#19031c] flex items-center justify-center shadow-lg">
-                <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-            </div>
-          </div>
-          <div class="text-xs font-mono text-white/80 px-1">
-            <span class="text-[#26BFBF] block font-bold">LOTUS HOTEL TOUR</span>
-            Cinematic hospitality grading
           </div>
         </div>
       </div>
@@ -1229,27 +1073,28 @@
   <!-- ==========================================================================
        SECTION 07: LET'S CREATE SOMETHING + 8 FAQS + CONTACT
        ========================================================================== -->
-  <section id="lets-create" class="sticky-stage-section min-h-screen py-24 px-4 md:px-8 bg-[#18021a] border-t border-white/10 relative">
+  <section id="lets-create"
+    class="sticky-stage-section min-h-screen py-20 sm:py-24 px-4 sm:px-6 md:px-8 bg-[#18021a] border-t border-white/10 relative">
     <div class="max-w-6xl mx-auto w-full space-y-12">
-      <!-- Brog Section Badge -->
-      <div class="reveal-init mb-2">
-        <span class="brog-tag brog-tag-lime block w-fit">(06) CONTACT US</span>
-      </div>
-
       <!-- Conversion Card -->
-      <div class="rounded-3xl bg-[#BEF24D] text-[#19031c] p-8 sm:p-12 shadow-2xl space-y-4 reveal-init">
-        <span class="font-mono text-xs font-bold uppercase tracking-widest text-[#19031c]/70 block">LET'S FIND YOUR CREATIVE FIT</span>
-        <h2 class="font-heading text-4xl sm:text-6xl uppercase leading-tight">
+      <div class="rounded-3xl bg-[#BEF24D] text-[#19031c] p-6 sm:p-10 md:p-12 shadow-2xl space-y-4 reveal-init">
+        <span class="font-mono text-xs font-bold uppercase tracking-widest text-[#19031c]/70 block">LET'S FIND YOUR
+          CREATIVE FIT</span>
+        <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
           LET'S CREATE SOMETHING.<br>YOUR IDEA. OUR CREATIVE PERSPECTIVE.
         </h2>
         <p class="text-base sm:text-lg font-medium text-[#19031c]/90 max-w-2xl leading-relaxed">
-          Every great project starts with a conversation. Whether you're building a brand, planning a campaign, refreshing your visuals or exploring something completely new, we'd love to hear what you have in mind. Let's turn your ideas into something worth noticing.
+          Every great project starts with a conversation. Whether you're building a brand, planning a campaign,
+          refreshing your visuals or exploring something completely new, we'd love to hear what you have in mind. Let's
+          turn your ideas into something worth noticing.
         </p>
         <div class="pt-2 flex flex-wrap gap-4">
-          <a href="#contact-box" class="px-8 py-3 rounded-full bg-[#19031c] text-[#BEF24D] font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors">
+          <a href="#contact-box"
+            class="px-8 py-3 rounded-full bg-[#19031c] text-[#BEF24D] font-bold text-xs uppercase tracking-wider hover:bg-black transition-colors">
             Start a Project &rarr;
           </a>
-          <a href="#contact-box" class="px-8 py-3 rounded-full border-1.5 border-[#19031c] text-[#19031c] font-bold text-xs uppercase tracking-wider hover:bg-[#19031c] hover:text-[#BEF24D] transition-colors">
+          <a href="#contact-box"
+            class="px-8 py-3 rounded-full border-1.5 border-[#19031c] text-[#19031c] font-bold text-xs uppercase tracking-wider hover:bg-[#19031c] hover:text-[#BEF24D] transition-colors">
             Get in Touch
           </a>
         </div>
@@ -1259,108 +1104,132 @@
       </div>
 
       <!-- FAQ Section (Exact Q1 through Q8) -->
-      <div id="faq-section" class="space-y-4 pt-12 reveal-init delay-100">
+      <div id="faq-section" class="space-y-4 pt-8 sm:pt-12 reveal-init delay-100">
         <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-4 gap-2">
           <div>
-            <span class="brog-tag brog-tag-lime block w-fit mb-2">(05) FAQ</span>
-            <h3 class="font-heading text-3xl sm:text-5xl text-white uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h3>
+            <h3 class="font-heading text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS
+            </h3>
           </div>
           <span class="font-mono text-xs text-white/50">A Few Things You Might Want to Know</span>
         </div>
 
         <div class="space-y-3">
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q1. What type of businesses do you work with?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                We work with businesses, startups, growing brands, creators and individuals looking for creative design, visual content and digital communication solutions.
+                We work with businesses, startups, growing brands, creators and individuals looking for creative design,
+                visual content and digital communication solutions.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q2. Can I hire GridStroke Studio for just one design or video?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                Absolutely. We take up individual projects as well as ongoing creative collaborations, depending on the requirement.
+                Absolutely. We take up individual projects as well as ongoing creative collaborations, depending on the
+                requirement.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q3. Do you offer customised creative solutions?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                Yes. Every project is different, so we discuss your requirements and build a suitable scope around your objectives, deliverables and timeline.
+                Yes. Every project is different, so we discuss your requirements and build a suitable scope around your
+                objectives, deliverables and timeline.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q4. How does the project process work?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                We begin by understanding your requirements, followed by creative planning, execution, feedback and final delivery.
+                We begin by understanding your requirements, followed by creative planning, execution, feedback and
+                final delivery.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q5. Do you provide revisions?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                Yes. Revision rounds are discussed and agreed upon according to the project scope before the work begins.
+                Yes. Revision rounds are discussed and agreed upon according to the project scope before the work
+                begins.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q6. How do I get a quote for my project?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                Share your project details, references, expected deliverables and timeline with us. We'll review the requirements and provide a customised estimate.
+                Share your project details, references, expected deliverables and timeline with us. We'll review the
+                requirements and provide a customised estimate.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q7. Can I combine multiple services in one project?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                Yes. You can combine services such as graphic design, video editing, motion graphics and 3D visuals depending on your project needs.
+                Yes. You can combine services such as graphic design, video editing, motion graphics and 3D visuals
+                depending on your project needs.
               </p>
             </div>
           </div>
 
           <div class="faq-item rounded-2xl bg-white/5 border border-white/10 p-5">
-            <button class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none" aria-expanded="false">
+            <button
+              class="faq-trigger w-full flex items-center justify-between text-left font-medium text-base sm:text-lg text-white focus:outline-none"
+              aria-expanded="false">
               <span>Q8. Do you work with clients remotely?</span>
               <span class="faq-icon font-mono text-xl text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
               <p class="pt-3 text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
-                We can collaborate remotely through online communication and file-sharing workflows, making it easier to work together from different locations.
+                We can collaborate remotely through online communication and file-sharing workflows, making it easier to
+                work together from different locations.
               </p>
             </div>
           </div>
@@ -1368,27 +1237,31 @@
       </div>
 
       <!-- Contact Details & Form Box -->
-      <div id="contact-box" class="rounded-3xl bg-black/60 border border-white/15 p-8 sm:p-12 space-y-8 reveal-init delay-200">
+      <div id="contact-box"
+        class="rounded-3xl bg-black/60 border border-white/15 p-6 sm:p-8 md:p-12 space-y-8 reveal-init delay-200">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div class="space-y-4">
             <span class="text-xs font-mono text-[#BEF24D] uppercase tracking-widest block">CONTACT DETAILS</span>
-            <h3 class="font-heading text-4xl text-white">Have an idea? Let's bring it to life.</h3>
-            
-            <div class="space-y-2.5 font-mono text-sm text-white/80 pt-2">
+            <h3 class="font-heading text-3xl sm:text-4xl text-white">Have an idea? Let's bring it to life.</h3>
+
+            <div class="space-y-2.5 font-mono text-xs sm:text-sm text-white/80 pt-2">
               <div class="flex items-center gap-3">
-                <span class="text-white/40 uppercase w-24">Email:</span>
-                <a href="mailto:gridstrokestudio@gmail.com" class="underline hover:text-[#BEF24D]">gridstrokestudio@gmail.com</a>
+                <span class="text-white/40 uppercase w-20 sm:w-24 shrink-0">Email:</span>
+                <a href="mailto:gridstrokestudio@gmail.com"
+                  class="underline hover:text-[#BEF24D] break-all sm:break-normal">gridstrokestudio@gmail.com</a>
               </div>
               <div class="flex items-center gap-3">
-                <span class="text-white/40 uppercase w-24">Instagram:</span>
-                <a href="https://instagram.com/gridstroke.studio" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#BEF24D]">@gridstroke.studio</a>
+                <span class="text-white/40 uppercase w-20 sm:w-24 shrink-0">Instagram:</span>
+                <a href="https://instagram.com/gridstroke.studio" target="_blank" rel="noopener noreferrer"
+                  class="underline hover:text-[#BEF24D]">@gridstroke.studio</a>
               </div>
               <div class="flex items-center gap-3">
-                <span class="text-white/40 uppercase w-24">LinkedIn:</span>
-                <a href="https://linkedin.com/company/gridstroke-studio" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#BEF24D]">GridStroke Studio</a>
+                <span class="text-white/40 uppercase w-20 sm:w-24 shrink-0">LinkedIn:</span>
+                <a href="https://linkedin.com/company/gridstroke-studio" target="_blank" rel="noopener noreferrer"
+                  class="underline hover:text-[#BEF24D]">GridStroke Studio</a>
               </div>
               <div class="flex items-center gap-3">
-                <span class="text-white/40 uppercase w-24">Website:</span>
+                <span class="text-white/40 uppercase w-20 sm:w-24 shrink-0">Website:</span>
                 <a href="https://gridstroke.studio" class="underline hover:text-[#BEF24D]">gridstroke.studio</a>
               </div>
             </div>
@@ -1396,7 +1269,7 @@
             <!-- Final Tagline -->
             <div class="pt-6 border-t border-white/10">
               <span class="text-xs font-mono text-white/40 uppercase block mb-1">FINAL TAGLINE</span>
-              <p class="font-heading text-2xl sm:text-3xl text-[#BEF24D] tracking-wide">
+              <p class="font-heading text-xl sm:text-2xl md:text-3xl text-[#BEF24D] tracking-wide">
                 Think Creative. Design Different. Make an Impact.
               </p>
             </div>
@@ -1408,15 +1281,19 @@
               <input type="text" name="_honey" class="hidden" tabindex="-1">
               <div>
                 <label for="lead-name" class="block font-mono text-xs text-[#BEF24D] uppercase mb-1">Name</label>
-                <input type="text" id="lead-name" required placeholder="Aarav Sharma" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
+                <input type="text" id="lead-name" required placeholder="Aarav Sharma"
+                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
               </div>
               <div>
                 <label for="lead-email" class="block font-mono text-xs text-[#BEF24D] uppercase mb-1">Email</label>
-                <input type="email" id="lead-email" required placeholder="aarav@brand.com" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
+                <input type="email" id="lead-email" required placeholder="aarav@brand.com"
+                  class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
               </div>
               <div>
-                <label for="lead-package" class="block font-mono text-xs text-[#BEF24D] uppercase mb-1">Desired Package / Service</label>
-                <select id="lead-package" class="w-full px-4 py-3 rounded-xl bg-[#2b0430] border border-white/20 text-white font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
+                <label for="lead-package" class="block font-mono text-xs text-[#BEF24D] uppercase mb-1">Desired Package
+                  / Service</label>
+                <select id="lead-package"
+                  class="w-full px-4 py-3 rounded-xl bg-[#2b0430] border border-white/20 text-white font-mono text-sm focus:outline-none focus:border-[#BEF24D]">
                   <option value="complete">Package 01 &mdash; The Complete Presence</option>
                   <option value="social">Package 02 &mdash; The Social Presence</option>
                   <option value="content">Package 03 &mdash; The Content Studio</option>
@@ -1425,7 +1302,8 @@
                   <option value="custom">Custom Creative Solution</option>
                 </select>
               </div>
-              <button type="submit" id="lead-submit-btn" class="w-full py-3.5 rounded-xl bg-[#BEF24D] text-[#19031c] font-bold font-mono uppercase tracking-wider text-sm hover:bg-[#b0e53a] transition-all">
+              <button type="submit" id="lead-submit-btn"
+                class="w-full py-3.5 rounded-xl bg-[#BEF24D] text-[#19031c] font-bold font-mono uppercase tracking-wider text-sm hover:bg-[#b0e53a] transition-all">
                 Send Project Brief &rarr;
               </button>
             </form>
@@ -1438,12 +1316,12 @@
         </div>
       </div>
 
-      <!-- Giant Wordmark Footer -->
+      <!-- Giant Wordmark Footer (Interactive 3D ElasticMesh) -->
       <footer class="pt-8 text-center space-y-4">
-        <h1 class="font-heading text-6xl sm:text-8xl md:text-[11rem] leading-none text-[#BEF24D] tracking-tight uppercase select-none opacity-80 hover:opacity-100 transition-opacity">
-          GRID STROKE
-        </h1>
-        <div class="flex items-center justify-between text-xs font-mono text-white/40 border-t border-white/10 pt-4">
+        <h1 class="sr-only">GRID STROKE</h1>
+        <div id="footer-elastic-mesh"
+          class="w-full h-[140px] sm:h-[220px] md:h-[300px] lg:h-[380px] cursor-grab active:cursor-grabbing"></div>
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs font-mono text-white/40 border-t border-white/10 pt-4">
           <span>&copy; 2024–2026 GRID STROKE STUDIO &bull; INDORE, INDIA</span>
           <a href="#hero" class="hover:text-[#BEF24D] transition-colors">Back to Top &uarr;</a>
         </div>
@@ -1451,24 +1329,17 @@
     </div>
   </section>
 
-  <!-- Global Media Lightbox Modal -->
-  <div id="global-media-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="w-full max-w-4xl bg-[#19021d] border border-[#BEF24D]/40 rounded-2xl shadow-2xl overflow-hidden relative">
-      <div class="p-3 bg-[#110114] border-b border-white/10 flex items-center justify-between text-xs font-mono">
-        <span id="modal-title" class="font-bold text-[#BEF24D]">Portfolio Work</span>
-        <button id="modal-close-btn" class="text-white/60 hover:text-white text-lg font-mono px-2" title="Close">&times;</button>
-      </div>
-      <div class="p-4 bg-black flex flex-col items-center justify-center">
-        <div id="modal-media-content" class="w-full flex items-center justify-center min-h-[300px]"></div>
-        <p id="modal-caption" class="text-xs font-mono text-[#D8C8DC] mt-4 text-center max-w-2xl"></p>
-      </div>
-    </div>
-  </div>
 
   <!-- GSAP Animation Core for Staggered Menu -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- OGL WebGL Library for Flex Carousel Liquid Refraction -->
+  <script src="./scripts/sundrunk-data.js"></script>
+  <script src="./scripts/flex-carousel.bundle.js"></script>
 
   <!-- Interactive JavaScript Engine -->
   <script src="./scripts/app.js"></script>
 </body>
+
 </html>
