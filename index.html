@@ -362,53 +362,155 @@
   </div>
 
   <!-- ==========================================================================
-       SECTION 00: HERO (1:1 Exact Brog Framer Architecture)
-       Left Half: Giant Brand Title (Grid Stroke®) + Disciplines List
-       Right Half: Giant 'Studio' Wordmark + Growth Statement Paragraph
+       SECTION 00: HERO (High-Fashion Editorial Atelier with Founders Portrait)
+       Left Column: Status Pill, Official Stylized Logo, Editorial Slogan & Interactive Disciplines
+       Right Column: Framed Editorial Founders Portrait with Atmospheric Lighting & Luxury Vignette
        ========================================================================== -->
   <section id="hero" class="sticky-stage-section min-h-screen relative flex flex-col justify-center pt-32 sm:pt-36 md:pt-40 pb-16 lg:pb-24 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 2xl:px-24 overflow-hidden bg-[#120115]">
 
-    <!-- Ambient Subtle Background Glow (No Background Images) -->
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/5 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
-    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-[140px] pointer-events-none z-10" aria-hidden="true"></div>
+    <!-- Background Subtle Matrix Grid Pattern (Tactile 'Grid' Aesthetic) -->
+    <div class="absolute inset-0 bg-hero-grid opacity-40 pointer-events-none -z-10" aria-hidden="true"></div>
 
-    <!-- Hero Main Grid (Full-Width Brog 2-Column Balanced Architecture) -->
-    <div class="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-start my-auto z-10">
+    <!-- Giant Ambient Brand Watermark Across Canvas -->
+    <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-[700px] lg:w-[900px] opacity-[0.035] pointer-events-none select-none -z-10" aria-hidden="true">
+      <img src="./content/hero/logo-watermark-white.png" alt="" class="w-full h-auto">
+    </div>
+
+    <!-- Ambient Subtle Glow Halos -->
+    <div class="absolute -top-32 -left-32 w-[32rem] h-[32rem] bg-[#BEF24D]/8 rounded-full blur-[160px] pointer-events-none z-0" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 -right-32 w-[36rem] h-[36rem] bg-[#7C3AED]/12 rounded-full blur-[180px] pointer-events-none z-0" aria-hidden="true"></div>
+
+    <!-- Hero Main Grid (Balanced Editorial 2-Column Architecture) -->
+    <div class="w-full max-w-[1720px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-20 items-center my-auto z-10">
       
-      <!-- Left Half: Title & Disciplines Stack (Positioned to the far left) -->
-      <div class="hero-col-left flex flex-col justify-between space-y-10 sm:space-y-12 lg:space-y-16">
-        <!-- Giant Brand Title matching Brog® -->
+      <!-- Left Column: Official Logo, Editorial Typography, Slogan & Disciplines (Span 7) -->
+      <div class="lg:col-span-7 hero-col-left flex flex-col justify-between space-y-8 sm:space-y-10">
+        
+        <!-- Availability / Location Status Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-white/80 w-fit backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-[#BEF24D] animate-pulse"></span>
+          <span>Available for Q1 / Q2 Projects &bull; Indore &amp; Global</span>
+        </div>
+
+        <!-- Official Stylized Grid Stroke Brand Logo Display -->
         <div>
-          <h1 class="hero-brand-title font-heading font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] 2xl:text-[9.5rem] tracking-tight text-white leading-[0.92] select-none">
-            Grid Stroke<span class="hero-trademark font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#BEF24D] align-top ml-1 sm:ml-2">®</span>
+          <h1 class="hero-brand-heading">
+            <span class="sr-only">GRID STROKE STUDIO &mdash; We Make Brands Look Expensive</span>
+            <img src="./content/hero/logo-watermark-lime.png" alt="GRID STROKE STUDIO" class="w-full max-w-[380px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[580px] h-auto object-contain filter drop-shadow-[0_4px_35px_rgba(190,242,77,0.3)] select-none">
           </h1>
         </div>
 
-        <!-- Disciplines List Stack (Hover neon highlight matching Brog) -->
-        <div class="space-y-2.5 sm:space-y-3 font-heading font-bold text-xl sm:text-2xl md:text-3xl lg:text-[2.25rem] text-white uppercase tracking-tight leading-tight select-none">
-          <div class="hero-discipline-item">BRANDING</div>
-          <div class="hero-discipline-item">DESIGN &amp; CREATIVES</div>
-          <div class="hero-discipline-item">3D CGI &amp; ARCHVIZ</div>
-          <div class="hero-discipline-item">MOTION DIRECTION</div>
-          <div class="hero-discipline-item">SOCIAL MARKETING</div>
-        </div>
-      </div>
-
-      <!-- Right Half: Studio & Manifesto Statement (Vertically staggered matching Brog) -->
-      <div class="hero-col-right flex flex-col justify-between space-y-8 sm:space-y-12 lg:space-y-16 lg:pt-28 xl:pt-36">
-        <!-- Giant Studio Wordmark matching Brog Studio -->
-        <div>
-          <div class="hero-studio-title font-heading font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8.5rem] 2xl:text-[9.5rem] tracking-tight text-white leading-none select-none">
-            Studio
-          </div>
-        </div>
-
-        <!-- Manifesto / Tagline Statement matching Brog -->
-        <div class="max-w-md xl:max-w-lg">
-          <p class="font-body text-base sm:text-lg md:text-xl lg:text-[1.3rem] text-white/80 font-normal leading-relaxed tracking-normal">
-            We build business solutions that drive real growth &mdash; efficient, scalable, and profit-focused.
+        <!-- Editorial Luxury Slogan: Bold Sans + Italiana Italic Serif Accent -->
+        <div class="space-y-3">
+          <p class="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] text-white/95 font-semibold tracking-tight leading-[1.15]">
+            We don't just design. We make brands look <span class="font-editorial italic font-normal text-[#BEF24D] text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem]">expensive.</span>
+          </p>
+          <p class="font-body text-sm sm:text-base md:text-lg text-white/70 max-w-xl font-normal leading-relaxed">
+            A Gen Z creative studio in Indore, India crafting high-impact branding, 3D CGI visuals, viral motion reels, and luxury digital design built for conversion.
           </p>
         </div>
+
+        <!-- Interactive Disciplines Stack with Clean Kinetic Hover -->
+        <div class="space-y-1.5 pt-2 font-heading font-bold text-base sm:text-lg md:text-xl lg:text-[1.35rem] text-white/85 uppercase tracking-tight select-none">
+          <a href="#branding" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">01</span>
+              <span>BRANDING &amp; VISUAL IDENTITY</span>
+            </span>
+            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
+          </a>
+
+          <a href="#ecommerce" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">02</span>
+              <span>SOCIAL CREATIVES &amp; AMAZON A+</span>
+            </span>
+            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
+          </a>
+
+          <a href="#three-d" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">03</span>
+              <span>3D PRODUCT CGI &amp; ARCHVIZ</span>
+            </span>
+            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
+          </a>
+
+          <a href="#motion" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">04</span>
+              <span>MOTION DIRECTION &amp; REELS</span>
+            </span>
+            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
+          </a>
+
+          <a href="#invitations" class="hero-discipline-item flex items-center justify-between group py-2 px-3 -mx-3 rounded-xl border border-transparent hover:border-[#BEF24D]/30 hover:bg-white/[0.02] transition-all">
+            <span class="flex items-center gap-3">
+              <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] transition-colors">05</span>
+              <span>CEREMONIAL ATELIER</span>
+            </span>
+            <span class="font-mono text-xs text-white/30 group-hover:text-[#BEF24D] group-hover:translate-x-1 transition-all">&rarr;</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Framed Editorial Founders Portrait & Depth Accents (Span 5) -->
+      <div class="lg:col-span-5 hero-col-right w-full flex flex-col items-center lg:items-end justify-center relative pt-6 lg:pt-0">
+        
+        <div class="relative w-full max-w-[460px] lg:max-w-[480px]">
+          
+          <!-- Backlit Halo behind portrait -->
+          <div class="absolute inset-0 bg-[#BEF24D]/12 rounded-[2.25rem] blur-2xl -z-10 scale-95"></div>
+
+          <!-- Editorial Card Container -->
+          <div class="relative rounded-[2rem] overflow-hidden border border-white/15 bg-[#140118] shadow-[0_30px_90px_rgba(0,0,0,0.85)] group">
+            
+            <img src="./content/hero/founders-hero.jpg" alt="Grid Stroke Creative Direction Team" class="w-full h-auto object-cover max-h-[520px] lg:max-h-[580px] filter contrast-105 brightness-95 group-hover:scale-102 transition-transform duration-700">
+
+            <!-- Bottom Vignette Gradient seamlessly blending into hero base -->
+            <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#120115] via-[#120115]/75 to-transparent pointer-events-none"></div>
+
+            <!-- Top Floating Studio Badge -->
+            <div class="absolute top-4 right-4 px-3.5 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-md text-[10px] font-mono uppercase tracking-widest text-white/90">
+              STUDIO ATELIER &bull; INDORE
+            </div>
+
+            <!-- Bottom Overlay Meta -->
+            <div class="absolute bottom-5 left-5 right-5 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs text-[#BEF24D] uppercase tracking-wider font-bold">// CREATIVE DIRECTION</span>
+                <span class="font-mono text-[10px] text-white/50 uppercase">EST. 2024</span>
+              </div>
+              <p class="font-heading text-lg sm:text-xl text-white font-bold tracking-tight">
+                Crafting High-Conversion Visuals
+              </p>
+              <p class="font-mono text-[11px] text-white/70 line-clamp-2">
+                Bold visual identities, 3D CGI architecture, and dynamic video campaigns tailored for modern brands.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Floating Depth Card 01: Experience & Deliverables -->
+          <div class="hidden sm:flex absolute -bottom-5 -left-6 p-3.5 rounded-2xl bg-[#1c0320]/90 border border-[#BEF24D]/35 backdrop-blur-xl shadow-2xl items-center gap-3.5 z-20 hover:scale-105 transition-transform">
+            <div class="w-9 h-9 rounded-xl bg-[#BEF24D] flex items-center justify-center text-[#120115] font-black text-sm">
+              GS
+            </div>
+            <div>
+              <div class="font-heading text-base font-bold text-white tracking-tight leading-none">50+ Campaigns</div>
+              <div class="font-mono text-[10px] text-white/60 mt-1 uppercase">100% Custom Art Direction</div>
+            </div>
+          </div>
+
+          <!-- Floating Depth Card 02: Studio Badge -->
+          <div class="hidden sm:flex absolute -top-5 -left-6 px-3.5 py-2 rounded-xl bg-[#120115]/90 border border-white/15 backdrop-blur-xl shadow-xl items-center gap-2 z-20">
+            <span class="w-2 h-2 rounded-full bg-[#BEF24D]"></span>
+            <span class="font-mono text-[11px] text-white font-medium">Bespoke Production</span>
+          </div>
+
+        </div>
+
       </div>
 
     </div>

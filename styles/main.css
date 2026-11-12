@@ -1061,19 +1061,23 @@ body {
   font-family: var(--font-body);
 }
 
-/* Hero Left Disciplines: Hover ONLY highlights with neon lime, ZERO pop-up / transform */
+/* Hero Tactical Grid Texture */
+.bg-hero-grid {
+  background-image: radial-gradient(rgba(190, 242, 77, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Hero Left Disciplines: Clean hover highlight with neon lime */
 .hero-discipline-item {
-  color: rgba(255, 255, 255, 0.9);
-  transition: color 0.25s ease, text-shadow 0.25s ease;
-  transform: none !important;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
   cursor: pointer;
-  display: block;
+  display: flex;
   user-select: none;
 }
 
 .hero-discipline-item:hover {
   color: #BEF24D !important;
-  text-shadow: 0 0 22px rgba(190, 242, 77, 0.6), 0 0 44px rgba(190, 242, 77, 0.25);
-  transform: none !important;
+  text-shadow: 0 0 20px rgba(190, 242, 77, 0.5);
 }
 
