@@ -1289,6 +1289,39 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 }
 
+/* ==========================================================================
+   Full-Page Single Section Snap Engine (Desktop >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  html {
+    scroll-behavior: auto !important; /* Smooth scroll smoothly managed by GSAP */
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Force exact full-screen height on desktop sections, except the 450vh 3D simulation track */
+  section.sticky-stage-section:not(#three-d) {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Keep inner content bounded and centered */
+  section.sticky-stage-section:not(#three-d) > div {
+    max-height: 100%;
+  }
+
+  /* Simulation track remains 450vh for smooth video scrubbing */
+  #three-d {
+    height: 450vh !important;
+    min-height: 450vh !important;
+  }
+}
+
 
 
 

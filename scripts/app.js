@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoLightbox();
   initFaqAccordion();
   initContactForm();
+  initFullPageScrollEngine();
 });
 
 /* ==========================================================================
@@ -844,10 +845,10 @@ function initScrollRevealEngine() {
       if (reduce) { gsap.set(el, { opacity: 1, y: 0 }); return; }
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(el,
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, delay: delayed, ease: 'power3.out',
-          onComplete: () => gsap.set(el, { clearProps: 'transform' }) });
-      gsap.set(el, { opacity: 0, y: 100 });
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.65, delay: delayed, ease: 'power3.out',
+          onComplete: () => gsap.set(el, { clearProps: 'all' }) });
+      gsap.set(el, { opacity: 0, y: 24 });
       ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => tl.play() });
     });
     return;
@@ -957,15 +958,17 @@ function initStickyProgressIndicator() {
 
   const sectionLabels = {
     'hero': '00 // STUDIO LAUNCH',
-    'about': '00 // ABOUT STUDIO',
-    'branding': '01 // BRANDING &bull; MEURA',
-    'ecommerce': '02 // E-COMMERCE &bull; SUN DRUNK',
-    'process': '03 // OUR WORKFLOW',
-    'social-mgmt': '04 // SOCIAL PACKAGES',
-    'three-d': '05 // 3D CGI &bull; KLICKPIN',
-    'invitations': '06 // CEREMONIAL ATELIER',
-    'motion': '07 // MOTION GRAPHICS',
-    'lets-create': '08 // LET\'S CREATE'
+    'about': '01 // ABOUT STUDIO',
+    'branding': '02 // BRANDING &bull; MEURA',
+    'ecommerce': '03 // E-COMMERCE &bull; SUN DRUNK',
+    'three-d': '04 // 3D CGI &bull; KLICKPIN',
+    'invitations': '05 // CEREMONIAL ATELIER',
+    'motion': '06 // COMMERCIAL REELS',
+    'social-creatives': '07 // SOCIAL CREATIVES',
+    'process': '08 // OUR WORKFLOW',
+    'social-mgmt': '09 // SOCIAL PACKAGES',
+    'faq-section': '10 // FREQUENTLY ASKED QUESTIONS',
+    'lets-create': '11 // LET\'S CREATE'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -1284,4 +1287,258 @@ function initSunDrunkControls() {
       b.classList.toggle('text-white/80', !on);
     });
   }));
+}
+
+/* ==========================================================================
+   FULL-PAGE SINGLE SECTION SCROLL ENGINE WITH SMOOTH ANIMATED CONTENT (GSAP)
+   Except Simulation Section (#three-d) which scrubs smoothly
+   ========================================================================== */
+function initFullPageScrollEngine() {
+  if (window.gsap && window.ScrollToPlugin) {
+    gsap.registerPlugin(ScrollToPlugin);
+  }
+
+  const stageSections = Array.from(document.querySelectorAll('section.sticky-stage-section'));
+  const threeDSection = document.getElementById('three-d');
+  if (!stageSections.length) return;
+
+  const threeDIdx = stageSections.indexOf(threeDSection);
+  const heroSection = document.getElementById('hero');
+  if (heroSection) heroSection.dataset.hasAnimated = 'true';
+
+  let isAnimating = false;
+
+  // Determine current active section index based on viewport scroll position
+  function getActiveSectionIndex() {
+    const scrollY = window.scrollY;
+    const windowH = window.innerHeight;
+
+    if (threeDSection) {
+      const tTop = threeDSection.offsetTop;
+      const tBottom = tTop + threeDSection.offsetHeight - windowH;
+      // Strictly inside the 3D walkthrough track:
+      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+        return threeDIdx;
+      }
+    }
+
+    let closestIdx = 0;
+    let minDiff = Infinity;
+    stageSections.forEach((sec, idx) => {
+      const diff = Math.abs(sec.offsetTop - scrollY);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIdx = idx;
+      }
+    });
+    return closestIdx;
+  }
+
+  // Smooth AnimatedContent entrance: runs strictly ONCE per section so returning never causes jump/glitch
+  function triggerAnimatedContent(section) {
+    if (!window.gsap || !section) return;
+    if (section.id === 'three-d' || section.id === 'hero') return;
+
+    // Never re-animate a section that has already been revealed
+    if (section.dataset.hasAnimated === 'true') return;
+    section.dataset.hasAnimated = 'true';
+
+    const targets = section.querySelectorAll(
+      'h2, h3, p, .package-card, .brog-process-item, .faq-item, .video-preview-container, .hero-col-left > div'
+    );
+    if (!targets.length) return;
+
+    gsap.fromTo(targets,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.65,
+        ease: 'power3.out',
+        stagger: 0.035,
+        clearProps: 'all'
+      }
+    );
+  }
+
+  // Smoothly glide viewport to target section index
+  function goToSection(index, fromDirection = 1) {
+    if (index < 0 || index >= stageSections.length) return;
+    const targetSec = stageSections[index];
+    if (!targetSec) return;
+
+    isAnimating = true;
+
+    let targetY = targetSec.offsetTop;
+
+    // Special case: If scrolling UP into #three-d from #invitations, land at bottom of #three-d (100% video completion)
+    if (targetSec === threeDSection && fromDirection === -1) {
+      targetY = threeDSection.offsetTop + threeDSection.offsetHeight - window.innerHeight;
+    }
+
+    // Trigger entrance animation for target section right as scroll begins (if not already animated)
+    triggerAnimatedContent(targetSec);
+
+    if (window.gsap) {
+      gsap.to(window, {
+        scrollTo: { y: targetY, autoKill: false },
+        duration: 0.85,
+        ease: 'power3.out',
+        onComplete: () => {
+          setTimeout(() => {
+            isAnimating = false;
+          }, 140);
+        }
+      });
+    } else {
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      setTimeout(() => {
+        isAnimating = false;
+      }, 700);
+    }
+  }
+
+  // Intercept desktop mousewheel / trackpad scrolling
+  window.addEventListener('wheel', (e) => {
+    // Only engage full-page single scroll snap on desktop viewports (>= 1024px)
+    if (window.innerWidth < 1024) return;
+
+    const scrollY = window.scrollY;
+    const windowH = window.innerHeight;
+
+    // Simulation Section (#three-d) continuous scrubbing logic:
+    if (threeDSection) {
+      const tTop = threeDSection.offsetTop;
+      const tBottom = tTop + threeDSection.offsetHeight - windowH;
+
+      // Inside #three-d scroll range:
+      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+        // At the top boundary and scrolling UP -> exit to previous section (#ecommerce)
+        if (scrollY <= tTop + 15 && e.deltaY < -20) {
+          e.preventDefault();
+          if (isAnimating) return;
+          if (threeDIdx > 0) goToSection(threeDIdx - 1, -1);
+          return;
+        }
+
+        // At the bottom boundary and scrolling DOWN -> exit to next section (#invitations)
+        if (scrollY >= tBottom - 15 && e.deltaY > 20) {
+          e.preventDefault();
+          if (isAnimating) return;
+          if (threeDIdx < stageSections.length - 1) goToSection(threeDIdx + 1, 1);
+          return;
+        }
+
+        // Scrubbing inside #three-d: DO NOT INTERCEPT, allow natural scroll to scrub the 3D video!
+        return;
+      }
+    }
+
+    // Standard sections: advance exactly one section per deliberate scroll flick
+    e.preventDefault();
+    if (isAnimating) return;
+    if (Math.abs(e.deltaY) < 20) return; // Discard tiny jitters
+
+    const currentIdx = getActiveSectionIndex();
+    if (e.deltaY > 0) {
+      if (currentIdx < stageSections.length - 1) {
+        goToSection(currentIdx + 1, 1);
+      }
+    } else {
+      if (currentIdx > 0) {
+        goToSection(currentIdx - 1, -1);
+      }
+    }
+  }, { passive: false });
+
+  // Keyboard Navigation: ArrowDown / PageDown / Space -> Next; ArrowUp / PageUp -> Prev
+  window.addEventListener('keydown', (e) => {
+    if (window.innerWidth < 1024) return;
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
+
+    if (threeDSection) {
+      const scrollY = window.scrollY;
+      const tTop = threeDSection.offsetTop;
+      const tBottom = tTop + threeDSection.offsetHeight - window.innerHeight;
+      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+        if (scrollY <= tTop + 15 && (e.key === 'ArrowUp' || e.key === 'PageUp')) {
+          e.preventDefault();
+          if (isAnimating) return;
+          if (threeDIdx > 0) goToSection(threeDIdx - 1, -1);
+          return;
+        }
+        if (scrollY >= tBottom - 15 && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ')) {
+          e.preventDefault();
+          if (isAnimating) return;
+          if (threeDIdx < stageSections.length - 1) goToSection(threeDIdx + 1, 1);
+          return;
+        }
+        return; // Allow keyboard arrow scrubbing inside 3D simulation
+      }
+    }
+
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      if (isAnimating) return;
+      const currentIdx = getActiveSectionIndex();
+      if (currentIdx < stageSections.length - 1) goToSection(currentIdx + 1, 1);
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      if (isAnimating) return;
+      const currentIdx = getActiveSectionIndex();
+      if (currentIdx > 0) goToSection(currentIdx - 1, -1);
+    }
+  });
+
+  // Touch Swipe Support on Desktop Touchscreens (e.g., Surface Pro, iPad Pro)
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    if (window.innerWidth < 1024) return;
+    if (isAnimating) return;
+
+    if (threeDSection) {
+      const scrollY = window.scrollY;
+      const tTop = threeDSection.offsetTop;
+      const tBottom = tTop + threeDSection.offsetHeight - window.innerHeight;
+      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+        return; // Natural touch scrub inside #three-d
+      }
+    }
+
+    const touchEndY = e.changedTouches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+    if (Math.abs(deltaY) > 55) {
+      const currentIdx = getActiveSectionIndex();
+      if (deltaY > 0 && currentIdx < stageSections.length - 1) {
+        goToSection(currentIdx + 1, 1);
+      } else if (deltaY < 0 && currentIdx > 0) {
+        goToSection(currentIdx - 1, -1);
+      }
+    }
+  }, { passive: true });
+
+  // Anchor Links Interception (#about, #branding, #process, #social-mgmt, #faq-section, #lets-create)
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#' || href === '#!') return;
+      const targetEl = document.querySelector(href);
+      if (!targetEl) return;
+
+      const targetSec = targetEl.closest('section.sticky-stage-section');
+      if (targetSec) {
+        const targetIdx = stageSections.indexOf(targetSec);
+        if (targetIdx !== -1) {
+          e.preventDefault();
+          goToSection(targetIdx, targetIdx > getActiveSectionIndex() ? 1 : -1);
+        }
+      }
+    });
+  });
 }
