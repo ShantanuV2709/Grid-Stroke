@@ -226,10 +226,10 @@ body {
 }
 
 .brand-badge-card:hover {
-  background: rgba(190, 242, 77, 0.08);
-  border-color: var(--lime);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--lime-dim);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .brand-badge-card img {
@@ -265,7 +265,7 @@ body {
 
 .hero-app-badge:hover {
   transform: scale(1.18) rotate(4deg) !important;
-  filter: drop-shadow(0 20px 40px rgba(190, 242, 77, 0.5)) !important;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8)) !important;
 }
 
 @keyframes badgeFloatA {
@@ -288,21 +288,21 @@ body {
 .badge-float-3 { animation: badgeFloatC 9s ease-in-out infinite; }
 
 /* ==========================================================================
-   SHOWREEL CINEMA FRAME (Ambient Glow Aura)
+   SHOWREEL CINEMA FRAME
    ========================================================================== */
 .cinema-frame {
   position: relative;
   border-radius: 24px;
   background: #0d0112;
-  border: 1px solid rgba(190, 242, 77, 0.35);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(190, 242, 77, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cinema-frame:hover {
-  border-color: var(--lime);
-  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85), 0 0 60px rgba(190, 242, 77, 0.28);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.9);
 }
 
 /* ==========================================================================
@@ -345,7 +345,7 @@ body {
 .meura-collage-card:hover {
   transform: translateY(-6px);
   border-color: #DED0BD;
-  box-shadow: 0 30px 70px rgba(91, 9, 17, 0.4);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
 }
 
 /* ==========================================================================
@@ -362,7 +362,7 @@ body {
 .package-card:hover {
   transform: translateY(-5px);
   border-color: rgba(190, 242, 77, 0.45);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(190, 242, 77, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
 }
 
 .package-badge-tag {
@@ -385,6 +385,33 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .font-subheading, p, .subheading {
   font-family: var(--font-subheading);
+  font-size: clamp(0.95rem, 1.08vw, 1.15rem);
+  line-height: 1.62;
+  letter-spacing: 0.01em;
+}
+
+/* Explicitly scale paragraph font sizes across cards, processes & FAQ items */
+.brog-process-item p,
+#methodology p,
+#about p,
+#social-mgmt p,
+#faq-section p,
+#invitations p,
+#reels p,
+.faq-item p,
+.package-card p {
+  font-size: clamp(0.92rem, 1.05vw, 1.12rem) !important;
+  line-height: 1.62 !important;
+}
+
+@media (max-width: 640px) {
+  p, .font-subheading {
+    font-size: 0.95rem !important;
+    line-height: 1.55 !important;
+  }
+  .brog-process-item p {
+    font-size: 0.92rem !important;
+  }
 }
 
 .font-editorial {
@@ -448,7 +475,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   max-width: 720px;
   height: 2px;
   background: linear-gradient(90deg, transparent 0%, #BEF24D 18%, #BEF24D 82%, transparent 100%);
-  box-shadow: 0 0 20px rgba(190, 242, 77, 0.7);
   transform: scaleX(0);
   transform-origin: center;
   animation: heroLineExpand 1.3s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
@@ -522,7 +548,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   background: rgba(190, 242, 77, 0.08);
   border-color: var(--lime);
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(190, 242, 77, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .font-mono {
@@ -598,11 +624,11 @@ h1, h2, h3, h4, h5, h6, .font-heading {
    BROG FULL-WIDTH HEADER & SLIDE-OVER DRAWER
    ========================================================================== */
 .brog-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -638,9 +664,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   --sm-accent: #BEF24D;
 }
 
-/* Minimalist 2-Line Hamburger Menu Button (Matching Reference Image) */
+/* Minimalist 2-Line Hamburger Menu Button (Reverted to Clean Transparent Style & Sticky Across All Sections) */
 .sm-toggle {
-  position: relative;
+  position: fixed !important;
+  top: 1.25rem;
+  right: 1.75rem;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -658,6 +687,27 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .sm-toggle:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .sm-toggle {
+    top: 1.75rem;
+    right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sm-toggle {
+    top: 2rem;
+    right: 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .sm-toggle {
+    top: 2.25rem;
+    right: 6rem;
+  }
 }
 
 .sm-toggle:focus-visible {
@@ -1131,10 +1181,10 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-body);
 }
 
-/* Hero Left Disciplines: Hover ONLY highlights with neon lime, ZERO pop-up / transform */
+/* Hero Left Disciplines: Clean minimal highlight on hover, zero neon glow */
 .hero-discipline-item {
   color: rgba(255, 255, 255, 0.9);
-  transition: color 0.25s ease, text-shadow 0.25s ease;
+  transition: color 0.25s ease;
   transform: none !important;
   cursor: pointer;
   display: block;
@@ -1143,7 +1193,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .hero-discipline-item:hover {
   color: #BEF24D !important;
-  text-shadow: 0 0 22px rgba(190, 242, 77, 0.6), 0 0 44px rgba(190, 242, 77, 0.25);
   transform: none !important;
 }
 
@@ -1157,7 +1206,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 .spiral-card:hover {
   border-color: #BEF24D !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(190, 242, 77, 0.5) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85) !important;
   opacity: 1 !important;
   filter: brightness(1.1) !important;
   z-index: 999999 !important;
@@ -1321,6 +1370,92 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     min-height: 450vh !important;
   }
 }
+
+/* ==========================================================================
+   Infinite Menu 3D Spherical Showcase (Meura Branding)
+   ========================================================================== */
+.infinite-menu-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.infinite-menu-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.infinite-menu-container canvas:active {
+  cursor: grabbing;
+}
+
+.infinite-menu-container h2 {
+  font-family: var(--font-heading), 'Bebas Neue', sans-serif !important;
+  font-size: clamp(2rem, 3.4vw, 4.2rem) !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.8));
+}
+
+.infinite-menu-container p {
+  font-family: var(--font-sans), 'League Spartan', sans-serif !important;
+  font-size: clamp(0.85rem, 1.1vw, 1.05rem) !important;
+  line-height: 1.55 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.8));
+}
+
+.infinite-menu-container [data-moving="true"] h2,
+.infinite-menu-container [data-moving="true"] p,
+.infinite-menu-container [data-moving="true"] button,
+.infinite-menu-container [data-moving="true"] a {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.infinite-menu-container [data-moving="false"] h2,
+.infinite-menu-container [data-moving="false"] p,
+.infinite-menu-container [data-moving="false"] button,
+.infinite-menu-container [data-moving="false"] a {
+  opacity: 1;
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (orientation: portrait) and (max-width: 1023px) {
+  #branding {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 2rem !important;
+  }
+  #branding #meura-infinite-menu {
+    height: 520px !important;
+    min-height: 460px !important;
+  }
+}
+
+/* ==========================================================================
+   FolderFloat Packages Styling & Scrollbar Utilities
+   ========================================================================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#packages-folder-float {
+  width: 100%;
+}
+
 
 
 

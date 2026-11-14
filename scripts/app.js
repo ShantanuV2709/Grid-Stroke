@@ -408,7 +408,7 @@ function initDepthTextLogo() {
   const faceSpan = document.createElement('span');
   faceSpan.className = 'depth-text-layer relative z-10 inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem]';
   faceSpan.style.color = faceColor;
-  faceSpan.style.textShadow = '0 0.035em 0.07em rgba(0, 0, 0, 0.28), 0 0 35px rgba(190, 242, 77, 0.45)';
+  faceSpan.style.textShadow = '0 0.035em 0.07em rgba(0, 0, 0, 0.28)';
   faceSpan.style.transform = 'translateZ(0.6px)';
   faceSpan.textContent = text;
   stageEl.appendChild(faceSpan);
@@ -641,7 +641,7 @@ function initHeroInfiniteSpiral() {
   items.forEach((item, index) => {
     const card = document.createElement('div');
     card.className =
-      'spiral-card absolute left-1/2 top-1/2 block overflow-hidden rounded-[14px] border border-white/25 bg-black/40 shadow-[0_14px_38px_rgba(0,0,0,0.6)] [backface-visibility:hidden] [transform-style:preserve-3d] [will-change:transform,opacity,filter] pointer-events-auto cursor-pointer transition-colors duration-300';
+      'spiral-card absolute left-1/2 top-1/2 block overflow-hidden rounded-[14px] border border-white/30 bg-black/10 shadow-[0_14px_38px_rgba(0,0,0,0.6)] [backface-visibility:hidden] [transform-style:preserve-3d] [will-change:transform,opacity,filter] pointer-events-auto cursor-pointer transition-colors duration-300';
     card.style.width = `${cardWidth}px`;
     card.style.height = `${cardHeight}px`;
     card.style.borderRadius = `${cardRadius}px`;
@@ -679,9 +679,17 @@ function initHeroInfiniteSpiral() {
   });
   resizeObserver.observe(root);
 
+  let rafId = 0;
   const intersectionObserver = new IntersectionObserver(([entry]) => {
     isVisible = entry.isIntersecting;
-  });
+    if (isVisible && !rafId) {
+      previousTime = performance.now();
+      rafId = requestAnimationFrame(render);
+    } else if (!isVisible && rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+  }, { threshold: 0.05 });
   intersectionObserver.observe(root);
 
   // Scroll interaction
@@ -797,19 +805,20 @@ function initHeroInfiniteSpiral() {
       const vertBoundFade = 1 - smoothstep(maxVertSpan * 0.55, maxVertSpan, Math.abs(yPos));
       const edgeOpacity = (1 - smoothstep(0.40, 0.92, edge)) * vertBoundFade;
 
-      // Fade out spiral cards when they pass in front of the central Grid Stroke logo
-      const vertLogoZone = 1 - smoothstep(45 * fit, 175 * fit, Math.abs(yPos));
-      const horizLogoZone = 1 - smoothstep(240 * fit, 390 * fit, Math.abs(x));
-      const inFrontOfLogo = smoothstep(-50 * fit, 30 * fit, z);
+      // Only fade spiral cards when they are ACTUALLY IN FRONT of the central Grid Stroke logo (z > 0)
+      const vertLogoZone = 1 - smoothstep(40 * fit, 160 * fit, Math.abs(yPos));
+      const horizLogoZone = 1 - smoothstep(220 * fit, 380 * fit, Math.abs(x));
+      const inFrontOfLogo = smoothstep(0, 40 * fit, z);
       const logoOverlap = vertLogoZone * horizLogoZone;
-      const logoClearFade = 1 - logoOverlap * Math.max(inFrontOfLogo * 0.95, 0.55);
+      const logoClearFade = 1 - (logoOverlap * inFrontOfLogo * 0.90);
 
-      const blur = edgeBlur * smoothstep(0.35, 1, edge) + logoOverlap * inFrontOfLogo * 4;
+      const blur = edgeBlur * smoothstep(0.40, 1, edge) + (logoOverlap * inFrontOfLogo * 3);
 
-      const depthDim = 0.28 + 0.60 * Math.pow(depth, 1.3);
+      // Keep cards that are NOT in front of the logo bright, clear and vivid
+      const depthDim = 0.75 + 0.25 * depth;
       const finalOpacity = edgeOpacity * depthDim * logoClearFade;
       const cardOpacity = finalOpacity.toFixed(3);
-      const brightness = (0.45 + 0.55 * depth).toFixed(2);
+      const brightness = (0.92 + 0.22 * depth).toFixed(2);
 
       card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, ${yPos.toFixed(2)}px, ${z.toFixed(2)}px) rotateZ(${cardTilt}deg) scale(${visualScale.toFixed(3)})`;
       card.style.opacity = cardOpacity;
@@ -820,10 +829,14 @@ function initHeroInfiniteSpiral() {
       card.style.pointerEvents = finalOpacity > 0.22 ? 'auto' : 'none';
     });
 
-    requestAnimationFrame(render);
+    if (isVisible) {
+      rafId = requestAnimationFrame(render);
+    } else {
+      rafId = 0;
+    }
   }
 
-  requestAnimationFrame(render);
+  rafId = requestAnimationFrame(render);
 }
 
 /* ==========================================================================
@@ -881,16 +894,36 @@ function initKlickpinScrub() {
   video.addEventListener('seeked', () => { seeking = false; });
   video.load();
 
+  let isSectionVisible = false;
+  let scrubRaf = 0;
+
   const update = () => {
+    if (!isSectionVisible) return;
     const rect = section.getBoundingClientRect();
     const total = Math.max(section.offsetHeight - window.innerHeight, 1);
     target = Math.min(Math.max(-rect.top / total, 0), 1);
   };
+
+  const scrubObserver = new IntersectionObserver(([entry]) => {
+    isSectionVisible = entry.isIntersecting;
+    if (isSectionVisible) {
+      update();
+      if (!scrubRaf) scrubRaf = requestAnimationFrame(tick);
+    } else if (!isSectionVisible && scrubRaf) {
+      cancelAnimationFrame(scrubRaf);
+      scrubRaf = 0;
+    }
+  }, { threshold: 0.02 });
+  scrubObserver.observe(section);
+
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
-  update();
 
   const tick = () => {
+    if (!isSectionVisible) {
+      scrubRaf = 0;
+      return;
+    }
     current += (target - current) * 0.12;
     if (Math.abs(target - current) < 0.0005) current = target;
     if (ready && video.duration && !seeking) {
@@ -903,9 +936,8 @@ function initKlickpinScrub() {
     }
     if (bar) bar.style.width = (current * 100).toFixed(1) + '%';
     if (pct) pct.textContent = Math.round(current * 100);
-    requestAnimationFrame(tick);
+    scrubRaf = requestAnimationFrame(tick);
   };
-  requestAnimationFrame(tick);
 }
 
 /* ==========================================================================
@@ -1153,6 +1185,7 @@ function initVideoLightbox() {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   };
+  window.openLightboxModal = openModal;
 
   const closeModal = () => {
     modal.classList.remove('active');
@@ -1307,6 +1340,10 @@ function initFullPageScrollEngine() {
   if (heroSection) heroSection.dataset.hasAnimated = 'true';
 
   let isAnimating = false;
+  let sectionTops = stageSections.map(s => s.offsetTop);
+  window.addEventListener('resize', () => {
+    sectionTops = stageSections.map(s => s.offsetTop);
+  }, { passive: true });
 
   // Determine current active section index based on viewport scroll position
   function getActiveSectionIndex() {
@@ -1314,7 +1351,7 @@ function initFullPageScrollEngine() {
     const windowH = window.innerHeight;
 
     if (threeDSection) {
-      const tTop = threeDSection.offsetTop;
+      const tTop = sectionTops[threeDIdx] ?? threeDSection.offsetTop;
       const tBottom = tTop + threeDSection.offsetHeight - windowH;
       // Strictly inside the 3D walkthrough track:
       if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
@@ -1324,13 +1361,13 @@ function initFullPageScrollEngine() {
 
     let closestIdx = 0;
     let minDiff = Infinity;
-    stageSections.forEach((sec, idx) => {
-      const diff = Math.abs(sec.offsetTop - scrollY);
+    for (let idx = 0; idx < sectionTops.length; idx++) {
+      const diff = Math.abs(sectionTops[idx] - scrollY);
       if (diff < minDiff) {
         minDiff = diff;
         closestIdx = idx;
       }
-    });
+    }
     return closestIdx;
   }
 

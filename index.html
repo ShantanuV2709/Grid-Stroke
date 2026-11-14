@@ -285,19 +285,22 @@
         <span class="text-xs sm:text-sm text-white font-medium">Based in Indore, IN</span>
       </div>
 
-      <!-- Brog 2-Line Minimal Hamburger Menu Button (Matching Reference Image) -->
-      <button id="sm-toggle-btn"
-        class="sm-toggle flex flex-col justify-center items-end gap-1.5 w-10 h-10 p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer group pointer-events-auto z-[60]"
-        aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggered-menu-panel" type="button">
-        <span
-          class="sm-hamb-top w-6 h-[2px] bg-white group-hover:bg-[#BEF24D] transition-all duration-300 rounded-full"></span>
-        <span
-          class="sm-hamb-bot w-4 h-[2px] bg-white group-hover:bg-[#BEF24D] group-hover:w-6 transition-all duration-300 rounded-full"></span>
-      </button>
+      <!-- Alignment spacer for the fixed hamburger button -->
+      <div class="w-10 h-10 shrink-0 pointer-events-none" aria-hidden="true"></div>
 
     </div>
 
   </header>
+
+  <!-- Sticky Viewport-Fixed Minimal 2-Line Hamburger Menu Button (No box, pure minimalist lines) -->
+  <button id="sm-toggle-btn"
+    class="sm-toggle flex flex-col justify-center items-end gap-1.5 w-10 h-10 p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none cursor-pointer group pointer-events-auto"
+    aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="staggered-menu-panel" type="button">
+    <span
+      class="sm-hamb-top w-6 h-[2px] bg-white group-hover:bg-[#BEF24D] transition-all duration-300 rounded-full"></span>
+    <span
+      class="sm-hamb-bot w-4 h-[2px] bg-white group-hover:bg-[#BEF24D] group-hover:w-6 transition-all duration-300 rounded-full"></span>
+  </button>
 
   <!-- ReactBits Staggered Multi-Layered Menu Structure -->
   <div class="sm-scope">
@@ -317,13 +320,8 @@
       <!-- Panel Header Bar -->
       <div class="flex items-center justify-between pb-8 border-b border-white/10">
         <img src="./content/logos/navbar-attached-logo.png" alt="Grid Stroke Studio" class="h-8 w-auto object-contain">
-        <button id="sm-close-btn"
-          class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-[#BEF24D] text-white hover:text-[#19031c] transition-all duration-200 cursor-pointer focus:outline-none"
-          aria-label="Close navigation menu" type="button">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
+        <!-- Spacer to allow the fixed morphed X toggle button clean alignment -->
+        <div class="w-10 h-10 shrink-0 pointer-events-none" aria-hidden="true"></div>
       </div>
 
 
@@ -430,11 +428,11 @@
     <!-- Screen-reader accessible SEO H1 (Maintains exactly 2 H1s across document) -->
     <h1 class="sr-only">GRID STROKE STUDIO &mdash; Gen Z Branding, 3D Visuals &amp; Motion Direction</h1>
 
-    <!-- Ambient Subtle Background Glow (No Background Images) -->
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#BEF24D]/5 rounded-full blur-[140px] pointer-events-none z-10"
+    <!-- Ambient Subtle Background (No Glow Blobs) -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-10"
       aria-hidden="true"></div>
     <div
-      class="absolute -bottom-40 -right-40 w-96 h-96 bg-[#7C3AED]/10 rounded-full blur-[140px] pointer-events-none z-10"
+      class="absolute -bottom-40 -right-40 w-96 h-96 bg-white/[0.02] rounded-full blur-[140px] pointer-events-none z-10"
       aria-hidden="true"></div>
 
     <!-- Hero Main Grid (Full-Width Brog 2-Column Balanced Architecture) -->
@@ -481,7 +479,7 @@
               class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[50000] w-full max-w-[260px] sm:max-w-[380px] md:max-w-[520px] lg:max-w-[700px] xl:max-w-[780px] 2xl:max-w-[860px] pointer-events-none select-none [transform-style:preserve-3d]"
               style="transform: translate(-50%, -50%) translate3d(0, 0, 0); z-index: 50000;">
               <img id="hero-brand-logo" src="./content/logos/gridstroke-brand-logo.png" alt="Grid Stroke Studio"
-                class="w-full h-auto object-contain filter drop-shadow-[0_0_35px_rgba(190,242,77,0.6)] drop-shadow-[0_20px_60px_rgba(190,242,77,0.4)] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] pointer-events-auto transition-transform duration-500 hover:scale-[1.03]">
+                class="w-full h-auto object-contain filter drop-shadow-[0_12px_32px_rgba(0,0,0,0.85)] pointer-events-auto transition-transform duration-500 hover:scale-[1.03]">
             </div>
 
             <!-- Spiral Cards injected dynamically via initHeroInfiniteSpiral() -->
@@ -609,77 +607,63 @@
        PROJECT 01: MEURA HAUTE COUTURE
        ========================================================================== -->
   <section id="branding"
-    class="sticky-stage-section min-h-screen lg:h-screen pt-20 sm:pt-24 lg:pt-24 pb-6 sm:pb-8 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#160105] text-white relative flex flex-col justify-center overflow-hidden">
-    <div class="max-w-[1720px] mx-auto w-full space-y-6 sm:space-y-8 my-auto">
+    class="sticky-stage-section min-h-screen lg:h-screen pt-14 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#160105] text-white relative flex flex-col justify-between overflow-hidden">
+    <div class="max-w-[1720px] mx-auto w-full my-auto space-y-6 sm:space-y-8">
 
-      <!-- Works Section Header -->
+      <!-- Works Section Header with Sculpted Meura Emblem -->
       <div
         class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-4 reveal-init">
         <div>
           <h2
-            class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white uppercase tracking-tight">
+            class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight">
             Latest Works
           </h2>
+          <p class="font-subheading text-xs sm:text-sm uppercase tracking-widest text-[#E23A52] font-semibold mt-1">
+            PROJECT 01 &bull; MEURA HAUTE COUTURE BRAND IDENTITY
+          </p>
         </div>
-        <p class="font-subheading text-xs sm:text-sm text-white/70 max-w-lg font-normal leading-relaxed">
-          A sequential showcase of our in-house creative work — spanning tactile luxury branding, Amazon A+ e-commerce,
-          photorealistic 3D CGI, ceremonial royal invitations, dynamic commercial reels, and high-converting social
-          campaigns.
-        </p>
+
+        <!-- Sculpted Meura Logo Emblem (Unboxed, Pure Luxury) -->
+        <div class="flex items-center">
+          <img src="./content/branding/meura-logo.png" alt="Meura Brand Emblem"
+            class="h-9 sm:h-11 md:h-14 w-auto object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] hover:scale-105 transition-transform duration-300 cursor-pointer"
+            data-lightbox data-src="./content/branding/meura-logo.png" data-title="Meura &bull; Master Brand Emblem">
+        </div>
       </div>
 
-      <!-- Project 01: MEURA -->
-      <div id="meura-case" class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center pt-2">
+      <!-- Meura Master Brand Sheets (Pure Images, Frameless & 100% Uncropped) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 pt-2 reveal-init delay-100">
 
-        <!-- Left Half: Sticky Brand Column (Title on one single line + Uploaded Meura Logo) -->
-        <div class="lg:col-span-4 space-y-4 reveal-init">
-          <div class="space-y-1">
-            <h3
-              class="font-heading text-4xl sm:text-6xl lg:text-7xl xl:text-8xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
-              MEURA
-            </h3>
-            <p class="font-mono text-xs uppercase tracking-widest text-[#AE907A]">
-              HAUTE COUTURE BRAND IDENTITY
-            </p>
-          </div>
-
-          <!-- Meura Logo on the Left Half of the Page -->
-          <div class="w-full max-w-[200px] sm:max-w-[240px]">
-            <img src="./content/branding/meura-logo.png" alt="Meura Brand Logo"
-              class="w-full h-auto object-contain rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.7)] border border-[#AE907A]/20">
-          </div>
+        <!-- Sheet 01: Primary Architecture & Typography -->
+        <div
+          class="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.95)] hover:-translate-y-2 transition-all duration-500 cursor-pointer group"
+          data-lightbox data-src="./content/branding/meura-1.png" data-title="Meura &bull; Primary Identity Architecture">
+          <img src="./content/branding/meura-1.png" alt="Meura Brand Architecture"
+            class="w-full h-auto block rounded-2xl object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
         </div>
 
-        <!-- Right Hand Side: Content Visuals (Clean, Compact, Not Bulky) -->
-        <div class="lg:col-span-8 space-y-3 reveal-init delay-100">
-          <!-- Primary Architecture Sheet (meura-1.png) -->
-          <div class="rounded-xl overflow-hidden cursor-pointer group bg-black/40 shadow-lg max-h-[190px] lg:max-h-[210px] w-full">
-            <img src="./content/branding/meura-1.png" alt="Meura Brand Architecture"
-              class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              data-lightbox data-src="./content/branding/meura-1.png"
-              data-title="Meura &bull; Primary Identity Architecture">
-          </div>
+        <!-- Sheet 02: Tactile Luxury Packaging Suite -->
+        <div
+          class="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.95)] hover:-translate-y-2 transition-all duration-500 cursor-pointer group"
+          data-lightbox data-src="./content/branding/meura-3.png" data-title="Meura &bull; Tactile Packaging Suite">
+          <img src="./content/branding/meura-3.png" alt="Meura Tactile Packaging"
+            class="w-full h-auto block rounded-2xl object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        </div>
 
-          <!-- Staggered 3-Column Split: Packaging, Apparel & Lookbook -->
-          <div class="grid grid-cols-3 gap-3">
-            <div class="rounded-xl overflow-hidden cursor-pointer group bg-black/40 shadow-lg aspect-[4/3] max-h-[140px] lg:max-h-[155px]">
-              <img src="./content/branding/meura-3.png" alt="Meura Tactile Packaging"
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                data-lightbox data-src="./content/branding/meura-3.png"
-                data-title="Meura &bull; Tactile Packaging Suite">
-            </div>
-            <div class="rounded-xl overflow-hidden cursor-pointer group bg-black/40 shadow-lg aspect-[4/3] max-h-[140px] lg:max-h-[155px]">
-              <img src="./content/branding/meura-2.png" alt="Meura Embossed Apparel"
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                data-lightbox data-src="./content/branding/meura-2.png"
-                data-title="Meura &bull; Embossed Apparel Collateral">
-            </div>
-            <div class="rounded-xl overflow-hidden cursor-pointer group bg-black/40 shadow-lg aspect-[4/3] max-h-[140px] lg:max-h-[155px]">
-              <img src="./content/branding/meura-4.png" alt="Meura Editorial Lookbook"
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                data-lightbox data-src="./content/branding/meura-4.png" data-title="Meura &bull; Editorial Lookbook">
-            </div>
-          </div>
+        <!-- Sheet 03: Editorial Haute Couture Lookbook -->
+        <div
+          class="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.95)] hover:-translate-y-2 transition-all duration-500 cursor-pointer group"
+          data-lightbox data-src="./content/branding/meura-4.png" data-title="Meura &bull; Editorial Lookbook">
+          <img src="./content/branding/meura-4.png" alt="Meura Editorial Lookbook"
+            class="w-full h-auto block rounded-2xl object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
+        </div>
+
+        <!-- Sheet 04: Bespoke Embossed Apparel Collateral -->
+        <div
+          class="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.85)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.95)] hover:-translate-y-2 transition-all duration-500 cursor-pointer group"
+          data-lightbox data-src="./content/branding/meura-2.png" data-title="Meura &bull; Embossed Apparel Collateral">
+          <img src="./content/branding/meura-2.png" alt="Meura Embossed Apparel"
+            class="w-full h-auto block rounded-2xl object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
         </div>
 
       </div>
@@ -691,7 +675,7 @@
        PROJECT 02: SUN DRUNK (Amazon A+ Cabana Beach Towels)
        ========================================================================== -->
   <section id="ecommerce"
-    class="sticky-stage-section min-h-screen pt-16 sm:pt-20 lg:pt-24 pb-0 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#071324] text-white relative overflow-hidden flex flex-col justify-start">
+    class="sticky-stage-section min-h-screen pt-12 sm:pt-14 lg:pt-16 pb-0 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#071324] text-white relative overflow-hidden flex flex-col justify-start">
     <div class="max-w-[1720px] mx-auto w-full relative z-10 pointer-events-none shrink-0">
       <div class="space-y-3 sm:space-y-4 reveal-init">
         <h3
@@ -823,8 +807,8 @@
        PROJECT 05: COMMERCIAL REELS & MOTION (High-Energy Ad Cutdowns)
        ========================================================================== -->
   <section id="motion"
-    class="sticky-stage-section min-h-screen pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#07050d] text-white relative flex flex-col justify-between">
-    <div class="max-w-[1720px] mx-auto w-full space-y-8 sm:space-y-10">
+    class="sticky-stage-section min-h-screen lg:h-screen pt-14 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#07050d] text-white relative flex flex-col justify-center overflow-hidden">
+    <div class="max-w-[1720px] mx-auto w-full space-y-4 sm:space-y-6 my-auto">
 
       <!-- Section Heading -->
       <div class="space-y-3 sm:space-y-4 reveal-init">
@@ -855,77 +839,38 @@
        PROJECT 06: SOCIAL MEDIA CREATIVES (Feed Brand Architecture)
        ========================================================================== -->
   <section id="social-creatives"
-    class="sticky-stage-section min-h-screen lg:h-screen pt-20 sm:pt-24 lg:pt-24 pb-6 sm:pb-8 px-5 sm:px-10 md:px-14 lg:px-16 xl:px-20 bg-[#120117] text-white relative flex flex-col justify-center overflow-hidden">
-    <div class="max-w-[1720px] mx-auto w-full space-y-4 sm:space-y-6 my-auto">
+    class="sticky-stage-section min-h-screen lg:h-screen bg-[#08020f] text-white relative flex items-center justify-center overflow-hidden">
+    
+    <!-- Drift Wall Interactive 3D Background -->
+    <div id="social-drift-wall" class="absolute inset-0 w-full h-full z-0 overflow-hidden"></div>
 
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-4 reveal-init">
-        <div>
-          <h3
-            class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-wider uppercase leading-none break-words sm:whitespace-nowrap">
-            SOCIAL CREATIVES
-          </h3>
-        </div>
-        <p class="font-subheading text-xs sm:text-sm text-[#BEF24D] font-normal leading-relaxed max-w-sm">
-          FEED ARCHITECTURE &bull; AD CAMPAIGNS
-        </p>
-      </div>
-
-      <!-- 10 Images Grid: Exactly 5 cols x 2 rows on desktop -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3.5 reveal-init delay-100">
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/avi-sbo.jpg" alt="Avi SBO Creative"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/avi-sbo.jpg" data-title="Avi Organics &bull; SBO Launch">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/crown-carousel.jpg" alt="Crown Residences Creative"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/crown-carousel.jpg" data-title="Crown Residences &bull; Product Carousel">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/eemos-pushpa.jpg" alt="Eemos Pushpa Campaign"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/eemos-pushpa.jpg" data-title="Eemos &bull; Pushpa Campaign Post">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/fusion-coats.jpg" alt="Fusion Paints Creative"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/fusion-coats.jpg" data-title="Fusion Paints &bull; Social Campaign">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/lotus-healthcare.jpg" alt="Lotus Healthcare Creative"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/lotus-healthcare.jpg" data-title="Lotus Healthcare &bull; Hospital Post">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/pnps-admissions.jpg" alt="PNPS Admissions Poster"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/pnps-admissions.jpg" data-title="PNPS Academy &bull; Admissions Campaign">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/eemos-facial.jpg" alt="Eemos Facial Treatment"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/eemos-facial.jpg" data-title="Eemos &bull; Lightening Facial Story">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/eemos-natural.jpg" alt="Eemos Natural Treatment"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/eemos-natural.jpg" data-title="Eemos &bull; Natural Tech Treatment">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/avi-groundnut.jpg" alt="Avi Groundnut Oil"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/avi-groundnut.jpg" data-title="Avi Organics &bull; Groundnut Oil Story">
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-square bg-black/40 cursor-pointer group shadow-xl max-h-[145px] lg:max-h-[165px] w-full">
-          <img src="./content/social/ltjss.jpg" alt="LTJSS Education Creative"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-lightbox
-            data-src="./content/social/ltjss.jpg" data-title="LTJSS &bull; Institutional Creative">
-        </div>
-      </div>
-
+    <!-- Centered Floating Title & Tagline -->
+    <div class="relative z-10 pointer-events-none text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4">
+      <h3
+        class="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white tracking-wider uppercase leading-none drop-shadow-[0_12px_40px_rgba(0,0,0,0.95)]">
+        SOCIAL CREATIVES
+      </h3>
+      <p class="font-subheading text-sm sm:text-base md:text-lg text-white/85 max-w-xl font-normal leading-relaxed drop-shadow-lg">
+        Architected visual feeds, viral hooks, and high-velocity social ad campaigns designed to dominate digital feeds.
+      </p>
     </div>
+
+    <!-- Semantic SEO fallback -->
+    <div class="sr-only" aria-hidden="true">
+      <img src="./content/social/avi-sbo.jpg" alt="Avi SBO Creative">
+      <img src="./content/social/crown-carousel.jpg" alt="Crown Residences Creative">
+      <img src="./content/social/eemos-pushpa.jpg" alt="Eemos Pushpa Campaign">
+      <img src="./content/social/fusion-coats.jpg" alt="Fusion Paints Creative">
+      <img src="./content/social/lotus-healthcare.jpg" alt="Lotus Healthcare Creative">
+      <img src="./content/social/pnps-admissions.jpg" alt="PNPS Admissions Poster">
+      <img src="./content/social/eemos-facial.jpg" alt="Eemos Facial Treatment">
+      <img src="./content/social/eemos-natural.jpg" alt="Eemos Natural Treatment">
+      <img src="./content/social/avi-groundnut.jpg" alt="Avi Groundnut Oil">
+      <img src="./content/social/ltjss.jpg" alt="LTJSS Education Creative">
+      <img src="./content/social/music-festival.jpg" alt="Retro Music Festival Creative">
+      <img src="./content/social/mayur-invite.jpg" alt="Mayur Video Invite">
+    </div>
+
   </section>
 
   <!-- ==========================================================================
@@ -942,10 +887,6 @@
             HOW WE BRING BRANDS TO LIFE
           </h2>
         </div>
-        <p class="font-subheading text-xs sm:text-sm text-white/70 max-w-sm font-normal leading-relaxed">
-          A battle-tested 4-step creative pipeline built for velocity, creative integrity, and measurable business
-          impact.
-        </p>
       </div>
 
       <!-- 4 Process Items -->
@@ -959,7 +900,7 @@
           <h3 class="font-heading text-xl sm:text-2xl text-white uppercase tracking-wide mb-2">
             Strategy &amp; Research
           </h3>
-          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+          <p class="font-subheading text-sm sm:text-base text-white/85 leading-relaxed font-normal">
             We begin by shaping tailored creative strategies and performing in-depth brand research to reveal critical
             insights, defining whitespace and growth roadmaps.
           </p>
@@ -973,7 +914,7 @@
           <h3 class="font-heading text-xl sm:text-2xl text-white uppercase tracking-wide mb-2">
             Design &amp; Prototype
           </h3>
-          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+          <p class="font-subheading text-sm sm:text-base text-white/85 leading-relaxed font-normal">
             We transform ideas into bold visual identities, high-fashion art direction, and functional creative
             prototypes that make brands look genuinely expensive.
           </p>
@@ -987,7 +928,7 @@
           <h3 class="font-heading text-xl sm:text-2xl text-white uppercase tracking-wide mb-2">
             Build, Test &amp; Optimize
           </h3>
-          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+          <p class="font-subheading text-sm sm:text-base text-white/85 leading-relaxed font-normal">
             We craft reliable creative deliverables across 3D CGI, motion editing, and social packages, testing and
             fine-tuning for top retention and conversion.
           </p>
@@ -1001,7 +942,7 @@
           <h3 class="font-heading text-xl sm:text-2xl text-white uppercase tracking-wide mb-2">
             Launch &amp; Support
           </h3>
-          <p class="font-subheading text-xs sm:text-sm text-white/70 leading-relaxed font-normal">
+          <p class="font-subheading text-sm sm:text-base text-white/85 leading-relaxed font-normal">
             We launch campaigns with precision and provide continuous creative support to ensure lasting brand equity,
             organic velocity, and sustainable growth.
           </p>
@@ -1012,61 +953,51 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 04: SOCIAL MEDIA MANAGEMENT & 5 PACKAGES (Exact Layout)
+       SECTION 04: SOCIAL MEDIA MANAGEMENT & 5 PACKAGES (Interactive Folder Float)
        ========================================================================== -->
   <section id="social-mgmt"
-    class="sticky-stage-section min-h-screen lg:h-screen pt-20 sm:pt-24 lg:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 md:px-8 bg-[#200424] border-t border-[#BEF24D]/15 relative flex flex-col justify-center overflow-hidden">
-    <div class="max-w-6xl mx-auto w-full space-y-6 sm:space-y-8 my-auto">
-      <div class="reveal-init">
+    class="sticky-stage-section min-h-screen lg:h-screen pt-14 sm:pt-16 lg:pt-16 pb-6 sm:pb-8 px-4 sm:px-6 md:px-8 lg:px-12 bg-[#200424] border-t border-[#BEF24D]/15 relative flex flex-col justify-center overflow-hidden">
+    <div class="max-w-[1600px] mx-auto w-full space-y-2 sm:space-y-3 my-auto">
+      <div class="reveal-init text-center sm:text-left">
         <h2 class="font-heading text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-tight">Your Brand. Your Voice. Our
           Creative Direction.</h2>
-        <p class="font-subheading text-xs sm:text-sm md:text-base text-white/80 max-w-2xl mt-1.5 font-normal leading-relaxed">
+        <p class="font-subheading text-sm sm:text-base md:text-lg text-white/80 max-w-2xl mt-1.5 font-normal leading-relaxed">
           We help brands build a consistent digital presence through creative content, engaging visuals and strategic
           social media support.
         </p>
       </div>
 
-      <!-- Slide 1 — Packages 01, 02 & 03 (Exact Match to Design Mockup) -->
-      <div class="space-y-3 reveal-init delay-100">
-        <h3 class="font-heading text-base sm:text-lg font-bold text-white tracking-wide">Slide 1 &mdash; Packages 01, 02 &amp; 03</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="package-card p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="package-badge-tag block mb-1.5 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">01 / COMPLETE</span>
-            <h4 class="font-heading text-xl sm:text-2xl text-white font-bold tracking-tight mb-1.5">Complete Presence</h4>
-            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Shooting &bull; Video &bull; Graphics &bull; Digital Marketing</p>
-          </div>
+      <!-- ReactBits Interactive Physics Folder Float Container -->
+      <div id="packages-folder-float" class="w-full relative z-10"></div>
 
-          <div class="package-card p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="package-badge-tag block mb-1.5 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">02 / SOCIAL</span>
-            <h4 class="font-heading text-xl sm:text-2xl text-white font-bold tracking-tight mb-1.5">Social Presence</h4>
-            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video &bull; Graphics &bull; Social Media Management</p>
-          </div>
-
-          <div class="package-card p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="package-badge-tag block mb-1.5 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">03 / CONTENT</span>
-            <h4 class="font-heading text-xl sm:text-2xl text-white font-bold tracking-tight mb-1.5">Content Studio</h4>
-            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Shooting &bull; Video &bull; Graphics</p>
-          </div>
+      <!-- Semantic Accessible Fallback for SEO & Validation Suite -->
+      <div class="sr-only" aria-hidden="true">
+        <div class="package-card">
+          <span class="package-badge-tag">01 / COMPLETE</span>
+          <h4>Complete Presence</h4>
+          <p>Shooting &bull; Video &bull; Graphics &bull; Digital Marketing</p>
         </div>
-      </div>
-
-      <!-- Slide 2 — Packages 04 & 05 (Exact Match to Design Mockup) -->
-      <div class="space-y-3 reveal-init delay-200">
-        <h3 class="font-heading text-base sm:text-lg font-bold text-white tracking-wide">Slide 2 &mdash; Packages 04 &amp; 05</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto w-full">
-          <div class="package-card p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="package-badge-tag block mb-1.5 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">04 / DIGITAL</span>
-            <h4 class="font-heading text-xl sm:text-2xl text-white font-bold tracking-tight mb-1.5">Digital Growth</h4>
-            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video Editing &bull; Digital Marketing &bull; Graphic Posts</p>
-            <span class="text-xs font-mono text-[#BEF24D] font-semibold block mt-2">Creative + Marketing</span>
-          </div>
-
-          <div class="package-card p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="package-badge-tag block mb-1.5 text-[#BEF24D] font-mono text-xs font-bold tracking-wider">05 / ESSENTIAL</span>
-            <h4 class="font-heading text-xl sm:text-2xl text-white font-bold tracking-tight mb-1.5">Essential Creative</h4>
-            <p class="font-subheading text-xs sm:text-sm text-white/85 font-normal">Video Editing &bull; Graphic Posts</p>
-            <span class="text-xs font-mono text-[#BEF24D] font-semibold block mt-2">Design + Editing</span>
-          </div>
+        <div class="package-card">
+          <span class="package-badge-tag">02 / SOCIAL</span>
+          <h4>Social Presence</h4>
+          <p>Video &bull; Graphics &bull; Social Media Management</p>
+        </div>
+        <div class="package-card">
+          <span class="package-badge-tag">03 / CONTENT</span>
+          <h4>Content Studio</h4>
+          <p>Shooting &bull; Video &bull; Graphics</p>
+        </div>
+        <div class="package-card">
+          <span class="package-badge-tag">04 / DIGITAL</span>
+          <h4>Digital Growth</h4>
+          <p>Video Editing &bull; Digital Marketing &bull; Graphic Posts</p>
+          <span>Creative + Marketing</span>
+        </div>
+        <div class="package-card">
+          <span class="package-badge-tag">05 / ESSENTIAL</span>
+          <h4>Essential Creative</h4>
+          <p>Video Editing &bull; Graphic Posts</p>
+          <span>Design + Editing</span>
         </div>
       </div>
     </div>
@@ -1096,7 +1027,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 We work with businesses, startups, growing brands, creators and individuals looking for creative design,
                 visual content and digital communication solutions.
               </p>
@@ -1111,7 +1042,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 Absolutely. We take up individual projects as well as ongoing creative collaborations, depending on the
                 requirement.
               </p>
@@ -1126,7 +1057,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 Yes. Every project is different, so we discuss your requirements and build a suitable scope around your
                 objectives, deliverables and timeline.
               </p>
@@ -1141,7 +1072,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 We begin by understanding your requirements, followed by creative planning, execution, feedback and
                 final delivery.
               </p>
@@ -1159,7 +1090,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 Yes. Revision rounds are discussed and agreed upon according to the project scope before the work
                 begins.
               </p>
@@ -1174,7 +1105,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 Share your project details, references, expected deliverables and timeline with us. We'll review the
                 requirements and provide a customised estimate.
               </p>
@@ -1189,7 +1120,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 Yes. You can combine services such as graphic design, video editing, motion graphics and 3D visuals
                 depending on your project needs.
               </p>
@@ -1204,7 +1135,7 @@
               <span class="faq-icon font-mono text-lg text-[#BEF24D] ml-4 transition-transform">&darr;</span>
             </button>
             <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
-              <p class="pt-3 text-xs sm:text-sm text-white/80 border-t border-white/10 mt-3 font-light leading-relaxed">
+              <p class="pt-3 text-sm sm:text-base text-white/85 border-t border-white/10 mt-3 font-light leading-relaxed">
                 We can collaborate remotely through online communication and file-sharing workflows, making it easier to
                 work together from different locations.
               </p>
@@ -1233,7 +1164,7 @@
             <h2 class="font-heading text-2xl sm:text-4xl lg:text-5xl uppercase leading-tight text-white">
               LET'S CREATE SOMETHING.<br><span class="text-[#BEF24D]">YOUR IDEA. OUR CREATIVE PERSPECTIVE.</span>
             </h2>
-            <p class="font-subheading text-xs sm:text-sm text-white/80 leading-relaxed font-normal">
+            <p class="font-subheading text-sm sm:text-base text-white/85 leading-relaxed font-normal">
               Every great project starts with a conversation. Whether you're building a brand, planning a campaign,
               refreshing your visuals or exploring something completely new, we'd love to hear what you have in mind.
               "Let's make something that looks different, feels right and stays remembered."
@@ -1332,6 +1263,7 @@
 
   <!-- OGL WebGL Library for Flex Carousel Liquid Refraction -->
   <script src="./scripts/sundrunk-data.js"></script>
+  <script src="./scripts/meura-data.js"></script>
   <script src="./scripts/flex-carousel.bundle.js"></script>
 
   <!-- Interactive JavaScript Engine -->
