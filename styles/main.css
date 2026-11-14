@@ -1329,12 +1329,22 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   #ecommerce {
     min-height: auto !important;
     height: auto !important;
-    padding-bottom: 3.5rem !important;
+    padding-bottom: 2.5rem !important;
   }
   #ecommerce #sundrunk-flex-carousel {
-    height: 520px !important;
-    min-height: 440px !important;
+    height: 380px !important;
+    min-height: 280px !important;
     flex: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #ecommerce {
+    padding-bottom: 2rem !important;
+  }
+  #ecommerce #sundrunk-flex-carousel {
+    height: 290px !important;
+    min-height: 240px !important;
   }
 }
 
