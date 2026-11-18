@@ -1464,6 +1464,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 
 #packages-folder-float {
   width: 100%;
+  overflow: visible;
+  padding-bottom: 3rem;
+}
+
+#social-mgmt {
+  min-height: 100vh;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#motion {
+  min-height: 100vh;
+  height: auto !important;
+  overflow: visible !important;
 }
 
 

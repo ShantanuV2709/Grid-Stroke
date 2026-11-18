@@ -992,6 +992,7 @@ function initStickyProgressIndicator() {
     'hero': '00 // STUDIO LAUNCH',
     'about': '01 // ABOUT STUDIO',
     'branding': '02 // BRANDING &bull; MEURA',
+    'lotus-branding': '02B // BRANDING &bull; LOTUS',
     'ecommerce': '03 // E-COMMERCE &bull; SUN DRUNK',
     'three-d': '04 // 3D CGI &bull; KLICKPIN',
     'invitations': '05 // CEREMONIAL ATELIER',
@@ -1340,10 +1341,7 @@ function initFullPageScrollEngine() {
   if (heroSection) heroSection.dataset.hasAnimated = 'true';
 
   let isAnimating = false;
-  let sectionTops = stageSections.map(s => s.offsetTop);
-  window.addEventListener('resize', () => {
-    sectionTops = stageSections.map(s => s.offsetTop);
-  }, { passive: true });
+  let transitionLockUntil = 0; // Momentum latch: prevents rapid inertial wheel events from skipping sections
 
   // Determine current active section index based on viewport scroll position
   function getActiveSectionIndex() {
@@ -1351,18 +1349,19 @@ function initFullPageScrollEngine() {
     const windowH = window.innerHeight;
 
     if (threeDSection) {
-      const tTop = sectionTops[threeDIdx] ?? threeDSection.offsetTop;
+      const tTop = threeDSection.offsetTop;
       const tBottom = tTop + threeDSection.offsetHeight - windowH;
       // Strictly inside the 3D walkthrough track:
-      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+      if (scrollY >= tTop - 25 && scrollY <= tBottom + 25) {
         return threeDIdx;
       }
     }
 
     let closestIdx = 0;
     let minDiff = Infinity;
-    for (let idx = 0; idx < sectionTops.length; idx++) {
-      const diff = Math.abs(sectionTops[idx] - scrollY);
+    for (let idx = 0; idx < stageSections.length; idx++) {
+      const secTop = stageSections[idx].offsetTop;
+      const diff = Math.abs(secTop - scrollY);
       if (diff < minDiff) {
         minDiff = diff;
         closestIdx = idx;
@@ -1405,6 +1404,7 @@ function initFullPageScrollEngine() {
     if (!targetSec) return;
 
     isAnimating = true;
+    transitionLockUntil = Date.now() + 1150; // Lock wheel gestures through animation + momentum decay
 
     let targetY = targetSec.offsetTop;
 
@@ -1424,7 +1424,7 @@ function initFullPageScrollEngine() {
         onComplete: () => {
           setTimeout(() => {
             isAnimating = false;
-          }, 140);
+          }, 180);
         }
       });
     } else {
@@ -1440,8 +1440,15 @@ function initFullPageScrollEngine() {
     // Only engage full-page single scroll snap on desktop viewports (>= 1024px)
     if (window.innerWidth < 1024) return;
 
+    const now = Date.now();
     const scrollY = window.scrollY;
     const windowH = window.innerHeight;
+
+    // While animating or in momentum latch cooldown, absorb wheel events to guarantee user stays on section
+    if (isAnimating || now < transitionLockUntil) {
+      e.preventDefault();
+      return;
+    }
 
     // Simulation Section (#three-d) continuous scrubbing logic:
     if (threeDSection) {
@@ -1449,20 +1456,20 @@ function initFullPageScrollEngine() {
       const tBottom = tTop + threeDSection.offsetHeight - windowH;
 
       // Inside #three-d scroll range:
-      if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
+      if (scrollY >= tTop - 25 && scrollY <= tBottom + 25) {
         // At the top boundary and scrolling UP -> exit to previous section (#ecommerce)
         if (scrollY <= tTop + 15 && e.deltaY < -20) {
           e.preventDefault();
-          if (isAnimating) return;
           if (threeDIdx > 0) goToSection(threeDIdx - 1, -1);
           return;
         }
 
-        // At the bottom boundary and scrolling DOWN -> exit to next section (#invitations)
-        if (scrollY >= tBottom - 15 && e.deltaY > 20) {
+        // At the bottom boundary and scrolling DOWN -> exit strictly to #invitations
+        if (scrollY >= tBottom - 20 && e.deltaY > 20) {
           e.preventDefault();
-          if (isAnimating) return;
-          if (threeDIdx < stageSections.length - 1) goToSection(threeDIdx + 1, 1);
+          if (threeDIdx < stageSections.length - 1) {
+            goToSection(threeDIdx + 1, 1);
+          }
           return;
         }
 
@@ -1473,10 +1480,20 @@ function initFullPageScrollEngine() {
 
     // Standard sections: advance exactly one section per deliberate scroll flick
     e.preventDefault();
-    if (isAnimating) return;
     if (Math.abs(e.deltaY) < 20) return; // Discard tiny jitters
 
     const currentIdx = getActiveSectionIndex();
+
+    // If currently at or near the simulation track boundary, ensure scrolling down enters #invitations
+    if (threeDSection && currentIdx === threeDIdx) {
+      if (e.deltaY > 0 && threeDIdx < stageSections.length - 1) {
+        goToSection(threeDIdx + 1, 1);
+      } else if (e.deltaY < 0 && threeDIdx > 0) {
+        goToSection(threeDIdx - 1, -1);
+      }
+      return;
+    }
+
     if (e.deltaY > 0) {
       if (currentIdx < stageSections.length - 1) {
         goToSection(currentIdx + 1, 1);
@@ -1493,6 +1510,11 @@ function initFullPageScrollEngine() {
     if (window.innerWidth < 1024) return;
     if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) return;
 
+    if (isAnimating || Date.now() < transitionLockUntil) {
+      e.preventDefault();
+      return;
+    }
+
     if (threeDSection) {
       const scrollY = window.scrollY;
       const tTop = threeDSection.offsetTop;
@@ -1500,13 +1522,11 @@ function initFullPageScrollEngine() {
       if (scrollY >= tTop - 15 && scrollY <= tBottom + 15) {
         if (scrollY <= tTop + 15 && (e.key === 'ArrowUp' || e.key === 'PageUp')) {
           e.preventDefault();
-          if (isAnimating) return;
           if (threeDIdx > 0) goToSection(threeDIdx - 1, -1);
           return;
         }
         if (scrollY >= tBottom - 15 && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ')) {
           e.preventDefault();
-          if (isAnimating) return;
           if (threeDIdx < stageSections.length - 1) goToSection(threeDIdx + 1, 1);
           return;
         }
@@ -1516,12 +1536,10 @@ function initFullPageScrollEngine() {
 
     if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
       e.preventDefault();
-      if (isAnimating) return;
       const currentIdx = getActiveSectionIndex();
       if (currentIdx < stageSections.length - 1) goToSection(currentIdx + 1, 1);
     } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
       e.preventDefault();
-      if (isAnimating) return;
       const currentIdx = getActiveSectionIndex();
       if (currentIdx > 0) goToSection(currentIdx - 1, -1);
     }
