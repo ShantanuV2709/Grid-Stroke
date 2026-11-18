@@ -1497,8 +1497,28 @@ function initFullPageScrollEngine() {
     if (e.deltaY > 0) {
       if (currentIdx < stageSections.length - 1) {
         goToSection(currentIdx + 1, 1);
+      } else {
+        const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+        if (window.scrollY < maxScrollY - 2 && window.gsap) {
+          gsap.to(window, {
+            scrollTo: { y: maxScrollY, autoKill: false },
+            duration: 0.45,
+            ease: 'power2.out'
+          });
+        }
       }
     } else {
+      if (currentIdx === stageSections.length - 1) {
+        const lastSecTop = stageSections[currentIdx].offsetTop;
+        if (window.scrollY > lastSecTop + 15 && window.gsap) {
+          gsap.to(window, {
+            scrollTo: { y: lastSecTop, autoKill: false },
+            duration: 0.45,
+            ease: 'power2.out'
+          });
+          return;
+        }
+      }
       if (currentIdx > 0) {
         goToSection(currentIdx - 1, -1);
       }

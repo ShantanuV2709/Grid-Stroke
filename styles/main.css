@@ -177,6 +177,19 @@ body {
   }
 }
 
+.brog-logo-item img.lotus-rail-logo {
+  height: 30px;
+  max-width: 130px;
+}
+
+@media (min-width: 640px) {
+  .brog-logo-item img.lotus-rail-logo { height: 38px; max-width: 160px; }
+}
+
+@media (min-width: 1024px) {
+  .brog-logo-item img.lotus-rail-logo { height: 46px; max-width: 190px; }
+}
+
 .brog-logo-item img:hover {
   opacity: 1;
   transform: scale(1.08);
@@ -1318,9 +1331,26 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 
 /* Landscape desktop full-viewport snap for Sun Drunk */
-@media (min-width: 1024px) and (orientation: landscape) and (min-height: 700px) {
+@media (min-width: 1024px) and (orientation: landscape) {
   #ecommerce {
-    min-height: 100vh;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+  #ecommerce #sundrunk-flex-carousel {
+    flex: none !important;
+    height: calc(100vh - 14rem) !important;
+    min-height: 0 !important;
+    margin-top: 0 !important;
+    position: relative;
+    overflow: hidden;
+  }
+  #ecommerce #sundrunk-flex-carousel > * {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 
@@ -1360,18 +1390,17 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     overflow-x: hidden;
   }
 
-  /* Force exact full-screen height on desktop sections, except the 450vh 3D simulation track */
+  /* Sections fill at least full viewport height, allowing natural expansion without cropping */
   section.sticky-stage-section:not(#three-d) {
-    height: 100vh !important;
     min-height: 100vh !important;
-    max-height: 100vh !important;
-    overflow: hidden !important;
+    height: auto;
+    overflow: visible;
     box-sizing: border-box !important;
   }
 
-  /* Keep inner content bounded and centered */
+  /* Keep inner content bounded and centered without forced clipping */
   section.sticky-stage-section:not(#three-d) > div {
-    max-height: 100%;
+    max-height: none;
   }
 
   /* Simulation track remains 450vh for smooth video scrubbing */
@@ -1468,19 +1497,36 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   padding-bottom: 3rem;
 }
 
-#social-mgmt {
+#social-mgmt,
+#motion,
+#hero,
+#about {
   min-height: 100vh;
   height: auto !important;
   overflow: visible !important;
 }
 
-#motion {
+#lets-create {
   min-height: 100vh;
-  height: auto !important;
-  overflow: visible !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-height: 680px), (max-width: 1023px) {
+  #lets-create {
+    min-height: 100vh !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 
 
 
 
 
+
+/* Safety net: never allow horizontal page overflow on any device */
+html, body { overflow-x: clip; max-width: 100%; }
