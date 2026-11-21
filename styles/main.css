@@ -1330,6 +1330,14 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 }
 
+/* Sun Drunk Scroll Protection: allow natural vertical scroll chaining on all devices */
+#ecommerce,
+#ecommerce #sundrunk-flex-carousel,
+#ecommerce #sundrunk-flex-carousel * {
+  overscroll-behavior: auto !important;
+  touch-action: pan-y;
+}
+
 /* Landscape desktop full-viewport snap for Sun Drunk */
 @media (min-width: 1024px) and (orientation: landscape) {
   #ecommerce {
@@ -1354,17 +1362,19 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   }
 }
 
-/* Portrait devices: wrap Sun Drunk comfortably without 800px empty gap */
-@media (orientation: portrait) and (max-width: 1023px) {
+/* Mobile & Tablet devices (< 1024px): wrap Sun Drunk comfortably without trapped scroll */
+@media (max-width: 1023px) {
   #ecommerce {
     min-height: auto !important;
     height: auto !important;
+    overflow: visible !important;
     padding-bottom: 2.5rem !important;
   }
   #ecommerce #sundrunk-flex-carousel {
     height: 380px !important;
     min-height: 280px !important;
     flex: none !important;
+    overflow: visible !important;
   }
 }
 
